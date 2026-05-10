@@ -10,7 +10,7 @@
     "bathrooms": 2,
     "parking": 2,
     "total": "87 m2",
-    "image": "/images/properties/renca-la-hacienda.svg",
+    "image": "https://images.unsplash.com/photo-1570129477492-45a003537e1d?w=800&h=600&fit=crop",
     "summary": "Casa esquina con antejardin, patio, cocina americana, acceso controlado y porton electrico."
   },
   {
@@ -24,7 +24,7 @@
     "bathrooms": 2,
     "parking": 1,
     "total": "57 m2",
-    "image": "/images/properties/renca-pedralbes.svg",
+    "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
     "summary": "Departamento con cocina americana, logia independiente, estacionamiento techado y gastos comunes bajos."
   }
 ]
