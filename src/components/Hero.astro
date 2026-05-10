@@ -5,15 +5,15 @@ const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propied
 const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 
 const heroImages = [
-  { src: "/images/clovermini.jpg", label: "Propiedad", alt: "Ilustracion minimalista de propiedad" },
-  { src: "/images/clovermini1.jpg", label: "Familia", alt: "Ilustracion minimalista de familia" },
-  { src: "/images/clovermini2.jpg", label: "Seguridad", alt: "Ilustracion minimalista de seguridad" },
-  { src: "/images/clovermini6.jpg", label: "Hogar", alt: "Ilustracion minimalista de hogar" }
+  { src: "images/clovermini.jpg", label: "Propiedad", alt: "Ilustracion minimalista de propiedad" },
+  { src: "images/clovermini1.jpg", label: "Familia", alt: "Ilustracion minimalista de familia" },
+  { src: "images/clovermini2.jpg", label: "Seguridad", alt: "Ilustracion minimalista de seguridad" },
+  { src: "images/clovermini6.jpg", label: "Hogar", alt: "Ilustracion minimalista de hogar" }
 ];
 ---
 
-<section class="overflow-hidden pb-16 pt-8 md:pb-24 md:pt-14">
-  <div class="container relative grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+<section class="overflow-hidden pb-10 pt-6 md:pb-16 md:pt-10">
+  <div class="container relative grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
     <div class="relative z-10">
       <p class="eyebrow">Bienvenido a Clover Propiedades</p>
       <h1 class="text-balance mt-5 max-w-3xl font-display text-[clamp(3.1rem,7vw,6.4rem)] font-semibold leading-[0.9] text-ink">
@@ -69,11 +69,11 @@ const heroImages = [
         </div>
       </div>
 
-      <div class="mt-8 grid gap-4 sm:grid-cols-3">
+      <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {heroImages.map((item) => (
           <div class="group hero-image-card transition duration-300 hover:-translate-y-1">
             <div class="relative overflow-hidden">
-              <img src={item.src} alt={item.alt} class="h-32 w-full object-cover transition duration-500 group-hover:scale-105 hero-image-filter" loading="lazy" />
+              <img src={item.src} alt={item.alt} class="h-36 w-full object-cover transition duration-500 group-hover:scale-105 hero-image-filter" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-coffee/40 via-transparent to-transparent"></div>
             </div>
             <div class="p-4">
@@ -99,7 +99,7 @@ const heroImages = [
           </div>
         </div>
         <img
-          src="/images/hero/clover-hero.svg"
+          src="images/hero/clover-hero.svg"
           alt="Ilustracion arquitectonica Clover Propiedades"
           class="relative h-auto w-full pt-8"
           loading="eager"
