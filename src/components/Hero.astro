@@ -80,40 +80,6 @@ const heroCards = [
         </div>
       </div>
 
-      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {heroCards.map((card) => (
-          <div class="group hero-image-card transition duration-300 hover:-translate-y-1">
-            <div class="relative overflow-hidden rounded-[1.5rem] bg-coffee-50/15 border border-coffee-100/60 p-6 shadow-[0_10px_30px_rgba(16,18,15,0.05)] flex items-center justify-center">
-              {card.icon === "property" && (
-                <svg viewBox="0 0 120 120" class="h-24 w-24 text-clover-900" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 90V45l40-27 40 27v45" />
-                  <path d="M40 90v-24h40v24" />
-                  <path d="M55 90v-18h10v18" />
-                  <path d="M45 55h10M65 55h10" />
-                </svg>
-              )}
-              {card.icon === "home" && (
-                <svg viewBox="0 0 120 120" class="h-24 w-24 text-clover-900" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 70 60 30l40 40" />
-                  <path d="M30 70v30h25V70" />
-                  <path d="M65 70v30h25V70" />
-                </svg>
-              )}
-              {card.icon === "security" && (
-                <svg viewBox="0 0 120 120" class="h-24 w-24 text-clover-900" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M60 18 32 30v30c0 20 13 36 28 42 15-6 28-22 28-42V30L60 18z" />
-                  <path d="M60 50v16" />
-                  <circle cx="60" cy="80" r="5" />
-                </svg>
-              )}
-            </div>
-            <div class="p-4 pt-5">
-              <p class="text-sm font-semibold text-ink">{card.title}</p>
-              <p class="mt-2 text-sm text-ink/60">{card.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
 
     <div class="relative">
@@ -122,8 +88,10 @@ const heroCards = [
       <div class="hero-panel card-frame corner-accent rounded-[1.75rem] p-6 md:p-9">
         <div class="relative overflow-hidden rounded-[1.75rem] border border-coffee-100/70 bg-coffee-50/10 p-4">
           <div class="absolute right-4 top-4 z-10 flex h-14 w-14 items-center justify-center rounded-3xl bg-white/96 border border-coffee-200 shadow-sm">
-            <svg viewBox="0 0 24 24" class="h-7 w-7 text-clover-900" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 2c1.8 3.5 5.1 5 8 4 1.1-.4 2 0 2 1s-.9 1.4-2 1c-3.3 0-5 2.2-5 5s1.7 5 5 5c1.1 0 2 .5 2 1s-.9 1.4-2 1c-2.9-1-6.2.5-8 4-1.8-3.5-5.1-5-8-4-1.1.4-2 0-2-1s.9-1.4 2-1c3.3 0 5-2.2 5-5s-1.7-5-5-5c-1.1 0-2-.5-2-1s.9-1.4 2-1c2.9 1 6.2-.5 8-4Z" />
+            <svg viewBox="0 0 24 24" class="h-8 w-8 text-clover-900" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3c1.65 0 3 1.35 3 3 0 .5-.13.96-.36 1.36L12 12l-2.64-4.64A2.99 2.99 0 0 1 9 6c0-1.65 1.35-3 3-3Z" />
+              <path d="M12 6c1.65 0 3 1.35 3 3 0 .95-.42 1.8-1.09 2.39L12 15l-1.91-3.61A2.996 2.996 0 0 1 9 9c0-1.65 1.35-3 3-3Z" />
+              <path d="M12 9c1.65 0 3 1.35 3 3 0 .95-.42 1.8-1.09 2.39L12 18l-1.91-3.61A2.996 2.996 0 0 1 9 12c0-1.65 1.35-3 3-3Z" />
             </svg>
           </div>
           <svg viewBox="0 0 900 900" class="relative h-full w-full" aria-hidden="true">
@@ -146,13 +114,13 @@ const heroCards = [
 
         <div class="mt-6 grid gap-3 sm:grid-cols-3">
           <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
-            <img src="./images/experiencia.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
+            <img src="/images/experiencia.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
           </div>
           <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
-            <img src="./images/experiencia1.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
+            <img src="/images/experiencia1.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
           </div>
           <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
-            <img src="./images/experiencia2.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
+            <img src="/images/experiencia2.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
           </div>
         </div>
 
