@@ -5,10 +5,10 @@ const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propied
 const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 
 const heroImages = [
-  { src: "images/clovermini.jpg", label: "Propiedad", alt: "Ilustracion minimalista de propiedad" },
-  { src: "images/clovermini1.jpg", label: "Familia", alt: "Ilustracion minimalista de familia" },
-  { src: "images/clovermini2.jpg", label: "Seguridad", alt: "Ilustracion minimalista de seguridad" },
-  { src: "images/clovermini6.jpg", label: "Hogar", alt: "Ilustracion minimalista de hogar" }
+  { src: "/images/clovermini.jpg", label: "Propiedad", alt: "Ilustracion minimalista de propiedad" },
+  { src: "/images/clovermini1.jpg", label: "Familia", alt: "Ilustracion minimalista de familia" },
+  { src: "/images/clovermini2.jpg", label: "Seguridad", alt: "Ilustracion minimalista de seguridad" },
+  { src: "/images/clovermini6.jpg", label: "Hogar", alt: "Ilustracion minimalista de hogar" }
 ];
 ---
 
@@ -73,8 +73,8 @@ const heroImages = [
         {heroImages.map((item) => (
           <div class="group hero-image-card transition duration-300 hover:-translate-y-1">
             <div class="relative overflow-hidden">
-              <img src={item.src} alt={item.alt} class="h-36 w-full object-cover transition duration-500 group-hover:scale-105 hero-image-filter" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-coffee/40 via-transparent to-transparent"></div>
+              <img src={item.src} alt={item.alt} class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 hero-image-filter" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-coffee/16 via-transparent to-transparent"></div>
             </div>
             <div class="p-4">
               <p class="text-sm font-semibold text-ink">{item.label}</p>
@@ -88,18 +88,9 @@ const heroImages = [
       <div class="pointer-events-none absolute -left-12 top-8 hidden h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(215,183,125,0.16),transparent)] blur-2xl md:block"></div>
       <div class="pointer-events-none absolute right-0 top-24 hidden h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(184,217,154,0.12),transparent)] blur-2xl lg:block"></div>
       <div class="hero-panel card-frame corner-accent rounded-[1.75rem] p-6 md:p-9">
-        <div class="absolute right-5 top-5 z-10 md:right-7 md:top-7">
-          <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/88 shadow-[0_14px_34px_rgba(16,18,15,0.08)] animate-bounce-in">
-            <svg viewBox="0 0 64 64" class="h-10 w-10 text-[#b8d99a] md:h-12 md:w-12" aria-hidden="true">
-              <path fill="currentColor" d="M31.9 20.8c-2.4-9.4-16.1-9.6-16.1 1.5 0 8.3 10.7 13.8 16.1 19.7 5.4-5.9 16.2-11.4 16.2-19.7 0-11.1-13.8-10.9-16.2-1.5Z"/>
-              <path fill="currentColor" d="M15.8 42.4c-9.4 2.4-9.6 16.1 1.5 16.1 8.3 0 13.8-10.7 19.7-16.1-5.9-5.4-11.4-16.2-19.7-16.2-11.1 0-10.9 13.8-1.5 16.2Z"/>
-              <path fill="currentColor" d="M48.2 42.4c9.4 2.4 9.6 16.1-1.5 16.1-8.3 0-13.8-10.7-19.7-16.1 5.9-5.4 11.4-16.2 19.7-16.2 11.1 0 10.9 13.8 1.5 16.2Z"/>
-              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="5" d="M32 39c4.4 8.7 4.6 17.2 0 25"/>
-            </svg>
-          </div>
-        </div>
+  
         <img
-          src="images/hero/clover-hero.svg"
+          src="/images/hero/clover-hero.svg"
           alt="Ilustracion arquitectonica Clover Propiedades"
           class="relative h-auto w-full pt-8"
           loading="eager"
