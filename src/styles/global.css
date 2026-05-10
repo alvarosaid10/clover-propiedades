@@ -171,6 +171,24 @@ a {
   background: linear-gradient(135deg, rgba(196, 223, 150, 0.95), rgba(49, 69, 31, 1));
 }
 
+.button-instagram {
+  background: var(--coffee);
+  color: white;
+}
+
+.button-instagram:hover {
+  background: var(--coffee-deep);
+}
+
+.button-whatsapp {
+  background: var(--clover);
+  color: white;
+}
+
+.button-whatsapp:hover {
+  background: var(--clover-deep);
+}
+
 .surface {
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(16, 18, 15, 0.08);
