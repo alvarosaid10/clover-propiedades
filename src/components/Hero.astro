@@ -5,10 +5,10 @@ const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propied
 const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 
 const heroImages = [
-  { src: "/images/clovermini1.jpg", label: "Propiedad", alt: "Ilustracion minimalista de propiedad" },
-  { src: "/images/clovermini2.jpg", label: "Familia", alt: "Ilustracion minimalista de familia" },
-  { src: "/images/clovermini3.jpg", label: "Seguridad", alt: "Ilustracion minimalista de seguridad" },
-  { src: "/images/clovermini4.avif", label: "Hogar", alt: "Ilustracion minimalista de hogar" }
+  { src: "/images/clovermini.jpg", label: "Propiedad", alt: "Ilustracion minimalista de propiedad" },
+  { src: "/images/clovermini1.jpg", label: "Familia", alt: "Ilustracion minimalista de familia" },
+  { src: "/images/clovermini2.jpg", label: "Seguridad", alt: "Ilustracion minimalista de seguridad" },
+  { src: "/images/clovermini6.jpg", label: "Hogar", alt: "Ilustracion minimalista de hogar" }
 ];
 ---
 
@@ -20,15 +20,15 @@ const heroImages = [
         Clover Propiedades
       </h1>
       <p class="mt-7 max-w-xl text-lg leading-8 text-ink/68">
-        Compra, vende y arrienda con una corredora enfocada en asesoria cercana, gestion clara y propiedades presentadas con criterio profesional.
+        Compra, vende y arrienda con una corredora enfocada en asesoría cercana, gestión clara y propiedades presentadas con criterio profesional.
       </p>
 
       <div class="mt-9 flex flex-col gap-3 sm:flex-row">
         <a class="button button-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          WhatsApp
+          Escribir por WhatsApp
         </a>
         <a class="button button-instagram" href={instagramUrl} target="_blank" rel="noopener noreferrer">
-          Instagram
+          Instagram @{site.instagram}
         </a>
         <a class="button button-secondary" href="#propiedades">
           Ver propiedades
