@@ -3,6 +3,13 @@ import site from "../data/site.json";
 
 const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20comprar%2C%20vender%20o%20arrendar%20una%20propiedad.`;
 const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
+
+const heroImages = [
+  { src: "/images/clovermini1.jpg", label: "Propiedad", alt: "Ilustracion minimalista de propiedad" },
+  { src: "/images/clovermini2.jpg", label: "Familia", alt: "Ilustracion minimalista de familia" },
+  { src: "/images/clovermini3.jpg", label: "Seguridad", alt: "Ilustracion minimalista de seguridad" },
+  { src: "/images/clovermini4.avif", label: "Hogar", alt: "Ilustracion minimalista de hogar" }
+];
 ---
 
 <section class="overflow-hidden pb-16 pt-8 md:pb-24 md:pt-14">
@@ -15,6 +22,7 @@ const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
       <p class="mt-7 max-w-xl text-lg leading-8 text-ink/68">
         Compra, vende y arrienda con una corredora enfocada en asesoria cercana, gestion clara y propiedades presentadas con criterio profesional.
       </p>
+
       <div class="mt-9 flex flex-col gap-3 sm:flex-row">
         <a class="button button-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
           WhatsApp
@@ -26,7 +34,8 @@ const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
           Ver propiedades
         </a>
       </div>
-      <div class="mt-6 grid gap-3 sm:grid-cols-3">
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-3">
         <div class="rounded-[1.75rem] border border-coffee-200/50 bg-coffee-50/40 p-5 shadow-sm transition duration-300 hover:-translate-y-1">
           <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-white text-coffee-700 shadow-sm">
             <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -59,49 +68,26 @@ const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
           <p class="mt-2 text-sm text-ink/60">Gestión clara para cada propiedad.</p>
         </div>
       </div>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-3">
+        {heroImages.map((item) => (
+          <div class="group hero-image-card transition duration-300 hover:-translate-y-1">
+            <div class="relative overflow-hidden">
+              <img src={item.src} alt={item.alt} class="h-32 w-full object-cover transition duration-500 group-hover:scale-105 hero-image-filter" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-coffee/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm font-semibold text-ink">{item.label}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
     <div class="relative">
       <div class="pointer-events-none absolute -left-12 top-8 hidden h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(215,183,125,0.16),transparent)] blur-2xl md:block"></div>
       <div class="pointer-events-none absolute right-0 top-24 hidden h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(184,217,154,0.12),transparent)] blur-2xl lg:block"></div>
-      <div class="hero-panel corner-accent rounded-[1.75rem] p-6 md:p-9">          <span class="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-white text-clover-700 shadow-sm">
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 20V9l8-5 8 5v11" />
-              <path d="M9 20v-6h6v6" />
-            </svg>
-          </span>
-          <strong class="block text-xl text-clover-700">Venta</strong>
-          <span class="text-ink/60">Casas y deptos</span>
-        </div>
-        <div class="rounded-[1.55rem] border border-clover-900/10 bg-white/85 p-4 transition hover:-translate-y-0.5 hover:border-clover-700/25">
-          <span class="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-clover-50 text-clover-700 shadow-sm">
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="8" cy="9" r="3" />
-              <circle cx="16" cy="9" r="3" />
-              <path d="M3 20a5 5 0 0 1 8-4" />
-              <path d="M21 20a5 5 0 0 0-8-4" />
-            </svg>
-          </span>
-          <strong class="block text-xl text-clover-700">Arriendo</strong>
-          <span class="text-ink/60">Proceso claro</span>
-        </div>
-        <div class="rounded-[1.55rem] border border-clover-900/10 bg-clover-50/70 p-4 backdrop-blur transition hover:-translate-y-0.5 hover:border-clover-700/25">
-          <span class="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-white text-clover-700 shadow-sm">
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="8" cy="8" r="4" />
-              <path d="m11 11 9 9" />
-              <path d="m16 16 2-2" />
-              <path d="m19 19 2-2" />
-            </svg>
-          </span>
-          <strong class="block text-xl text-clover-700">Asesoria</strong>
-          <span class="text-ink/60">Acompanamiento</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="relative">
-      <div class="hero-panel corner-accent rounded-[1.75rem] p-6 md:p-9">
+      <div class="hero-panel card-frame corner-accent rounded-[1.75rem] p-6 md:p-9">
         <div class="absolute right-5 top-5 z-10 md:right-7 md:top-7">
           <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/88 shadow-[0_14px_34px_rgba(16,18,15,0.08)] animate-bounce-in">
             <svg viewBox="0 0 64 64" class="h-10 w-10 text-[#b8d99a] md:h-12 md:w-12" aria-hidden="true">

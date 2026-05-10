@@ -60,7 +60,23 @@
 }
 
 .pattern-bg {
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(184,217,154,0.05) 10px, rgba(184,217,154,0.05) 11px);
+  background-image: repeating-linear-gradient(140deg, transparent, transparent 12px, rgba(184,217,154,0.08) 12px, rgba(184,217,154,0.08) 13px);
+}
+
+.card-frame {
+  position: relative;
+}
+
+.card-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(107, 68, 35, 0.14);
+  pointer-events: none;
+}
+
+.hero-image-filter {
+  filter: saturate(0.85) contrast(0.95) sepia(0.08) hue-rotate(12deg);
 }
 
 @font-face {
@@ -199,26 +215,70 @@ a {
 }
 
 .button-instagram {
-  background: linear-gradient(135deg, var(--coffee), var(--instagram));
+  background: linear-gradient(135deg, #6b4423, #f2c75f);
   color: white;
 }
 
 .button-instagram:hover {
-  background: linear-gradient(135deg, var(--coffee-deep), #e7b44d);
+  background: linear-gradient(135deg, #543617, #d2aa4b);
 }
 
 .button-whatsapp {
-  background: #25d366;
+  background: linear-gradient(135deg, #335641, #425f4f);
   color: white;
 }
 
 .button-whatsapp:hover {
-  background: #1fae4a;
+  background: linear-gradient(135deg, #2d4f3b, #3b5d45);
 }
 
 .logo-swing {
   animation: logoSwing 6s ease-in-out infinite;
   transform-origin: center;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--clover), var(--coffee));
+  transition: width 200ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--clover);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+.card-frame::after {
+  content: "";
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(107,68,35,0.14), rgba(107,68,35,0));
+  opacity: 0.8;
+}
+
+.hero-image-card {
+  overflow: hidden;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(107, 68, 35, 0.12);
+  background: rgba(255,255,255,0.84);
 }
 
 @keyframes logoSwing {
