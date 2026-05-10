@@ -1,0 +1,26 @@
+[
+  {
+    "id": "venta-la-hacienda-1",
+    "title": "Venta finalizada con exito",
+    "location": "Renca, La Hacienda",
+    "client": "Clienta feliz",
+    "kind": "Venta",
+    "image": "/images/successes/la-hacienda-venta-1.png"
+  },
+  {
+    "id": "clientes-felices-renca",
+    "title": "Clientes felices",
+    "location": "Renca, La Hacienda",
+    "client": "Clientes felices",
+    "kind": "Asesoria y venta",
+    "image": "/images/successes/la-hacienda-clientes.png"
+  },
+  {
+    "id": "gestion-renca",
+    "title": "Gestion inmobiliaria realizada",
+    "location": "Renca, Santiago",
+    "client": "Clientes felices",
+    "kind": "Acompanamiento",
+    "image": "/images/successes/renca-gestion.png"
+  }
+]

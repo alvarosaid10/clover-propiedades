@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900">
+  <rect width="720" height="900" fill="#d7d7d2"/>
+  <rect x="80" y="92" width="560" height="350" rx="8" fill="#f0f0ea"/>
+  <path d="M80 92 360 28l280 64" fill="none" stroke="#1b2118" stroke-width="20" stroke-linecap="round"/>
+  <rect x="128" y="168" width="118" height="92" rx="4" fill="#1b2118"/>
+  <rect x="302" y="168" width="118" height="92" rx="4" fill="#31451f"/>
+  <rect x="476" y="168" width="118" height="92" rx="4" fill="#1b2118"/>
+  <rect x="124" y="322" width="472" height="34" fill="#26351e"/>
+  <circle cx="360" cy="392" r="170" fill="#48652c"/>
+  <circle cx="360" cy="392" r="160" fill="none" stroke="#21b4b2" stroke-width="20"/>
+  <circle cx="360" cy="392" r="140" fill="none" stroke="#73d75f" stroke-width="20" stroke-dasharray="330 500"/>
+  <text x="360" y="304" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="900">RENCA</text>
+  <text x="360" y="337" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="900">LA HACIENDA</text>
+  <text x="360" y="370" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="900">CLIENTES FELICES</text>
+  <text x="360" y="442" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="40" font-weight="900">FELICIDADES</text>
+  <text x="360" y="490" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="21" font-weight="900">VENTA FINALIZADA</text>
+  <text x="360" y="522" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="21" font-weight="900">CON EXITO</text>
+  <rect y="628" width="720" height="272" fill="#10120f" opacity=".9"/>
+</svg>

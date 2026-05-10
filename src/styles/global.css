@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local("Inter");
+}
+
+:root {
+  color-scheme: light;
+  --clover: #31451f;
+  --clover-deep: #172212;
+  --mint: #b8d99a;
+  --ink: #10120f;
+  --muted: #62685c;
+  --line: #e6e6df;
+  --paper: #fbfbf8;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(90deg, rgba(49, 69, 31, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(49, 69, 31, 0.028) 1px, transparent 1px),
+    #ffffff;
+  background-size: 56px 56px;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%2331451f' stroke-opacity='.08' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M38 112 78 78l40 34'/%3E%3Cpath d='M48 106v44h60v-44'/%3E%3Cpath d='M72 150v-24h12v24'/%3E%3Ccircle cx='188' cy='80' r='18'/%3E%3Cpath d='m201 93 27 27'/%3E%3Cpath d='m216 108 8-8'/%3E%3Cpath d='M54 214a22 22 0 0 1 38 0'/%3E%3Ccircle cx='73' cy='178' r='13'/%3E%3Cpath d='M172 190s34-16 34-44v-30l-34-12-34 12v30c0 28 34 44 34 44Z'/%3E%3Cpath d='m158 146 10 10 20-26'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, transparent 0 46%, rgba(49, 69, 31, 0.04) 46% 47%, transparent 47% 100%);
+  background-position: right 3rem top 7rem, right top;
+  background-repeat: repeat;
+  background-size: 260px 260px, auto;
+  content: "";
+  inset: 0;
+  mask-image: linear-gradient(90deg, transparent, black 18%, black 86%, transparent);
+  opacity: 0.85;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  color: var(--clover);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.1rem, 4vw, 4.2rem);
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.button {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.85rem 1.15rem;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--clover-deep);
+  color: white;
+}
+
+.button-primary:hover {
+  background: var(--clover);
+}
+
+.button-ghost {
+  border: 1px solid rgba(16, 18, 15, 0.14);
+  color: var(--ink);
+}
+
+.button-ghost:hover {
+  border-color: var(--clover);
+  color: var(--clover);
+}
+
+.surface {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(16, 18, 15, 0.08);
+  box-shadow: 0 24px 80px rgba(16, 18, 15, 0.08);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.fine-line {
+  background: linear-gradient(90deg, transparent, rgba(49, 69, 31, 0.36), transparent);
+  height: 1px;
+}
+
+.scroll-row {
+  display: grid;
+  gap: 1.5rem;
+  grid-auto-columns: minmax(280px, 420px);
+  grid-auto-flow: column;
+  overflow-x: auto;
+  padding: 0.25rem 0.25rem 1.25rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: rgba(49, 69, 31, 0.42) transparent;
+}
+
+.scroll-row > * {
+  scroll-snap-align: start;
+}
+
+.scroll-row::-webkit-scrollbar {
+  height: 10px;
+}
+
+.scroll-row::-webkit-scrollbar-track {
+  background: rgba(16, 18, 15, 0.06);
+  border-radius: 999px;
+}
+
+.scroll-row::-webkit-scrollbar-thumb {
+  background: rgba(49, 69, 31, 0.42);
+  border-radius: 999px;
+}
+
+.soft-grid {
+  background:
+    linear-gradient(90deg, rgba(49, 69, 31, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(49, 69, 31, 0.045) 1px, transparent 1px),
+    rgba(255, 255, 255, 0.78);
+  background-size: 44px 44px;
+}
+
+.corner-accent {
+  position: relative;
+}
+
+.corner-accent::after {
+  border-right: 1px solid rgba(49, 69, 31, 0.22);
+  border-top: 1px solid rgba(49, 69, 31, 0.22);
+  content: "";
+  height: 58px;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 58px;
+}
+
+.verified-badge {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(49, 69, 31, 0.16);
+  border-radius: 999px;
+  box-shadow: 0 14px 38px rgba(16, 18, 15, 0.10);
+  color: var(--clover);
+  display: inline-flex;
+  height: 2.75rem;
+  justify-content: center;
+  width: 2.75rem;
+}
+
+.section-mark {
+  align-items: center;
+  background: var(--clover);
+  border-radius: 999px;
+  color: #ffffff;
+  display: inline-flex;
+  height: 2.25rem;
+  justify-content: center;
+  width: 2.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}

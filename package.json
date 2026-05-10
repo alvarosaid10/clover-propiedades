@@ -1,0 +1,17 @@
+{
+  "name": "clover-propiedades-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.16.18",
+    "tailwindcss": "^3.4.17",
+    "@astrojs/tailwind": "^5.1.2"
+  },
+  "devDependencies": {}
+}

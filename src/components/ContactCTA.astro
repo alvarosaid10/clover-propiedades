@@ -1,0 +1,32 @@
+---
+import site from "../data/site.json";
+
+const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20mas%20informacion.`;
+const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
+---
+
+<section id="contacto" class="py-16 md:py-24">
+  <div class="container corner-accent grid gap-8 rounded-[2rem] bg-ink p-8 text-white shadow-soft md:grid-cols-[1fr_0.7fr] md:p-12">
+    <div>
+      <p class="eyebrow text-clover-300">Contacto</p>
+      <h2 class="mt-4 max-w-2xl font-display text-[clamp(2.6rem,6vw,5.3rem)] font-semibold leading-[0.92]">
+        Conversemos sobre tu proxima propiedad.
+      </h2>
+      <p class="mt-6 max-w-xl text-white/68">
+        Agenda una asesoria, solicita informacion de una propiedad o coordina una publicacion con atencion directa.
+      </p>
+    </div>
+    <div class="flex flex-col justify-end gap-3">
+      <a class="button bg-white text-ink hover:bg-clover-100" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+        Escribir por WhatsApp
+      </a>
+      <a class="button border border-white/18 text-white hover:border-clover-300 hover:text-clover-100" href={instagramUrl} target="_blank" rel="noopener noreferrer">
+        Ver Instagram
+      </a>
+      <p class="pt-5 text-sm leading-6 text-white/55">
+        {site.location}<br />
+        WhatsApp: {site.phone}
+      </p>
+    </div>
+  </div>
+</section>

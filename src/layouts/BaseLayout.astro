@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+import site from "../data/site.json";
+
+const {
+  title = `${site.name} | Corredora de propiedades en Chile`,
+  description = site.description
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, `https://${site.domain}`);
+---
+
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/images/brand/clover-mark.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="/images/brand/og-cover.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
