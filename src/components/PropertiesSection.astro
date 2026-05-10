@@ -5,7 +5,7 @@ import PropertyCard from "./PropertyCard.astro";
 const visibleProperties = properties.filter((property) => property.visible !== false);
 ---
 
-<section id="propiedades" class="bg-white py-16 md:py-24">
+<section id="propiedades" class="bg-white section-accent py-16 md:py-24">
   <div class="container">
     <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
       <div class="max-w-2xl">
@@ -26,7 +26,7 @@ const visibleProperties = properties.filter((property) => property.visible !== f
     </div>
 
     {visibleProperties.length > 0 ? (
-      <div class="scroll-row mt-10">
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {visibleProperties.map((property) => <PropertyCard property={property} />)}
       </div>
     ) : (

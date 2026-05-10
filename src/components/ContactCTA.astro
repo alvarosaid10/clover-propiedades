@@ -5,9 +5,10 @@ const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propied
 const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 ---
 
-<section id="contacto" class="py-16 md:py-24">
-  <div class="container corner-accent grid gap-8 rounded-[2rem] bg-ink p-8 text-white shadow-soft md:grid-cols-[1fr_0.7fr] md:p-12">
-    <div>
+<section id="contacto" class="relative py-16 md:py-24">
+  <div class="container grid relative corner-accent overflow-hidden rounded-[2rem] bg-ink p-8 text-white shadow-soft md:grid-cols-[1fr_0.7fr] md:p-12">
+    <div class="pointer-events-none absolute -right-16 top-10 hidden h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(184,217,154,0.28),transparent_65%)] lg:block"></div>
+    <div class="relative z-10">
       <p class="eyebrow text-clover-300">Contacto</p>
       <h2 class="mt-4 max-w-2xl font-display text-[clamp(2.6rem,6vw,5.3rem)] font-semibold leading-[0.92]">
         Conversemos sobre tu proxima propiedad.
@@ -16,14 +17,14 @@ const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
         Agenda una asesoria, solicita informacion de una propiedad o coordina una publicacion con atencion directa.
       </p>
     </div>
-    <div class="flex flex-col justify-end gap-3">
-      <a class="button bg-white text-ink hover:bg-clover-100" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+    <div class="relative z-10 flex flex-col justify-end gap-3">
+      <a class="button button-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
         Escribir por WhatsApp
       </a>
-      <a class="button border border-white/18 text-white hover:border-clover-300 hover:text-clover-100" href={instagramUrl} target="_blank" rel="noopener noreferrer">
+      <a class="button button-ghost" href={instagramUrl} target="_blank" rel="noopener noreferrer">
         Ver Instagram
       </a>
-      <p class="pt-5 text-sm leading-6 text-white/55">
+      <p class="pt-5 text-sm leading-6 text-white/65">
         {site.location}<br />
         WhatsApp: {site.phone}
       </p>
