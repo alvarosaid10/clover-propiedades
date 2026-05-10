@@ -363,14 +363,15 @@ a {
 }
 
 .corner-accent::after {
-  border-right: 1px solid rgba(49, 69, 31, 0.22);
-  border-top: 1px solid rgba(49, 69, 31, 0.22);
   content: "";
-  height: 58px;
   position: absolute;
-  right: 18px;
-  top: 18px;
-  width: 58px;
+  right: 20px;
+  top: 20px;
+  width: 24px;
+  height: 24px;
+  border-radius: 0.85rem;
+  background: rgba(184, 217, 154, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(49, 69, 31, 0.08);
 }
 
 .hero-panel {
