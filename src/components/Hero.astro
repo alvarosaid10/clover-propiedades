@@ -120,7 +120,12 @@ const heroCards = [
       <div class="pointer-events-none absolute -left-12 top-8 hidden h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(215,183,125,0.16),transparent)] blur-2xl md:block"></div>
       <div class="pointer-events-none absolute right-0 top-24 hidden h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(184,217,154,0.12),transparent)] blur-2xl lg:block"></div>
       <div class="hero-panel card-frame corner-accent rounded-[1.75rem] p-6 md:p-9">
-        <div class="overflow-hidden rounded-[1.75rem] border border-coffee-100/70 bg-coffee-50/10 p-4">
+        <div class="relative overflow-hidden rounded-[1.75rem] border border-coffee-100/70 bg-coffee-50/10 p-4">
+          <div class="absolute right-4 top-4 z-10 flex h-14 w-14 items-center justify-center rounded-3xl bg-white/96 border border-coffee-200 shadow-sm">
+            <svg viewBox="0 0 24 24" class="h-7 w-7 text-clover-900" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2c1.8 3.5 5.1 5 8 4 1.1-.4 2 0 2 1s-.9 1.4-2 1c-3.3 0-5 2.2-5 5s1.7 5 5 5c1.1 0 2 .5 2 1s-.9 1.4-2 1c-2.9-1-6.2.5-8 4-1.8-3.5-5.1-5-8-4-1.1.4-2 0-2-1s.9-1.4 2-1c3.3 0 5-2.2 5-5s-1.7-5-5-5c-1.1 0-2-.5-2-1s.9-1.4 2-1c2.9 1 6.2-.5 8-4Z" />
+            </svg>
+          </div>
           <svg viewBox="0 0 900 900" class="relative h-full w-full" aria-hidden="true">
             <defs>
               <linearGradient id="hero-bg" x1="0" x2="1" y1="0" y2="1">
@@ -138,6 +143,19 @@ const heroCards = [
             <path d="M560 180h120v90h-120z" fill="#31451f" opacity="0.18" />
           </svg>
         </div>
+
+        <div class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
+            <img src="/images/experiencia.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
+          </div>
+          <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
+            <img src="/images/experiencia1.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
+          </div>
+          <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
+            <img src="/images/experiencia2.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
+          </div>
+        </div>
+
         <div class="border-t border-clover-900/12 pt-7">
           <p class="text-sm font-extrabold uppercase tracking-[0.16em] text-clover-700">Clover Propiedades</p>
           <p class="mt-3 text-4xl font-black leading-[0.95] text-clover-900 md:text-6xl">Gestion inmobiliaria clara y cuidada.</p>
