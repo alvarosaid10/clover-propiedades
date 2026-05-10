@@ -25,9 +25,9 @@ const visibleSuccesses = successes.filter((item) => item.visible !== false);
 
     <div class="mt-10 flex gap-6 overflow-x-auto pb-4">
       {visibleSuccesses.map((item) => (
-        <article class="group overflow-hidden rounded-[2rem] border border-coffee-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 min-w-[300px] flex-shrink-0 pattern-bg">
+        <article class="group card-frame overflow-hidden rounded-[2rem] border border-coffee-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 min-w-[300px] flex-shrink-0 pattern-bg">
           <div class="relative overflow-hidden rounded-[1.5rem] bg-coffee-50">
-            <img src={item.image} alt={`${item.title} en ${item.location}`} class="h-64 w-full object-cover transition duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <img src={item.image} alt={`${item.title} en ${item.location}`} class="h-64 w-full object-cover transition duration-500 group-hover:scale-[1.03] hero-image-filter" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent"></div>
           </div>
           <div class="mt-6 flex items-center gap-3">
