@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s ease-out forwards;
+}
+
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -46,8 +83,8 @@ body {
 
 body::before {
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%2331451f' stroke-opacity='.08' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M38 112 78 78l40 34'/%3E%3Cpath d='M48 106v44h60v-44'/%3E%3Cpath d='M72 150v-24h12v24'/%3E%3Ccircle cx='188' cy='80' r='18'/%3E%3Cpath d='m201 93 27 27'/%3E%3Cpath d='m216 108 8-8'/%3E%3Cpath d='M54 214a22 22 0 0 1 38 0'/%3E%3Ccircle cx='73' cy='178' r='13'/%3E%3Cpath d='M172 190s34-16 34-44v-30l-34-12-34 12v30c0 28 34 44 34 44Z'/%3E%3Cpath d='m158 146 10 10 20-26'/%3E%3C/g%3E%3C/svg%3E"),
-    linear-gradient(135deg, transparent 0 46%, rgba(49, 69, 31, 0.04) 46% 47%, transparent 47% 100%);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%236B4423' stroke-opacity='.08' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M38 112 78 78l40 34'/%3E%3Cpath d='M48 106v44h60v-44'/%3E%3Cpath d='M72 150v-24h12v24'/%3E%3Ccircle cx='188' cy='80' r='18'/%3E%3Cpath d='m201 93 27 27'/%3E%3Cpath d='m216 108 8-8'/%3E%3Cpath d='M54 214a22 22 0 0 1 38 0'/%3E%3Ccircle cx='73' cy='178' r='13'/%3E%3Cpath d='M172 190s34-16 34-44v-30l-34-12-34 12v30c0 28 34 44 34 44Z'/%3E%3Cpath d='m158 146 10 10 20-26'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, transparent 0 46%, rgba(107, 68, 35, 0.04) 46% 47%, transparent 47% 100%);
   background-position: right 3rem top 7rem, right top;
   background-repeat: repeat;
   background-size: 260px 260px, auto;
@@ -102,7 +139,7 @@ a {
 }
 
 .button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.02);
 }
 
 .button-primary {
