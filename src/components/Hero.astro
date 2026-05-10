@@ -4,11 +4,22 @@ import site from "../data/site.json";
 const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20comprar%2C%20vender%20o%20arrendar%20una%20propiedad.`;
 const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 
-const heroImages = [
-  { src: "./images/clovermini.jpg", label: "Propiedad", alt: "Ilustracion minimalista de propiedad" },
-  { src: "./images/clovermini1.jpg", label: "Familia", alt: "Ilustracion minimalista de familia" },
-  { src: "./images/clovermini2.jpg", label: "Seguridad", alt: "Ilustracion minimalista de seguridad" },
-  { src: "./images/clovermini6.jpg", label: "Hogar", alt: "Ilustracion minimalista de hogar" }
+const heroCards = [
+  {
+    title: "Propiedad",
+    description: "Venta y presentación con criterio profesional.",
+    icon: "property"
+  },
+  {
+    title: "Hogar",
+    description: "Espacios pensados para vivir con calma.",
+    icon: "home"
+  },
+  {
+    title: "Seguridad",
+    description: "Gestión clara y confianza en cada paso.",
+    icon: "security"
+  }
 ];
 ---
 
@@ -49,12 +60,12 @@ const heroImages = [
         <div class="rounded-[1.75rem] border border-coffee-200/50 bg-white/90 p-5 shadow-sm transition duration-300 hover:-translate-y-1">
           <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-coffee-50 text-coffee-700 shadow-sm">
             <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 12c2.8 0 4-1.7 4-4s-1.2-4-4-4-4 1.7-4 4 1.2 4 4 4Z" />
-              <path d="M3 21.5c0-3 2.3-5.5 5.2-5.5h7.6C18.7 16 21 18.5 21 21.5" />
+              <path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9Z" />
+              <path d="M7 20V12h10v8" />
             </svg>
           </div>
-          <p class="text-sm font-semibold text-ink">Familia</p>
-          <p class="mt-2 text-sm text-ink/60">Cercanía y soporte en cada gestión.</p>
+          <p class="text-sm font-semibold text-ink">Hogar</p>
+          <p class="mt-2 text-sm text-ink/60">Espacios pensados para vivir.</p>
         </div>
         <div class="rounded-[1.75rem] border border-coffee-200/50 bg-coffee-50/40 p-5 shadow-sm transition duration-300 hover:-translate-y-1">
           <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-white text-coffee-700 shadow-sm">
@@ -69,15 +80,36 @@ const heroImages = [
         </div>
       </div>
 
-      <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {heroImages.map((item) => (
+      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {heroCards.map((card) => (
           <div class="group hero-image-card transition duration-300 hover:-translate-y-1">
-            <div class="relative overflow-hidden rounded-[1.5rem] bg-coffee-50/15 border border-coffee-100/60 p-3 shadow-[0_10px_30px_rgba(16,18,15,0.05)]">
-              <img src={item.src} alt={item.alt} class="h-40 w-full object-contain transition duration-500 group-hover:scale-105 hero-image-filter" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-coffee/16 via-transparent to-transparent"></div>
+            <div class="relative overflow-hidden rounded-[1.5rem] bg-coffee-50/15 border border-coffee-100/60 p-6 shadow-[0_10px_30px_rgba(16,18,15,0.05)] flex items-center justify-center">
+              {card.icon === "property" && (
+                <svg viewBox="0 0 120 120" class="h-24 w-24 text-clover-900" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 90V45l40-27 40 27v45" />
+                  <path d="M40 90v-24h40v24" />
+                  <path d="M55 90v-18h10v18" />
+                  <path d="M45 55h10M65 55h10" />
+                </svg>
+              )}
+              {card.icon === "home" && (
+                <svg viewBox="0 0 120 120" class="h-24 w-24 text-clover-900" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 70 60 30l40 40" />
+                  <path d="M30 70v30h25V70" />
+                  <path d="M65 70v30h25V70" />
+                </svg>
+              )}
+              {card.icon === "security" && (
+                <svg viewBox="0 0 120 120" class="h-24 w-24 text-clover-900" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M60 18 32 30v30c0 20 13 36 28 42 15-6 28-22 28-42V30L60 18z" />
+                  <path d="M60 50v16" />
+                  <circle cx="60" cy="80" r="5" />
+                </svg>
+              )}
             </div>
             <div class="p-4 pt-5">
-              <p class="text-sm font-semibold text-ink">{item.label}</p>
+              <p class="text-sm font-semibold text-ink">{card.title}</p>
+              <p class="mt-2 text-sm text-ink/60">{card.description}</p>
             </div>
           </div>
         ))}
@@ -89,12 +121,22 @@ const heroImages = [
       <div class="pointer-events-none absolute right-0 top-24 hidden h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(184,217,154,0.12),transparent)] blur-2xl lg:block"></div>
       <div class="hero-panel card-frame corner-accent rounded-[1.75rem] p-6 md:p-9">
         <div class="overflow-hidden rounded-[1.75rem] border border-coffee-100/70 bg-coffee-50/10 p-4">
-          <img
-            src="./images/hero/clover-hero.svg"
-            alt="Ilustracion arquitectonica Clover Propiedades"
-            class="relative h-auto w-full pt-8"
-            loading="eager"
-          />
+          <svg viewBox="0 0 900 900" class="relative h-full w-full" aria-hidden="true">
+            <defs>
+              <linearGradient id="hero-bg" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#f8faf4" />
+                <stop offset="100%" stop-color="#dae4cd" />
+              </linearGradient>
+            </defs>
+            <rect width="900" height="900" fill="url(#hero-bg)" rx="40" />
+            <path d="M150 520h220v220H150z" fill="#fff" stroke="#31451f" stroke-width="20" rx="30" />
+            <path d="M250 320h220v420H250z" fill="#dce8d3" stroke="#31451f" stroke-width="20" rx="30" />
+            <path d="M470 400h220v340H470z" fill="#b8d99a" stroke="#31451f" stroke-width="20" rx="30" />
+            <path d="M300 200 450 80 600 200" fill="none" stroke="#31451f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="180" cy="160" r="24" fill="#31451f" />
+            <circle cx="720" cy="180" r="18" fill="#31451f" />
+            <path d="M560 180h120v90h-120z" fill="#31451f" opacity="0.18" />
+          </svg>
         </div>
         <div class="border-t border-clover-900/12 pt-7">
           <p class="text-sm font-extrabold uppercase tracking-[0.16em] text-clover-700">Clover Propiedades</p>
