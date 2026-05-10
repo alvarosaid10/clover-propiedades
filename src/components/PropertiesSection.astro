@@ -27,7 +27,7 @@ const visibleProperties = properties.filter((property) => property.visible !== f
 
     {visibleProperties.length > 0 ? (
       <div class="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {visibleProperties.map((property) => <PropertyCard property={property} />)}
+        {visibleProperties.map((property, index) => <PropertyCard property={property} class="animate-bounce-in" style={`animation-delay: ${0.1 * index}s;`} />)}
       </div>
     ) : (
       <div class="mt-10 rounded-2xl border border-black/10 bg-clover-50 p-8 text-center">
