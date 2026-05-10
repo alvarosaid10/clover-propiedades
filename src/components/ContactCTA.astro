@@ -6,8 +6,8 @@ const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 ---
 
 <section id="contacto" class="relative py-16 md:py-24">
-  <div class="container grid relative corner-accent overflow-hidden rounded-[2rem] bg-white p-8 text-ink shadow-soft md:grid-cols-[1fr_0.7fr] md:p-12 border border-coffee-200">
-    <div class="pointer-events-none absolute -right-16 top-10 hidden h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(184,217,154,0.28),transparent_65%)] lg:block animate-pulse"></div>
+  <div class="container grid relative overflow-hidden rounded-[2rem] bg-white p-8 text-ink shadow-soft md:grid-cols-[1fr_0.7fr] md:p-12 border border-coffee-200" style="background-image: radial-gradient(circle at top left, rgba(184,217,154,0.14), transparent 36%), radial-gradient(circle at bottom right, rgba(215,183,125,0.1), transparent 30%);">
+    <div class="pointer-events-none absolute -right-16 top-10 hidden h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(184,217,154,0.18),transparent_65%)] lg:block animate-pulse"></div>
     <div class="relative z-10">
       <p class="eyebrow text-coffee-700">Contacto</p>
       <h2 class="mt-4 max-w-2xl font-display text-[clamp(2.6rem,6vw,5.3rem)] font-semibold leading-[0.92]">
@@ -16,6 +16,45 @@ const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
       <p class="mt-6 max-w-xl text-ink/68">
         Agenda una asesoria, solicita informacion de una propiedad o coordina una publicacion con atencion directa.
       </p>
+      <div class="mt-8 grid gap-3 sm:grid-cols-3">
+        <div class="flex items-center gap-3 rounded-3xl border border-coffee-200/60 bg-coffee-50/40 p-3">
+          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white text-coffee-700 shadow-sm">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9.8 12 3l9 6.8v10.4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.8Z" />
+              <path d="M9 22V12h6v10" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-ink">Propiedades</p>
+            <p class="text-xs text-ink/60">Selección con criterio.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-3xl border border-coffee-200/60 bg-white/90 p-3">
+          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-coffee-50 text-coffee-700 shadow-sm">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 12c2.8 0 4-1.7 4-4s-1.2-4-4-4-4 1.7-4 4 1.2 4 4 4Z" />
+              <path d="M3 21.5c0-3 2.3-5.5 5.2-5.5h7.6C18.7 16 21 18.5 21 21.5" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-ink">Familia</p>
+            <p class="text-xs text-ink/60">Atención cercana.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-3xl border border-coffee-200/60 bg-coffee-50/40 p-3">
+          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white text-coffee-700 shadow-sm">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4 7v5c0 5 3.6 9.6 8 10 4.4-.4 8-5 8-10V7l-8-4Z" />
+              <path d="M12 7v6" />
+              <path d="M8 12h8" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-ink">Seguridad</p>
+            <p class="text-xs text-ink/60">Tranquilidad total.</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="relative z-10 flex flex-col justify-end gap-3">
       <a class="button button-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">

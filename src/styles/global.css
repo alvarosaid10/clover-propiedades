@@ -80,6 +80,9 @@
   --ink: #10120f;
   --ink-soft: #3e453b;
   --muted: #62685c;
+  --coffee: #6b4423;
+  --coffee-deep: #432b17;
+  --instagram: #f2c75f;
   --line: #e6e6df;
   --paper: #fbfbf8;
   --white: #ffffff;
@@ -196,21 +199,43 @@ a {
 }
 
 .button-instagram {
-  background: var(--coffee);
+  background: linear-gradient(135deg, var(--coffee), var(--instagram));
   color: white;
 }
 
 .button-instagram:hover {
-  background: var(--coffee-deep);
+  background: linear-gradient(135deg, var(--coffee-deep), #e7b44d);
 }
 
 .button-whatsapp {
-  background: var(--clover);
+  background: #25d366;
   color: white;
 }
 
 .button-whatsapp:hover {
-  background: var(--clover-deep);
+  background: #1fae4a;
+}
+
+.logo-swing {
+  animation: logoSwing 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes logoSwing {
+  0%, 100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+
+.card-pattern {
+  background-image: radial-gradient(circle at top left, rgba(184, 217, 154, 0.12), transparent 28%), radial-gradient(circle at bottom right, rgba(215, 183, 125, 0.08), transparent 24%);
+}
+
+.hero-panel {
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(251,251,248,0.94));
 }
 
 .surface {

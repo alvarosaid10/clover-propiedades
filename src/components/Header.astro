@@ -2,10 +2,11 @@
 import site from "../data/site.json";
 ---
 
-<header class="sticky top-0 z-50 border-b border-coffee-200/50 bg-gradient-to-r from-white to-coffee-50/30 backdrop-blur-xl">
-  <div class="container flex min-h-[76px] items-center justify-between gap-6">
+<header class="relative sticky top-0 z-50 border-b border-coffee-200/50 bg-white/90 backdrop-blur-xl shadow-sm">
+  <div class="absolute inset-x-0 inset-y-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(184,217,154,0.14),transparent_24%),radial-gradient(circle_at_top_right,rgba(215,183,125,0.12),transparent_22%)]"></div>
+  <div class="container relative flex min-h-[76px] items-center justify-between gap-6">
     <a href="/" class="flex items-center gap-3" aria-label="Ir al inicio">
-      <img src="/images/brand/clover-logo.svg" alt="Clover Propiedades" class="h-11 w-auto wiggle-on-hover" />
+      <img src="/images/brand/clover-logo.svg" alt="Clover Propiedades" class="h-11 w-auto logo-swing" />
     </a>
     <nav class="hidden items-center gap-7 text-sm font-bold text-ink/68 md:flex">
       <a class="hover:text-clover-700 transition-transform hover:scale-105" href="#servicios">Servicios</a>
@@ -13,6 +14,9 @@ import site from "../data/site.json";
       <a class="hover:text-clover-700 transition-transform hover:scale-105" href="#experiencia">Experiencia</a>
       <a class="hover:text-clover-700 transition-transform hover:scale-105" href="#contacto">Contacto</a>
     </nav>
-    <div class="hidden h-11 w-[92px] md:block" aria-hidden="true"></div>
+    <div class="hidden items-center gap-2 rounded-full border border-coffee-200/80 bg-white/80 px-3 py-2 text-[0.72rem] font-semibold text-coffee-800 md:flex">
+      <span class="h-2.5 w-2.5 rounded-full bg-clover"></span>
+      Propiedades · Familia · Seguridad
+    </div>
   </div>
 </header>
