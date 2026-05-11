@@ -10,12 +10,19 @@ const details = [
 
 <article class={`group card-frame overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_12px_40px_rgba(16,18,15,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-soft pattern-bg ${className || ''}`} style={style}>
   <div class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-blue-100 via-emerald-50 to-blue-50">
+    <div class="absolute inset-0 grid place-items-center text-coffee-700">
+      <svg viewBox="0 0 24 24" class="h-16 w-16 opacity-40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9Z" />
+        <path d="M9 22V12h6v10" />
+      </svg>
+    </div>
     <img
       src={property.image}
       alt={`${property.title} en ${property.location}`}
       class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035] group-hover:rotate-1"
       loading="lazy"
       style="background: linear-gradient(135deg, #dbeafe 0%, #f0fdfa 100%);"
+      onerror="this.style.display='none'"
     />
     <div class="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent"></div>
     <div class="absolute left-4 top-4 flex gap-2">

@@ -83,67 +83,58 @@ const heroCards = [
     </div>
 
     <div class="relative">
-      <div class="pointer-events-none absolute -left-12 top-8 hidden h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(215,183,125,0.16),transparent)] blur-2xl md:block"></div>
-      <div class="pointer-events-none absolute right-0 top-24 hidden h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(184,217,154,0.12),transparent)] blur-2xl lg:block"></div>
-      <div class="hero-panel card-frame corner-accent rounded-[1.75rem] p-6 md:p-9">
-        <div class="relative overflow-hidden rounded-[1.75rem] border border-coffee-100/70 bg-coffee-50/10 p-4">
-          <div class="absolute right-4 top-4 z-10 flex h-14 w-14 items-center justify-center rounded-3xl bg-white/96 border border-coffee-200 shadow-sm">
-            <svg viewBox="0 0 24 24" class="h-8 w-8 text-clover-900" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 3c1.65 0 3 1.35 3 3 0 .5-.13.96-.36 1.36L12 12l-2.64-4.64A2.99 2.99 0 0 1 9 6c0-1.65 1.35-3 3-3Z" />
-              <path d="M12 6c1.65 0 3 1.35 3 3 0 .95-.42 1.8-1.09 2.39L12 15l-1.91-3.61A2.996 2.996 0 0 1 9 9c0-1.65 1.35-3 3-3Z" />
-              <path d="M12 9c1.65 0 3 1.35 3 3 0 .95-.42 1.8-1.09 2.39L12 18l-1.91-3.61A2.996 2.996 0 0 1 9 12c0-1.65 1.35-3 3-3Z" />
-            </svg>
-          </div>
-          <svg viewBox="0 0 900 900" class="relative h-full w-full" aria-hidden="true">
-            <defs>
-              <linearGradient id="hero-bg" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0%" stop-color="#f8faf4" />
-                <stop offset="100%" stop-color="#dae4cd" />
-              </linearGradient>
-            </defs>
-            <rect width="900" height="900" fill="url(#hero-bg)" rx="40" />
-            <path d="M150 520h220v220H150z" fill="#fff" stroke="#31451f" stroke-width="20" rx="30" />
-            <path d="M250 320h220v420H250z" fill="#dce8d3" stroke="#31451f" stroke-width="20" rx="30" />
-            <path d="M470 400h220v340H470z" fill="#b8d99a" stroke="#31451f" stroke-width="20" rx="30" />
-            <path d="M300 200 450 80 600 200" fill="none" stroke="#31451f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="180" cy="160" r="24" fill="#31451f" />
-            <circle cx="720" cy="180" r="18" fill="#31451f" />
-            <path d="M560 180h120v90h-120z" fill="#31451f" opacity="0.18" />
-          </svg>
-        </div>
-
-        <div class="mt-6 grid gap-3 sm:grid-cols-3">
-          <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
-            <img src="/images/experiencia.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
-          </div>
-          <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
-            <img src="/images/experiencia1.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
-          </div>
-          <div class="flex items-center justify-center rounded-full border border-coffee-200 bg-white/95 p-3 shadow-sm">
-            <img src="/images/experiencia2.png" alt="Felicidades" class="h-16 w-16 object-cover rounded-full" />
-          </div>
-        </div>
-
-        <div class="border-t border-clover-900/12 pt-7">
-          <p class="text-sm font-extrabold uppercase tracking-[0.16em] text-clover-700">Clover Propiedades</p>
-          <p class="mt-3 text-4xl font-black leading-[0.95] text-clover-900 md:text-6xl">Gestion inmobiliaria clara y cuidada.</p>
-          <p class="mt-5 max-w-md text-sm font-semibold leading-6 text-ink/64">
+      <div class="grid gap-6 rounded-[2rem] border border-black/10 bg-white p-6 shadow-soft md:p-8">
+        <div class="rounded-[1.75rem] bg-clover-50/30 p-6">
+          <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-clover-700">Clover Propiedades</p>
+          <h2 class="mt-4 text-3xl font-black text-clover-900 sm:text-4xl">Gestion inmobiliaria clara y cuidada.</h2>
+          <p class="mt-4 max-w-md text-sm leading-6 text-ink/70">
             Venta, arriendo y asesoria con contacto directo, criterio profesional y presentacion pensada para generar confianza.
           </p>
         </div>
-      </div>
-      <div class="mt-4 grid gap-3 rounded-2xl border border-black/10 bg-white/60 p-4 backdrop-blur sm:grid-cols-3">
-        <div>
-          <p class="text-xs font-extrabold uppercase tracking-[0.14em] text-clover-700">Compra</p>
-          <p class="mt-1 text-sm font-bold text-ink/70">Busqueda guiada</p>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          {heroCards.map((card) => (
+            <div class="group rounded-[1.75rem] border border-coffee-200/50 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-clover-900 text-white shadow-sm">
+                {card.icon === "property" && (
+                  <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M3 9.8 12 3l9 6.8v10.4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.8Z" />
+                    <path d="M9 22V12h6v10" />
+                  </svg>
+                )}
+                {card.icon === "home" && (
+                  <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9Z" />
+                    <path d="M7 20V12h10v8" />
+                  </svg>
+                )}
+                {card.icon === "security" && (
+                  <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 3 4 7v5c0 5 3.6 9.6 8 10 4.4-.4 8-5 8-10V7l-8-4Z" />
+                    <path d="M12 7v6" />
+                    <path d="M8 12h8" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="text-lg font-black text-ink">{card.title}</h3>
+              <p class="mt-2 text-sm leading-6 text-ink/70">{card.description}</p>
+            </div>
+          ))}
         </div>
-        <div>
-          <p class="text-xs font-extrabold uppercase tracking-[0.14em] text-clover-700">Venta</p>
-          <p class="mt-1 text-sm font-bold text-ink/70">Gestion y difusion</p>
-        </div>
-        <div>
-          <p class="text-xs font-extrabold uppercase tracking-[0.14em] text-clover-700">Arriendo</p>
-          <p class="mt-1 text-sm font-bold text-ink/70">Contacto directo</p>
+
+        <div class="grid gap-4 rounded-[1.75rem] border border-black/10 bg-clover-50/40 p-5 text-center sm:grid-cols-3">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.14em] text-clover-700">Compra</p>
+            <p class="mt-1 text-sm font-bold text-ink/70">Busqueda guiada</p>
+          </div>
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.14em] text-clover-700">Venta</p>
+            <p class="mt-1 text-sm font-bold text-ink/70">Gestion y difusion</p>
+          </div>
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.14em] text-clover-700">Arriendo</p>
+            <p class="mt-1 text-sm font-bold text-ink/70">Contacto directo</p>
+          </div>
         </div>
       </div>
     </div>
