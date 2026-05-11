@@ -6,19 +6,19 @@ const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 
 const heroCards = [
   {
-    title: "Propiedad",
-    description: "Venta y presentación con criterio profesional.",
-    icon: "property"
+    title: "Asesoría humana",
+    description: "Acompañamos cada paso con atención personalizada y soporte real.",
+    icon: "human"
   },
   {
-    title: "Hogar",
-    description: "Espacios pensados para vivir con calma.",
-    icon: "home"
+    title: "Análisis local",
+    description: "Datos del mercado de Renca para decisiones más seguras.",
+    icon: "chart"
   },
   {
-    title: "Seguridad",
-    description: "Gestión clara y confianza en cada paso.",
-    icon: "security"
+    title: "Cierre confiable",
+    description: "Negociaciones claras y acompañadas hasta la firma.",
+    icon: "check"
   }
 ];
 ---
@@ -47,37 +47,33 @@ const heroCards = [
       </div>
 
       <div class="mt-8 grid gap-4 sm:grid-cols-3">
-        <div class="rounded-[1.75rem] border border-coffee-200/50 bg-coffee-50/40 p-5 shadow-sm transition duration-300 hover:-translate-y-1">
-          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-white text-coffee-700 shadow-sm">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 9.8 12 3l9 6.8v10.4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.8Z" />
-              <path d="M9 22V12h6v10" />
-            </svg>
+        {heroCards.map((card) => (
+          <div class="rounded-[1.75rem] border border-coffee-200/40 bg-white/80 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-clover-100 text-clover-deep shadow-sm">
+              {card.icon === "human" && (
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="7" r="3" />
+                  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                </svg>
+              )}
+              {card.icon === "chart" && (
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 19h16" />
+                  <path d="M7 15v-4" />
+                  <path d="M12 15v-8" />
+                  <path d="M17 15v-2" />
+                </svg>
+              )}
+              {card.icon === "check" && (
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+            </div>
+            <p class="text-sm font-semibold text-ink">{card.title}</p>
+            <p class="mt-2 text-sm leading-6 text-ink/70">{card.description}</p>
           </div>
-          <p class="text-sm font-semibold text-ink">Propiedades</p>
-          <p class="mt-2 text-sm text-ink/60">Diseño minimalista para compra y venta.</p>
-        </div>
-        <div class="rounded-[1.75rem] border border-coffee-200/50 bg-white/90 p-5 shadow-sm transition duration-300 hover:-translate-y-1">
-          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-coffee-50 text-coffee-700 shadow-sm">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9Z" />
-              <path d="M7 20V12h10v8" />
-            </svg>
-          </div>
-          <p class="text-sm font-semibold text-ink">Hogar</p>
-          <p class="mt-2 text-sm text-ink/60">Espacios pensados para vivir.</p>
-        </div>
-        <div class="rounded-[1.75rem] border border-coffee-200/50 bg-coffee-50/40 p-5 shadow-sm transition duration-300 hover:-translate-y-1">
-          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-white text-coffee-700 shadow-sm">
-            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 3 4 7v5c0 5 3.6 9.6 8 10 4.4-.4 8-5 8-10V7l-8-4Z" />
-              <path d="M12 7v6" />
-              <path d="M8 12h8" />
-            </svg>
-          </div>
-          <p class="text-sm font-semibold text-ink">Seguridad</p>
-          <p class="mt-2 text-sm text-ink/60">Gestión clara para cada propiedad.</p>
-        </div>
+        ))}
       </div>
 
     </div>

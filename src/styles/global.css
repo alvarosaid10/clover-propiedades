@@ -223,21 +223,23 @@ a {
 }
 
 .button-instagram {
-  background: linear-gradient(135deg, #6b4423, #f2c75f);
-  color: white;
+  background: linear-gradient(135deg, rgba(242, 199, 95, 0.22), rgba(184, 141, 90, 0.16));
+  color: var(--clover-deep);
+  border: 1px solid rgba(107, 68, 35, 0.12);
 }
 
 .button-instagram:hover {
-  background: linear-gradient(135deg, #543617, #d2aa4b);
+  background: linear-gradient(135deg, rgba(242, 199, 95, 0.28), rgba(184, 141, 90, 0.2));
 }
 
 .button-whatsapp {
-  background: linear-gradient(135deg, #335641, #425f4f);
-  color: white;
+  background: linear-gradient(135deg, rgba(184, 217, 154, 0.24), rgba(227, 236, 205, 0.9));
+  color: var(--clover-deep);
+  border: 1px solid rgba(49, 69, 31, 0.12);
 }
 
 .button-whatsapp:hover {
-  background: linear-gradient(135deg, #2d4f3b, #3b5d45);
+  background: linear-gradient(135deg, rgba(184, 217, 154, 0.32), rgba(227, 236, 205, 1));
 }
 
 .logo-swing {
