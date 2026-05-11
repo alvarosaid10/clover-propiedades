@@ -223,25 +223,25 @@ a {
 }
 
 .button-instagram {
-  background: rgba(242, 199, 95, 0.16);
-  color: var(--clover-deep);
-  border: 1px solid rgba(184, 141, 90, 0.18);
-  box-shadow: 0 10px 30px rgba(242, 199, 95, 0.08);
+  background: rgba(225, 170, 100, 0.24);
+  color: var(--coffee-deep);
+  border: 1px solid rgba(225, 170, 100, 0.28);
+  box-shadow: 0 10px 30px rgba(225, 170, 100, 0.06);
 }
 
 .button-instagram:hover {
-  background: rgba(242, 199, 95, 0.2);
+  background: rgba(225, 170, 100, 0.32);
 }
 
 .button-whatsapp {
-  background: rgba(184, 217, 154, 0.18);
+  background: rgba(154, 193, 132, 0.26);
   color: var(--clover-deep);
-  border: 1px solid rgba(49, 69, 31, 0.14);
-  box-shadow: 0 10px 30px rgba(184, 217, 154, 0.08);
+  border: 1px solid rgba(108, 141, 111, 0.26);
+  box-shadow: 0 10px 30px rgba(154, 193, 132, 0.06);
 }
 
 .button-whatsapp:hover {
-  background: rgba(184, 217, 154, 0.26);
+  background: rgba(154, 193, 132, 0.34);
 }
 
 .logo-swing {
