@@ -5,7 +5,7 @@
     "location": "Renca, La Hacienda",
     "client": "Clienta feliz",
     "kind": "Venta",
-    "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop"
+    "image": "/images/successes/la-hacienda-venta-1.jpg"
   },
   {
     "id": "clientes-felices-renca",
@@ -13,7 +13,7 @@
     "location": "Renca, La Hacienda",
     "client": "Clientes felices",
     "kind": "Asesoria y venta",
-    "image": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop"
+    "image": "/images/successes/la-hacienda-clientes.jpg"
   },
   {
     "id": "gestion-renca",
@@ -21,6 +21,6 @@
     "location": "Renca, Santiago",
     "client": "Clientes felices",
     "kind": "Acompanamiento",
-    "image": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop"
+    "image": "/images/successes/renca-gestion.jpg"
   }
 ]
