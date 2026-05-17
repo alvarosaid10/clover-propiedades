@@ -157,21 +157,21 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 82px;
+  min-height: 94px;
   gap: 1rem;
 }
 
 .brand-link img {
-  width: 244px;
-  height: 74px;
+  width: 306px;
+  height: 92px;
   object-fit: contain;
   transition: transform 240ms ease, filter 240ms ease;
   animation: logoFloat 5.5s ease-in-out infinite;
 }
 
 .brand-link:hover img {
-  transform: translateY(-2px) scale(1.03);
-  filter: drop-shadow(0 12px 20px rgba(47, 77, 44, 0.18));
+  transform: translateY(-3px) scale(1.045);
+  filter: drop-shadow(0 16px 26px rgba(47, 77, 44, 0.2));
 }
 
 @keyframes logoFloat {
@@ -465,12 +465,15 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   opacity: 0;
   transform: scale(1.04);
   filter: saturate(0.92) contrast(1.02);
-  animation: imageFade 18s infinite ease-in-out;
+  animation: imageFade 12s infinite ease-in-out;
 }
 
 .fade-a { animation-delay: 0s; object-position: center top; }
-.fade-b { animation-delay: 6s; object-position: center; }
-.fade-c { animation-delay: 12s; object-position: center; }
+.fade-b { animation-delay: 2s; object-position: center; }
+.fade-c { animation-delay: 4s; object-position: center; }
+.fade-d { animation-delay: 6s; object-position: center; }
+.fade-e { animation-delay: 8s; object-position: center; }
+.fade-f { animation-delay: 10s; object-position: center; }
 
 .image-fade::after {
   content: "";
@@ -483,9 +486,9 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 @keyframes imageFade {
   0% { opacity: 0; transform: scale(1.04); }
-  8% { opacity: 1; }
-  32% { opacity: 1; transform: scale(1); }
-  43% { opacity: 0; transform: scale(1.02); }
+  4% { opacity: 1; }
+  14% { opacity: 1; transform: scale(1); }
+  20% { opacity: 0; transform: scale(1.02); }
   100% { opacity: 0; transform: scale(1.04); }
 }
 
@@ -541,6 +544,23 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.72fr);
   gap: 1rem;
   align-items: start;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(200, 216, 175, 0.34), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.92), rgba(240, 223, 185, 0.28));
+}
+
+.service-intro::after {
+  content: "";
+  position: absolute;
+  right: -58px;
+  bottom: -72px;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(139, 109, 78, 0.14);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .service-intro > .eyebrow,
@@ -568,6 +588,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   font-size: 0.76rem;
   font-weight: 760;
   line-height: 1.35;
+  min-height: 100%;
 }
 
 .support-row strong {
@@ -586,20 +607,23 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   margin-top: 0;
   border: 1px solid rgba(139, 109, 78, 0.16);
   border-radius: 20px;
-  background: rgba(255, 250, 241, 0.62);
+  background:
+    linear-gradient(135deg, rgba(47, 77, 44, 0.96), rgba(101, 122, 72, 0.9)),
+    var(--green);
   padding: 0.85rem;
   min-height: 100%;
+  color: #fff;
 }
 
 .service-promise strong {
-  color: var(--green);
+  color: #fff;
   font-size: 0.92rem;
 }
 
 .service-promise span {
   position: relative;
   padding-left: 1rem;
-  color: rgba(21, 22, 17, 0.68);
+  color: rgba(255, 250, 241, 0.82);
   font-size: 0.82rem;
   font-weight: 760;
 }
@@ -612,7 +636,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--butter);
 }
 
 .service-closing {
@@ -630,6 +654,9 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 .service-tile {
   position: relative;
   min-width: 0;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 0.85rem;
   padding: 1rem;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
@@ -691,12 +718,13 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 .service-content {
   display: grid;
-  gap: 0.72rem;
+  gap: 0.62rem;
 }
 
 .service-tile-featured .service-content {
-  grid-template-columns: minmax(210px, 0.55fr) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(230px, 0.58fr) minmax(0, 1fr) auto;
   align-items: start;
+  gap: 1rem;
 }
 
 .service-tile-featured ul {
@@ -991,8 +1019,8 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   }
 
   .brand-link img {
-    width: 176px;
-    height: 54px;
+    width: 210px;
+    height: 64px;
   }
 
   .hero {
@@ -1067,6 +1095,10 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   .service-tile-featured .service-content,
   .service-tile-featured ul {
     grid-template-columns: 1fr;
+  }
+
+  .service-tile {
+    grid-template-columns: 40px minmax(0, 1fr);
   }
 
   .proof-card {
