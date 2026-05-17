@@ -1,17 +1,17 @@
 ---
 import successes from "../data/successes.json";
 
-const featured = successes.slice(0, 3);
+const featured = successes;
 ---
 
-<section id="resultados" class="proof-section">
+<section id="experiencia" class="proof-section">
   <div class="container proof-panel">
     <div class="proof-copy">
       <p class="eyebrow">Experiencia real</p>
-      <h2>Propiedades gestionadas con confianza.</h2>
+      <h2>Propiedades gestionadas con confianza</h2>
       <p>
-        Usamos publicaciones reales, cierres y material visual de Clover para mostrar
-        trayectoria sin transformar la web en un catalogo de propiedades disponibles.
+        Tres ejemplos reales de gestion en distintas zonas. La imagen cambia suavemente
+        entre foto de propiedad y publicacion de Clover para mostrar contexto y respaldo.
       </p>
     </div>
 
@@ -20,10 +20,13 @@ const featured = successes.slice(0, 3);
         <article class="proof-card">
           <div class="proof-image">
             <img src={item.image} alt={`${item.title} - ${item.location}`} loading="lazy" />
+            <img class="proof-image-alt" src={item.secondaryImage} alt={`Publicacion Clover - ${item.location}`} loading="lazy" />
           </div>
-          <span>{item.kind}</span>
-          <h3>{item.title}</h3>
-          <p>{item.location}</p>
+          <div class="proof-body">
+            <span>{item.kind}</span>
+            <h3>{item.title}</h3>
+            <p>{item.location}</p>
+          </div>
         </article>
       ))}
     </div>

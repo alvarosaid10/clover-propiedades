@@ -1,44 +1,26 @@
-﻿[
+[
   {
-    "id": "venta-renca-la-hacienda",
+    "id": "renca-la-hacienda",
     "title": "Venta finalizada con exito",
-    "location": "Renca, La Hacienda",
-    "kind": "Venta realizada",
-    "image": "/images/proof/venta-renca-1.jpg"
+    "location": "Renca La Hacienda",
+    "kind": "Casa familiar",
+    "image": "/images/proof/caso-renca-foto.jpg",
+    "secondaryImage": "/images/proof/caso-renca-certificado.jpg"
   },
   {
-    "id": "clientes-felices-la-hacienda",
-    "title": "Clientes felices",
-    "location": "Renca, La Hacienda",
-    "kind": "Operacion cerrada",
-    "image": "/images/proof/venta-renca-2.jpg"
+    "id": "talagante-venta",
+    "title": "Gestion de venta publicada",
+    "location": "Talagante",
+    "kind": "Terreno y vivienda",
+    "image": "/images/proof/caso-talagante-foto.jpg",
+    "secondaryImage": "/images/proof/caso-talagante-certificado.jpg"
   },
   {
-    "id": "publicacion-ciudad-nueva-renca",
-    "title": "Publicacion comercial",
-    "location": "Renca, Ciudad Nueva",
-    "kind": "Ficha de venta",
-    "image": "/images/proof/venta-renca-3.jpg"
-  },
-  {
-    "id": "publicacion-magnolio",
-    "title": "Propiedad difundida",
-    "location": "Renca, Condominio El Magnolio",
-    "kind": "Ficha de venta",
-    "image": "/images/proof/venta-renca-4.jpg"
-  },
-  {
-    "id": "publicacion-san-miguel",
-    "title": "Departamento gestionado",
-    "location": "San Miguel",
-    "kind": "Ficha de venta",
-    "image": "/images/proof/venta-renca-5.jpg"
-  },
-  {
-    "id": "publicacion-papudo",
-    "title": "Propiedad destacada",
-    "location": "Papudo",
-    "kind": "Ficha de venta",
-    "image": "/images/proof/venta-renca-6.jpg"
+    "id": "papudo-laguna",
+    "title": "Propiedad destacada en costa",
+    "location": "Papudo Laguna",
+    "kind": "Departamento",
+    "image": "/images/proof/caso-papudo-foto.jpg",
+    "secondaryImage": "/images/proof/caso-papudo-certificado.jpg"
   }
 ]
