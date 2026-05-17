@@ -1,31 +1,31 @@
 ---
 import successes from "../data/successes.json";
 
-const featured = successes.slice(0, 4);
+const featured = successes.slice(0, 3);
 ---
 
-<section id="resultados" class="results-card">
-  <div class="section-top split">
-    <div>
-      <p class="eyebrow">Resultados</p>
-      <h2>Operaciones y publicaciones que generan confianza.</h2>
+<section id="resultados" class="proof-section">
+  <div class="container proof-panel">
+    <div class="proof-copy">
+      <p class="eyebrow">Experiencia real</p>
+      <h2>Propiedades gestionadas con confianza.</h2>
+      <p>
+        Usamos publicaciones reales, cierres y material visual de Clover para mostrar
+        trayectoria sin transformar la web en un catalogo de propiedades disponibles.
+      </p>
     </div>
-    <p>
-      En vez de una vitrina eterna de propiedades disponibles, mostramos evidencia:
-      operaciones cerradas, publicaciones reales y clientes atendidos.
-    </p>
-  </div>
 
-  <div class="result-strip">
-    {featured.map((item) => (
-      <article class="result-item">
-        <img src={item.image} alt={item.alt} loading="lazy" />
-        <div>
+    <div class="proof-grid">
+      {featured.map((item) => (
+        <article class="proof-card">
+          <div class="proof-image">
+            <img src={item.image} alt={`${item.title} - ${item.location}`} loading="lazy" />
+          </div>
           <span>{item.kind}</span>
           <h3>{item.title}</h3>
           <p>{item.location}</p>
-        </div>
-      </article>
-    ))}
+        </article>
+      ))}
+    </div>
   </div>
 </section>

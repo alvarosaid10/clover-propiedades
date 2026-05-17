@@ -1,56 +1,41 @@
 ---
 const services = [
   {
-    title: "Venta de propiedades",
+    name: "Venta",
     price: "2% + IVA",
-    icon: "home",
-    text: "Valorizamos, preparamos la publicacion, coordinamos visitas, filtramos interesados y acompanamos documentos, negociacion y firma.",
-    detail: "Ideal para propietarios que quieren vender con orden, buena imagen y seguimiento profesional."
+    text: "Valorizacion, marketing, visitas, negociacion, revision documental y acompanamiento hasta firma.",
+    icon: `<path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path>`
   },
   {
-    title: "Arriendo",
+    name: "Arriendo",
     price: "50% + IVA",
-    icon: "key",
-    text: "Definimos precio, publicamos, filtramos arrendatarios, apoyamos contrato, garantia y entrega del inmueble.",
-    detail: "Pensado para arrendar con menos friccion y mejor control desde el primer contacto."
+    text: "Publicacion, filtro de arrendatarios, contrato, garantia y entrega ordenada del inmueble.",
+    icon: `<circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path>`
   },
   {
-    title: "Administracion",
+    name: "Administracion",
     price: "7% mensual",
-    icon: "shield",
-    text: "Gestionamos cobros, pagos, supervision del inmueble, atencion de arrendatarios e informes periodicos.",
-    detail: "Para propietarios que necesitan continuidad y claridad sin estar encima de cada gestion."
+    text: "Cobros, pagos, supervision, atencion de arrendatarios e informes periodicos para el propietario.",
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path>`
   }
 ];
-
-const icons = {
-  home: `<path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path>`,
-  key: `<circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path>`,
-  shield: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path>`
-};
 ---
 
 <section id="servicios" class="services">
-  <div class="container">
-    <div class="section-top compact">
+  <div class="container service-panel">
+    <div class="service-intro">
       <p class="eyebrow">Servicios</p>
-      <h2>Gestion completa, sin vueltas.</h2>
-      <p>
-        La propuesta es simple: Clover toma el proceso comercial y administrativo,
-        mantiene comunicacion clara y reduce la carga del propietario.
-      </p>
+      <h2>Nos encargamos de todo.</h2>
+      <p>Una gestion simple para el cliente: claridad, seguridad y seguimiento en cada etapa.</p>
     </div>
 
     <div class="service-grid">
       {services.map((service) => (
         <article class="service-tile">
-          <div class="service-tile-head">
-            <span class="service-symbol" set:html={`<svg viewBox="0 0 24 24">${icons[service.icon]}</svg>`} />
-            <strong>{service.price}</strong>
-          </div>
-          <h3>{service.title}</h3>
+          <span class="service-symbol" set:html={`<svg viewBox="0 0 24 24">${service.icon}</svg>`} />
+          <h3>{service.name}</h3>
           <p>{service.text}</p>
-          <small>{service.detail}</small>
+          <strong>{service.price}</strong>
         </article>
       ))}
     </div>

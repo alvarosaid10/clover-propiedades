@@ -3,44 +3,35 @@ import site from "../data/site.json";
 ---
 
 <section class="hero">
-  <div class="container hero-grid">
+  <div class="container hero-panel">
     <div class="hero-copy">
-      <p class="eyebrow">Clover Propiedades</p>
-      <h1>Corretaje inmobiliario claro, cercano y completo.</h1>
+      <img class="hero-logo" src="/images/corporate/clover-logo-transparent.svg" alt="Clover Propiedades" />
+      <p class="eyebrow">Corretaje y gestion inmobiliaria</p>
+      <h1>Tu propiedad, bien gestionada.</h1>
       <p class="hero-lead">
-        Venta, arriendo y administracion de propiedades con evaluacion comercial,
-        publicacion cuidada, filtro de interesados y acompanamiento hasta el cierre.
+        Compra, vende o arrienda con acompanamiento profesional. Clover se encarga
+        de evaluar, publicar, filtrar interesados y ordenar el proceso de principio a fin.
       </p>
 
       <div class="hero-actions">
-        <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20para%20mi%20propiedad.`} target="_blank" rel="noopener noreferrer">
-          Solicitar asesoria
+        <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20inmobiliaria.`} target="_blank" rel="noopener noreferrer">
+          Hablar por WhatsApp
         </a>
         <a class="button button-soft" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">
-          Ver Instagram
+          Ver publicaciones
         </a>
-      </div>
-
-      <div class="hero-proofline" aria-label="Resumen de servicios">
-        <span>Venta</span>
-        <span>Arriendo</span>
-        <span>Administracion</span>
       </div>
     </div>
 
-    <div class="hero-visual" aria-label="Material visual Clover Propiedades">
-      <div class="hero-photo hero-photo-main">
-        <img src="/images/corporate/asesora-clover.jpg" alt="Asesora de Clover Propiedades" loading="eager" />
+    <div class="hero-media" aria-label="Propiedades y operaciones reales de Clover">
+      <div class="blend-frame">
+        <img class="blend-img blend-a" src="/images/corporate/asesora-clover.jpg" alt="Asesora de Clover Propiedades" loading="eager" />
+        <img class="blend-img blend-b" src="/images/proof/venta-renca-1.jpg" alt="Venta finalizada por Clover Propiedades" loading="eager" />
+        <img class="blend-img blend-c" src="/images/portfolio/propiedad-09.jpg" alt="Propiedad gestionada por Clover" loading="eager" />
       </div>
-      <div class="hero-card-note">
-        <img src="/images/corporate/logo-clover.jpg" alt="" />
-        <p>Tu solo recibes tu deposito.</p>
-      </div>
-      <div class="hero-mini hero-mini-one">
-        <img src="/images/proof/venta-renca-1.jpg" alt="Venta finalizada por Clover Propiedades" loading="eager" />
-      </div>
-      <div class="hero-mini hero-mini-two">
-        <img src="/images/portfolio/propiedad-09.jpg" alt="Interior de propiedad gestionada" loading="eager" />
+      <div class="media-badge">
+        <span>Gestion completa</span>
+        <strong>Tu solo recibes tu deposito.</strong>
       </div>
     </div>
   </div>

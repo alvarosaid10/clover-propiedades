@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 230" role="img" aria-labelledby="title">
+  <title id="title">Clover Propiedades</title>
+  <g fill="none" stroke="#315522" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M52 142V78L146 22l92 55"/>
+    <path d="M52 142h140"/>
+  </g>
+  <g fill="#071021">
+    <path d="M262 104c0-34 25-57 61-57 23 0 42 10 52 28l-30 17c-5-9-13-14-23-14-16 0-27 11-27 26s11 26 27 26c10 0 18-5 23-14l30 17c-10 18-29 29-52 29-36 0-61-24-61-58Z"/>
+    <path d="M384 50h32v81h50v28h-82V50Z"/>
+    <path d="M472 105c0-33 25-57 59-57s59 24 59 57-25 57-59 57-59-24-59-57Zm85 0c0-16-11-27-26-27s-26 11-26 27 11 27 26 27 26-11 26-27Z"/>
+  </g>
+  <g fill="#315522">
+    <path d="M503 187c-16-11-29-11-39 0 0-18 8-28 24-28 11 0 17 8 15 28Z"/>
+    <path d="M510 187c16-11 29-11 39 0 0-18-8-28-24-28-11 0-17 8-15 28Z"/>
+    <path d="M507 193c-11 16-11 29 0 39-18 0-28-8-28-24 0-11 8-17 28-15Z"/>
+    <path d="M507 193c11 16 11 29 0 39 18 0 28-8 28-24 0-11-8-17-28-15Z"/>
+  </g>
+  <text x="260" y="204" fill="#071021" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="12">PROPIEDADES</text>
+</svg>
