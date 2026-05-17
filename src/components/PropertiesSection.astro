@@ -1,39 +1,33 @@
+﻿---
+const images = [
+  { src: "/images/portfolio/propiedad-01.jpg", label: "Casa familiar" },
+  { src: "/images/portfolio/propiedad-03.jpg", label: "Terraza y exterior" },
+  { src: "/images/portfolio/propiedad-05.jpg", label: "Departamento" },
+  { src: "/images/portfolio/propiedad-06.jpg", label: "Interior equipado" },
+  { src: "/images/portfolio/propiedad-08.jpg", label: "Vista y entorno" },
+  { src: "/images/portfolio/propiedad-09.jpg", label: "Cocina y comedor" }
+];
 ---
-import properties from "../data/properties.json";
-import PropertyCard from "./PropertyCard.astro";
 
-const visibleProperties = properties.filter((property) => property.visible !== false);
----
-
-<section id="propiedades" class="bg-white section-accent py-12 md:py-16">
+<section id="experiencia" class="section-shell bg-white py-14 md:py-20">
   <div class="container">
-    <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-      <div class="max-w-2xl">
-        <div class="flex items-center gap-3">
-          <span class="section-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 20V9l8-5 8 5v11" />
-              <path d="M9 20v-6h6v6" />
-            </svg>
-          </span>
-          <p class="eyebrow">Disponibles</p>
-        </div>
-        <h2 class="section-title mt-4">Propiedades destacadas.</h2>
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Experiencia real</p>
+        <h2 class="section-title mt-4">Propiedades gestionadas con imagen cuidada.</h2>
       </div>
-      <p class="max-w-md text-sm leading-6 text-ink/62">
-        Seleccion de oportunidades disponibles para compra o arriendo, presentadas con informacion clara y contacto directo.
+      <p>
+        No mostramos un catalogo activo para evitar confusiones. Presentamos evidencia real de gestion, tipos de inmuebles y material comercial usado por Clover.
       </p>
     </div>
 
-    {visibleProperties.length > 0 ? (
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {visibleProperties.map((property, index) => <PropertyCard property={property} class="animate-bounce-in" style={`animation-delay: ${0.1 * index}s;`} />)}
-      </div>
-    ) : (
-      <div class="mt-10 rounded-2xl border border-black/10 bg-clover-50 p-8 text-center">
-        <h3 class="text-2xl font-extrabold">Estamos preparando nuevas oportunidades.</h3>
-        <p class="mt-3 text-ink/62">Contactanos por WhatsApp para recibir propiedades disponibles antes de su publicacion.</p>
-      </div>
-    )}
+    <div class="portfolio-grid mt-10">
+      {images.map((image, index) => (
+        <figure class={index === 0 || index === 4 ? "portfolio-card portfolio-card-large" : "portfolio-card"}>
+          <img src={image.src} alt={image.label} loading="lazy" />
+          <figcaption>{image.label}</figcaption>
+        </figure>
+      ))}
+    </div>
   </div>
 </section>

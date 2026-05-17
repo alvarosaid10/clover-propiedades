@@ -1,132 +1,74 @@
----
+﻿---
 import site from "../data/site.json";
 
-const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20comprar%2C%20vender%20o%20arrendar%20una%20propiedad.`;
+const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20para%20venta%2C%20arriendo%20o%20administracion.`;
 const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
-
-const heroCards = [
-  {
-    title: "Asesoría humana",
-    description: "Acompañamos cada paso con atención personalizada y soporte real.",
-    icon: "human"
-  },
-  {
-    title: "Análisis local",
-    description: "Datos del mercado de Renca para decisiones más seguras.",
-    icon: "chart"
-  },
-  {
-    title: "Cierre confiable",
-    description: "Negociaciones claras y acompañadas hasta la firma.",
-    icon: "check"
-  }
-];
 ---
 
-<section class="overflow-hidden pb-10 pt-6 md:pb-16 md:pt-10">
-  <div class="container relative grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+<section class="hero-section overflow-hidden pb-12 pt-8 md:pb-18 md:pt-12">
+  <div class="container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
     <div class="relative z-10">
-      <p class="eyebrow">Bienvenido a Clover Propiedades</p>
-      <h1 class="text-balance mt-5 max-w-3xl font-display text-[clamp(3.1rem,7vw,6.4rem)] font-semibold leading-[0.9] text-ink">
-        Clover Propiedades
+      <p class="eyebrow">Corretaje y gestion inmobiliaria</p>
+      <h1 class="text-balance mt-5 max-w-3xl font-display text-[clamp(3.2rem,7vw,6.6rem)] font-semibold leading-[0.9] text-ink">
+        Tu propiedad en buenas manos.
       </h1>
       <p class="mt-7 max-w-xl text-lg leading-8 text-ink/68">
-        Compra, vende y arrienda con una corredora enfocada en asesoría cercana, gestión clara y propiedades presentadas con criterio profesional.
+        Clover Propiedades acompana ventas, arriendos y administracion con gestion completa, supervision permanente y comunicacion clara de principio a fin.
       </p>
 
       <div class="mt-9 flex flex-col gap-3 sm:flex-row">
         <a class="button button-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          Escribir por WhatsApp
+          Hablar por WhatsApp
         </a>
         <a class="button button-instagram" href={instagramUrl} target="_blank" rel="noopener noreferrer">
-          Instagram @{site.instagram}
-        </a>
-        <a class="button button-secondary" href="#propiedades">
-          Ver propiedades
+          Instagram
         </a>
       </div>
 
-      <div class="mt-8 grid gap-4 sm:grid-cols-3">
-        {heroCards.map((card) => (
-          <div class="rounded-[1.75rem] border border-coffee-200/40 bg-white/80 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-clover-100 text-clover-deep shadow-sm">
-              {card.icon === "human" && (
-                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="7" r="3" />
-                  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
-                </svg>
-              )}
-              {card.icon === "chart" && (
-                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 19h16" />
-                  <path d="M7 15v-4" />
-                  <path d="M12 15v-8" />
-                  <path d="M17 15v-2" />
-                </svg>
-              )}
-              {card.icon === "check" && (
-                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 13l4 4L19 7" />
-                </svg>
-              )}
-            </div>
-            <p class="text-sm font-semibold text-ink">{card.title}</p>
-            <p class="mt-2 text-sm leading-6 text-ink/70">{card.description}</p>
-          </div>
-        ))}
+      <div class="mt-9 grid max-w-xl gap-3 sm:grid-cols-3">
+        <div class="mini-proof">
+          <span>01</span>
+          <strong>Evaluacion</strong>
+          <p>Precio, estado y estrategia.</p>
+        </div>
+        <div class="mini-proof">
+          <span>02</span>
+          <strong>Publicacion</strong>
+          <p>Imagen clara y filtro comercial.</p>
+        </div>
+        <div class="mini-proof">
+          <span>03</span>
+          <strong>Cierre</strong>
+          <p>Acompanamiento hasta firma.</p>
+        </div>
       </div>
-
     </div>
 
     <div class="relative">
-      <div class="hero-panel card-frame rounded-[2rem] border border-coffee-100/60 bg-white/95 p-6 shadow-soft md:p-8">
-        <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] items-start">
-          <div class="rounded-[1.75rem] border border-coffee-100/60 bg-clover-50/35 p-6 shadow-sm">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-clover-700">Renca e inmediaciones</p>
-            <h2 class="mt-4 text-3xl font-black leading-tight text-clover-900 sm:text-4xl">Operaciones inmobiliarias claras y cercanas.</h2>
-            <p class="mt-5 text-sm leading-6 text-ink/70">
-              Nos enfocamos en ventas, arriendos y asesorías con acompañamiento humano, tiempos reales y propuestas que hablan de experiencia.
-            </p>
-
-            <div class="mt-8 grid gap-4 sm:grid-cols-3">
-              <div class="rounded-[1.75rem] bg-white p-5 shadow-sm text-center">
-                <p class="text-3xl font-black text-clover-900">50+</p>
-                <p class="mt-2 text-[0.65rem] uppercase tracking-[0.22em] text-coffee-700">operaciones cerradas</p>
-              </div>
-              <div class="rounded-[1.75rem] bg-white p-5 shadow-sm text-center">
-                <p class="text-3xl font-black text-clover-900">95%</p>
-                <p class="mt-2 text-[0.65rem] uppercase tracking-[0.22em] text-coffee-700">clientes recomendados</p>
-              </div>
-              <div class="rounded-[1.75rem] bg-white p-5 shadow-sm text-center">
-                <p class="text-3xl font-black text-clover-900">5+</p>
-                <p class="mt-2 text-[0.65rem] uppercase tracking-[0.22em] text-coffee-700">años en el mercado</p>
-              </div>
+      <div class="hero-card relative overflow-hidden rounded-[2rem] border border-clover-900/10 bg-white p-4 shadow-soft md:p-5">
+        <div class="grid gap-4 lg:grid-cols-[0.92fr_1.08fr]">
+          <div class="relative min-h-[420px] overflow-hidden rounded-[1.6rem] bg-clover-900 md:min-h-[560px]">
+            <img src="/images/corporate/asesora-clover.jpg" alt="Asesora de Clover Propiedades" class="h-full w-full object-cover" loading="eager" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/8 to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <p class="text-xs font-black uppercase tracking-[0.18em] text-clover-100">Clover Propiedades</p>
+              <p class="mt-2 text-2xl font-black leading-tight">Atencion cercana y gestion profesional.</p>
             </div>
           </div>
 
-          <div class="grid gap-4">
-            <div class="rounded-[1.75rem] border border-coffee-100/60 bg-clover-50/30 p-6 shadow-sm">
-              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-clover-700">Nuestra forma de operar</p>
-              <div class="mt-4 space-y-4 text-sm text-ink/75">
-                <div class="rounded-2xl bg-white p-4 shadow-sm">
-                  <p class="font-bold text-clover-900">Visita con valor</p>
-                  <p class="mt-1">Revisamos el inmueble y su entorno para ajustar expectativas y precio.</p>
-                </div>
-                <div class="rounded-2xl bg-white p-4 shadow-sm">
-                  <p class="font-bold text-clover-900">Publicación profesional</p>
-                  <p class="mt-1">Armamos una ficha clara con fotos y datos que generan confianza.</p>
-                </div>
-                <div class="rounded-2xl bg-white p-4 shadow-sm">
-                  <p class="font-bold text-clover-900">Cierre con respaldo</p>
-                  <p class="mt-1">Acompañamos la negociación y firmamos cada paso con claridad.</p>
-                </div>
-              </div>
+          <div class="flex flex-col justify-between rounded-[1.6rem] bg-clover-50/70 p-6">
+            <div>
+              <img src="/images/corporate/logo-clover.jpg" alt="Logo Clover Propiedades" class="h-16 w-auto rounded-xl bg-white object-contain p-2 shadow-sm" />
+              <p class="mt-8 text-xs font-black uppercase tracking-[0.2em] text-clover-700">Gestion completa</p>
+              <h2 class="mt-4 text-4xl font-black leading-[0.95] text-clover-900 md:text-5xl">Tu solo recibes tu deposito.</h2>
+              <p class="mt-5 text-sm leading-6 text-ink/68">
+                Evaluacion, marketing, visitas, documentacion, negociacion y seguimiento en un proceso ordenado y transparente.
+              </p>
             </div>
-
-            <div class="rounded-[1.75rem] border border-coffee-100/60 bg-white p-6 shadow-sm">
-              <p class="text-xs font-extrabold uppercase tracking-[0.24em] text-coffee-700">Qué nos diferencia</p>
-              <p class="mt-3 text-lg font-black text-clover-900">Cualquier operación mejora con orden, acompañamiento y transparencia.</p>
-              <p class="mt-3 text-sm leading-6 text-ink/70">No vendemos promesas rápidas: proponemos herramientas claras para avanzar con seguridad.</p>
+            <div class="mt-8 grid gap-3">
+              <div class="check-row">Supervision permanente del inmueble</div>
+              <div class="check-row">Seguridad y transparencia</div>
+              <div class="check-row">Acompanamiento en todo el proceso</div>
             </div>
           </div>
         </div>

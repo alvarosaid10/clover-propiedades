@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#fbfbf8"/>
-  <rect x="72" y="74" width="1056" height="482" rx="34" fill="#172212"/>
-  <path d="M114 480 480 140l164 160 116-92 326 272v76H114Z" fill="#31451f"/>
-  <text x="112" y="170" fill="#fff" font-family="Georgia, serif" font-size="86" font-weight="700">Clover Propiedades</text>
-  <text x="116" y="242" fill="#dbe9d1" font-family="Arial, sans-serif" font-size="30" font-weight="700">Compra | Vende | Arrienda con nosotros</text>
-  <circle cx="965" cy="185" r="58" fill="#b8d99a"/>
-</svg>

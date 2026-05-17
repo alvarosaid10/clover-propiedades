@@ -1,79 +1,57 @@
----
+﻿---
 const services = [
   {
-    title: "Compra",
-    text: "Busqueda y revision comercial para encontrar una propiedad que calce con presupuesto, ubicacion y objetivos.",
-    icon: "search"
+    title: "Venta de propiedades",
+    rate: "2% + IVA",
+    text: "Valorizacion, marketing, gestion de visitas, revision documental y acompanamiento hasta firma.",
+    items: ["Evaluacion y estrategia", "Marketing y publicacion", "Negociacion y cierre"],
+    icon: "home"
   },
   {
-    title: "Venta",
-    text: "Publicacion, presentacion visual, filtro de interesados y acompanamiento hasta cerrar la operacion.",
-    icon: "tag"
-  },
-  {
-    title: "Arriendo",
-    text: "Gestion practica para propietarios y arrendatarios, con contacto directo y seguimiento claro.",
+    title: "Arriendo de propiedades",
+    rate: "50% + IVA",
+    text: "Fijacion de precio, filtro de arrendatarios, contrato, entrega y gestion de garantias.",
+    items: ["Seleccion de arrendatarios", "Contrato y entrega", "Gestion de garantias"],
     icon: "key"
   },
   {
-    title: "Asesoria",
-    text: "Orientacion inmobiliaria para tomar decisiones con mas seguridad antes de comprar, vender o invertir.",
+    title: "Administracion",
+    rate: "7% mensual",
+    text: "Cobro de arriendos, pagos, supervision del inmueble e informes periodicos.",
+    items: ["Cobros y pagos", "Supervision del inmueble", "Informes periodicos"],
     icon: "shield"
   }
 ];
 ---
 
-<section id="servicios" class="py-12 md:py-16">
+<section id="servicios" class="section-shell py-14 md:py-20">
   <div class="container">
-    <div class="soft-grid rounded-[1.75rem] border border-black/10 p-6 md:p-10">
-      <div class="max-w-2xl">
-        <div class="flex items-center gap-3">
-          <span class="section-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 11.5 12 4l9 7.5" />
-              <path d="M5.5 10.5V20h13v-9.5" />
-              <path d="M9.5 20v-5h5v5" />
-            </svg>
-          </span>
-          <p class="eyebrow">Servicios</p>
-        </div>
-        <h2 class="section-title mt-4">Gestion inmobiliaria clara y cercana.</h2>
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Servicios</p>
+        <h2 class="section-title mt-4">Gestion completa de principio a fin.</h2>
       </div>
-      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {services.map((service, index) => (
-          <article class="group card-frame overflow-hidden rounded-2xl border border-black/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:shadow-soft animate-bounce-in pattern-bg" style={`animation-delay: ${0.1 * index}s;`}>
-            <div class="mb-8 flex h-14 w-14 items-center justify-center rounded-3xl bg-coffee-50 text-coffee-700 shadow-sm">
-              {service.icon === "search" && (
-                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.3-4.3" />
-                </svg>
-              )}
-              {service.icon === "tag" && (
-                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 7v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7L13 2 4 7Z" />
-                  <path d="M8 10h.01" />
-                </svg>
-              )}
-              {service.icon === "key" && (
-                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="8" cy="8" r="3" />
-                  <path d="m11 11 9 9" />
-                  <path d="m16 16 2-2" />
-                  <path d="m19 19 2-2" />
-                </svg>
-              )}
-              {service.icon === "shield" && (
-                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                </svg>
-              )}
-            </div>
-            <h3 class="text-xl font-extrabold">{service.title}</h3>
-            <p class="mt-3 text-sm leading-6 text-ink/62">{service.text}</p>
-          </article>
-        ))}
-      </div>
+      <p>
+        Clover se encarga de ordenar el proceso comercial para que propietarios y clientes avancen con claridad, respaldo y una comunicacion cercana.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-5 lg:grid-cols-3">
+      {services.map((service) => (
+        <article class="service-card">
+          <div class="service-icon">
+            {service.icon === "home" && <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg>}
+            {service.icon === "key" && <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"/><path d="m11 11 9 9"/><path d="m16 16 2-2"/><path d="m19 19 2-2"/></svg>}
+            {service.icon === "shield" && <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>}
+          </div>
+          <p class="mt-8 text-xs font-black uppercase tracking-[0.18em] text-clover-700">{service.title}</p>
+          <h3 class="mt-3 text-4xl font-black text-clover-900">{service.rate}</h3>
+          <p class="mt-4 text-sm leading-6 text-ink/66">{service.text}</p>
+          <ul class="mt-6 space-y-3">
+            {service.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      ))}
     </div>
   </div>
 </section>

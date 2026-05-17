@@ -1,10 +1,11 @@
-{
+﻿{
   "name": "Clover Propiedades",
-  "tagline": "Compra, vende y arrienda con asesoria inmobiliaria cercana.",
-  "description": "Corredora de propiedades en Chile enfocada en compra, venta, arriendo y asesoria inmobiliaria profesional.",
+  "tagline": "Corretaje y gestion inmobiliaria profesional.",
+  "description": "Clover Propiedades ofrece venta, arriendo, administracion y asesoria inmobiliaria con gestion completa, transparencia y acompanamiento cercano.",
   "location": "Renca, Santiago, Chile",
   "phone": "+56950329040",
   "whatsapp": "56950329040",
+  "email": "propiedades.clover.cl@gmail.com",
   "instagram": "clover__propiedades",
   "domain": "cloverpropiedades.cl"
 }

@@ -1,26 +1,44 @@
-[
+﻿[
   {
-    "id": "venta-la-hacienda-1",
+    "id": "venta-renca-la-hacienda",
     "title": "Venta finalizada con exito",
     "location": "Renca, La Hacienda",
-    "client": "Clienta feliz",
-    "kind": "Venta",
-    "image": "/images/successes/la-hacienda-venta-1.jpg"
+    "kind": "Venta realizada",
+    "image": "/images/proof/venta-renca-1.jpg"
   },
   {
-    "id": "clientes-felices-renca",
+    "id": "clientes-felices-la-hacienda",
     "title": "Clientes felices",
     "location": "Renca, La Hacienda",
-    "client": "Clientes felices",
-    "kind": "Asesoria y venta",
-    "image": "/images/successes/la-hacienda-clientes.jpg"
+    "kind": "Operacion cerrada",
+    "image": "/images/proof/venta-renca-2.jpg"
   },
   {
-    "id": "gestion-renca",
-    "title": "Gestion inmobiliaria",
-    "location": "Renca, Santiago",
-    "client": "Clientes felices",
-    "kind": "Acompanamiento",
-    "image": "/images/successes/renca-gestion.jpg"
+    "id": "publicacion-ciudad-nueva-renca",
+    "title": "Publicacion comercial",
+    "location": "Renca, Ciudad Nueva",
+    "kind": "Ficha de venta",
+    "image": "/images/proof/venta-renca-3.jpg"
+  },
+  {
+    "id": "publicacion-magnolio",
+    "title": "Propiedad difundida",
+    "location": "Renca, Condominio El Magnolio",
+    "kind": "Ficha de venta",
+    "image": "/images/proof/venta-renca-4.jpg"
+  },
+  {
+    "id": "publicacion-san-miguel",
+    "title": "Departamento gestionado",
+    "location": "San Miguel",
+    "kind": "Ficha de venta",
+    "image": "/images/proof/venta-renca-5.jpg"
+  },
+  {
+    "id": "publicacion-papudo",
+    "title": "Propiedad destacada",
+    "location": "Papudo",
+    "kind": "Ficha de venta",
+    "image": "/images/proof/venta-renca-6.jpg"
   }
 ]

@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
@@ -6,6 +6,7 @@ import TrustStrip from "../components/TrustStrip.astro";
 import Services from "../components/Services.astro";
 import PropertiesSection from "../components/PropertiesSection.astro";
 import SuccessSection from "../components/SuccessSection.astro";
+import ProcessSection from "../components/ProcessSection.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Footer from "../components/Footer.astro";
 ---
@@ -13,12 +14,13 @@ import Footer from "../components/Footer.astro";
 <BaseLayout>
   <Header />
   <main>
-    <Hero class="animate-fade-in-up" />
-    <TrustStrip class="animate-fade-in-up" style="animation-delay: 0.2s;" />
-    <Services class="animate-fade-in-up" style="animation-delay: 0.4s;" />
-    <PropertiesSection class="animate-fade-in-up" style="animation-delay: 0.6s;" />
+    <Hero />
+    <TrustStrip />
+    <Services />
+    <PropertiesSection />
     <SuccessSection />
-    <ContactCTA class="animate-fade-in-up" style="animation-delay: 1.0s;" />
+    <ProcessSection />
+    <ContactCTA />
   </main>
   <Footer />
 </BaseLayout>
