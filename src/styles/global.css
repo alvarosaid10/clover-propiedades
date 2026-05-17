@@ -54,6 +54,29 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.2; }
 
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy,
+  .hero-card,
+  .service-intro,
+  .service-tile,
+  .proof-copy,
+  .proof-card,
+  .contact-box {
+    animation: sectionRise 680ms ease both;
+  }
+
+  .service-tile:nth-child(2),
+  .proof-card:nth-child(2) { animation-delay: 90ms; }
+
+  .service-tile:nth-child(3),
+  .proof-card:nth-child(3) { animation-delay: 160ms; }
+
+  @keyframes sectionRise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
 .container {
   width: min(1120px, calc(100% - 32px));
   margin-inline: auto;
@@ -134,14 +157,26 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 76px;
+  min-height: 82px;
   gap: 1rem;
 }
 
 .brand-link img {
-  width: 168px;
-  height: 52px;
+  width: 212px;
+  height: 64px;
   object-fit: contain;
+  transition: transform 240ms ease, filter 240ms ease;
+  animation: logoFloat 5.5s ease-in-out infinite;
+}
+
+.brand-link:hover img {
+  transform: translateY(-2px) scale(1.03);
+  filter: drop-shadow(0 12px 20px rgba(47, 77, 44, 0.18));
+}
+
+@keyframes logoFloat {
+  0%, 100% { filter: drop-shadow(0 8px 16px rgba(54, 42, 25, 0.05)); }
+  50% { filter: drop-shadow(0 14px 24px rgba(47, 77, 44, 0.13)); }
 }
 
 .header-nav {
@@ -209,13 +244,14 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 }
 
 .hero h1 {
-  max-width: 600px;
+  max-width: 720px;
   margin: 0.58rem 0 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 6.2vw, 5.6rem);
+  font-size: clamp(2.25rem, 4.7vw, 4.45rem);
   font-weight: 650;
-  letter-spacing: -0.03em;
-  line-height: 0.92;
+  letter-spacing: -0.018em;
+  line-height: 1;
+  text-wrap: balance;
 }
 
 .hero-lead {
@@ -244,6 +280,12 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   color: var(--green);
   font-size: 0.78rem;
   font-weight: 900;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.hero-proof span:hover {
+  transform: translateY(-2px);
+  background: rgba(240, 223, 185, 0.56);
 }
 
 .hero-actions {
@@ -272,6 +314,12 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   inset: 28px 160px 46px 0;
   border: 10px solid rgba(255, 250, 241, 0.9);
   outline: 1px solid rgba(139, 109, 78, 0.18);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.hero-card-main:hover {
+  transform: rotate(-0.6deg) scale(1.01);
+  box-shadow: 0 28px 78px rgba(54, 42, 25, 0.18);
 }
 
 .hero-card-note {
@@ -284,6 +332,11 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   width: min(330px, 82%);
   padding: 1rem;
   background: rgba(255, 250, 241, 0.94);
+  transition: transform 220ms ease;
+}
+
+.hero-card-note:hover {
+  transform: translateY(-4px);
 }
 
 .hero-card-note strong {
@@ -312,6 +365,11 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   border: 8px solid rgba(255, 250, 241, 0.94);
   transform: rotate(1.2deg);
   text-align: center;
+  transition: transform 260ms ease;
+}
+
+.hero-card-design:hover {
+  transform: rotate(0deg) translateY(-3px);
 }
 
 .hero-card-design strong {
@@ -335,6 +393,12 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   width: 62px;
   height: 62px;
   filter: drop-shadow(0 12px 20px rgba(47, 77, 44, 0.16));
+  animation: cloverPulse 4.2s ease-in-out infinite;
+}
+
+@keyframes cloverPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06) rotate(3deg); }
 }
 
 .design-clover::before,
@@ -421,7 +485,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 .service-panel,
 .proof-panel {
   display: grid;
-  grid-template-columns: 0.5fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0.95rem;
   align-items: stretch;
 }
@@ -438,7 +502,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 .service-intro,
 .proof-copy {
-  padding: 1.25rem;
+  padding: clamp(1.15rem, 2.5vw, 1.55rem);
 }
 
 .service-intro h2,
@@ -460,16 +524,32 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   line-height: 1.62;
 }
 
+.service-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.72fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.service-intro > .eyebrow,
+.service-intro > h2,
+.service-intro > p,
+.service-closing {
+  grid-column: 1;
+}
+
 .support-row {
   display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.45rem;
-  margin-top: 1rem;
+  margin-top: 0.25rem;
 }
 
 .support-row span {
   display: grid;
   gap: 0.18rem;
-  border-radius: 999px;
+  border-radius: 18px;
   background: rgba(217, 189, 127, 0.22);
   padding: 0.58rem 0.72rem;
   color: var(--green);
@@ -488,12 +568,15 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 .service-promise {
   display: grid;
+  grid-column: 2;
+  grid-row: 1 / span 4;
   gap: 0.4rem;
-  margin-top: 1rem;
+  margin-top: 0;
   border: 1px solid rgba(139, 109, 78, 0.16);
   border-radius: 20px;
   background: rgba(255, 250, 241, 0.62);
   padding: 0.85rem;
+  min-height: 100%;
 }
 
 .service-promise strong {
@@ -523,11 +606,12 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 .service-closing {
   font-size: 0.9rem;
   font-weight: 850;
+  margin-top: 0.2rem;
 }
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.85rem;
 }
 
@@ -536,6 +620,14 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   min-width: 0;
   padding: 1rem;
   transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.service-tile {
+  grid-column: span 3;
+}
+
+.service-tile-featured {
+  grid-column: 1 / -1;
 }
 
 .service-tile::after {
@@ -566,6 +658,11 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   border-radius: 15px;
   background: linear-gradient(135deg, var(--green), var(--coffee));
   color: #fff;
+  transition: transform 220ms ease;
+}
+
+.service-tile:hover .service-symbol {
+  transform: rotate(-5deg) scale(1.05);
 }
 
 .service-symbol svg {
@@ -578,6 +675,20 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   color: var(--ink);
   font-size: 1.05rem;
   line-height: 1.15;
+}
+
+.service-content {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.service-tile-featured .service-content {
+  grid-template-columns: minmax(210px, 0.55fr) minmax(0, 1fr) auto;
+  align-items: start;
+}
+
+.service-tile-featured ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .service-tile p {
@@ -617,6 +728,8 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 .service-tile strong {
   display: inline-flex;
+  align-self: start;
+  justify-self: start;
   margin-top: 0.84rem;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--green), var(--green-2));
@@ -624,6 +737,11 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   color: #fff;
   font-size: 0.84rem;
   font-weight: 950;
+  transition: transform 180ms ease;
+}
+
+.service-tile:hover strong {
+  transform: translateY(-1px);
 }
 
 .proof-panel {
@@ -771,6 +889,12 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   padding: clamp(1.25rem, 3vw, 2rem);
   color: #fff;
   box-shadow: var(--shadow);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 78px rgba(54, 42, 25, 0.18);
 }
 
 .contact-box::after {
@@ -855,7 +979,8 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   }
 
   .brand-link img {
-    width: 136px;
+    width: 156px;
+    height: 48px;
   }
 
   .hero {
@@ -902,6 +1027,33 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
   .service-grid,
   .proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .service-intro > .eyebrow,
+  .service-intro > h2,
+  .service-intro > p,
+  .service-closing,
+  .service-promise {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .support-row {
+    grid-template-columns: 1fr;
+  }
+
+  .service-tile,
+  .service-tile-featured {
+    grid-column: auto;
+  }
+
+  .service-tile-featured .service-content,
+  .service-tile-featured ul {
     grid-template-columns: 1fr;
   }
 

@@ -3,6 +3,7 @@ const services = [
   {
     name: "Venta de propiedades",
     price: "2% + IVA",
+    featured: true,
     text: "Nos encargamos del proceso de venta desde la evaluacion hasta la firma final.",
     bullets: [
       "Evaluacion y valorizacion",
@@ -87,14 +88,18 @@ const extraServices = [
 
     <div class="service-grid">
       {services.map((service) => (
-        <article class="service-tile">
+        <article class={`service-tile ${service.featured ? "service-tile-featured" : ""}`}>
           <span class="service-symbol" set:html={`<svg viewBox="0 0 24 24">${service.icon}</svg>`} />
-          <h3>{service.name}</h3>
-          <p>{service.text}</p>
-          <ul>
-            {service.bullets.map((bullet) => <li>{bullet}</li>)}
-          </ul>
-          <strong>{service.price}</strong>
+          <div class="service-content">
+            <div>
+              <h3>{service.name}</h3>
+              <p>{service.text}</p>
+            </div>
+            <ul>
+              {service.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+            <strong>{service.price}</strong>
+          </div>
         </article>
       ))}
     </div>
