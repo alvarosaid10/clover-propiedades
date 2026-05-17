@@ -1,6 +1,6 @@
 ﻿# Clover Propiedades
 
-Sitio corporativo estatico para Clover Propiedades, construido con Astro, TailwindCSS y Cloudflare Pages.
+Sitio corporativo estatico para Clover Propiedades, construido con Astro, CSS propio y Cloudflare Pages.
 
 ## Enfoque del sitio
 
@@ -10,7 +10,7 @@ Incluye:
 
 - Presentacion corporativa de Clover Propiedades.
 - Servicios de venta, arriendo y administracion.
-- Galeria con material real de propiedades gestionadas.
+- Galeria compacta con material real de propiedades gestionadas.
 - Resultados y publicaciones reales.
 - Contacto directo por WhatsApp e Instagram.
 - Sitio estatico sin backend ni base de datos.

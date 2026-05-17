@@ -1,33 +1,34 @@
 ---
-const images = [
-  { src: "/images/portfolio/propiedad-01.jpg", label: "Casa familiar" },
-  { src: "/images/portfolio/propiedad-03.jpg", label: "Terraza y exterior" },
-  { src: "/images/portfolio/propiedad-05.jpg", label: "Departamento" },
-  { src: "/images/portfolio/propiedad-06.jpg", label: "Interior equipado" },
-  { src: "/images/portfolio/propiedad-08.jpg", label: "Vista y entorno" },
-  { src: "/images/portfolio/propiedad-09.jpg", label: "Cocina y comedor" }
+const photos = [
+  ["/images/portfolio/propiedad-01.jpg", "Casa familiar"],
+  ["/images/portfolio/propiedad-03.jpg", "Terraza preparada"],
+  ["/images/portfolio/propiedad-06.jpg", "Departamento"],
+  ["/images/portfolio/propiedad-09.jpg", "Cocina y comedor"],
+  ["/images/portfolio/propiedad-08.jpg", "Entorno y vista"]
 ];
 ---
 
-<section id="experiencia" class="section-shell bg-white py-14 md:py-20">
-  <div class="container">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Experiencia real</p>
-        <h2 class="section-title mt-4">Propiedades gestionadas con imagen cuidada.</h2>
-      </div>
-      <p>
-        Presentamos evidencia real de gestion, tipos de inmuebles y material comercial usado por Clover para mostrar experiencia sin crear falsas expectativas de disponibilidad.
-      </p>
+<section id="experiencia" class="experience-card">
+  <div class="experience-copy">
+    <p class="eyebrow">Experiencia</p>
+    <h2>Imagen cuidada para propiedades reales.</h2>
+    <p>
+      Clover trabaja con material visual claro para mostrar cada propiedad de forma
+      seria: interiores, exteriores, entorno, atributos principales y mensajes
+      comerciales faciles de entender.
+    </p>
+    <div class="experience-points">
+      <span>Publicacion preparada</span>
+      <span>Filtro comercial</span>
+      <span>Seguimiento cercano</span>
     </div>
+  </div>
 
-    <div class="portfolio-grid mt-10">
-      {images.map((image, index) => (
-        <figure class={index === 0 || index === 4 ? "portfolio-card portfolio-card-large" : "portfolio-card"}>
-          <img src={image.src} alt={image.label} loading="lazy" />
-          <figcaption>{image.label}</figcaption>
-        </figure>
-      ))}
-    </div>
+  <div class="photo-mosaic" aria-label="Muestra de propiedades gestionadas">
+    {photos.map(([src, alt]) => (
+      <figure>
+        <img src={src} alt={alt} loading="lazy" />
+      </figure>
+    ))}
   </div>
 </section>

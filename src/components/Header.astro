@@ -1,22 +1,21 @@
-﻿---
+---
 import site from "../data/site.json";
 ---
 
-<header class="sticky top-0 z-50 border-b border-black/5 bg-white/92 backdrop-blur-xl">
-  <div class="container flex min-h-[76px] items-center justify-between gap-6">
-    <a href="/" class="flex items-center gap-3" aria-label="Ir al inicio">
-      <img src="/images/corporate/logo-clover.jpg" alt="Clover Propiedades" class="h-12 w-auto rounded-lg object-contain" />
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand-link" aria-label="Ir al inicio">
+      <img src="/images/corporate/logo-clover.jpg" alt={site.name} />
     </a>
-    <nav class="hidden items-center gap-7 text-sm font-bold text-ink/68 md:flex">
-      <a class="nav-link" href="#servicios">Servicios</a>
-      <a class="nav-link" href="#experiencia">Experiencia</a>
-      <a class="nav-link" href="#resultados">Resultados</a>
-      <a class="nav-link" href="#proceso">Proceso</a>
-      <a class="nav-link" href="#contacto">Contacto</a>
+
+    <nav class="header-nav" aria-label="Navegacion principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#resultados">Experiencia</a>
+      <a href="#contacto">Contacto</a>
     </nav>
-    <div class="hidden items-center gap-2 rounded-full border border-clover-900/10 bg-clover-50 px-3 py-2 text-[0.72rem] font-black uppercase tracking-[0.12em] text-clover-900 md:flex">
-      <span class="h-2.5 w-2.5 rounded-full bg-clover-700"></span>
-      Gestion inmobiliaria
-    </div>
+
+    <a class="header-cta" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20inmobiliaria.`} target="_blank" rel="noopener noreferrer">
+      WhatsApp
+    </a>
   </div>
 </header>

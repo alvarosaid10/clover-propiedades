@@ -1,77 +1,46 @@
-﻿---
+---
 import site from "../data/site.json";
-
-const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20para%20venta%2C%20arriendo%20o%20administracion.`;
-const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 ---
 
-<section class="hero-section overflow-hidden pb-12 pt-8 md:pb-18 md:pt-12">
-  <div class="container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-    <div class="relative z-10">
-      <p class="eyebrow">Corretaje y gestion inmobiliaria</p>
-      <h1 class="text-balance mt-5 max-w-3xl font-display text-[clamp(3.2rem,7vw,6.6rem)] font-semibold leading-[0.9] text-ink">
-        Tu propiedad en buenas manos.
-      </h1>
-      <p class="mt-7 max-w-xl text-lg leading-8 text-ink/68">
-        Clover Propiedades acompana ventas, arriendos y administracion con gestion completa, supervision permanente y comunicacion clara de principio a fin.
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Clover Propiedades</p>
+      <h1>Corretaje inmobiliario claro, cercano y completo.</h1>
+      <p class="hero-lead">
+        Venta, arriendo y administracion de propiedades con evaluacion comercial,
+        publicacion cuidada, filtro de interesados y acompanamiento hasta el cierre.
       </p>
 
-      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-        <a class="button button-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          Hablar por WhatsApp
+      <div class="hero-actions">
+        <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20para%20mi%20propiedad.`} target="_blank" rel="noopener noreferrer">
+          Solicitar asesoria
         </a>
-        <a class="button button-instagram" href={instagramUrl} target="_blank" rel="noopener noreferrer">
-          Instagram
+        <a class="button button-soft" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">
+          Ver Instagram
         </a>
       </div>
 
-      <div class="mt-9 grid max-w-xl gap-3 sm:grid-cols-3">
-        <div class="mini-proof">
-          <span>01</span>
-          <strong>Evaluacion</strong>
-          <p>Precio, estado y estrategia.</p>
-        </div>
-        <div class="mini-proof">
-          <span>02</span>
-          <strong>Publicacion</strong>
-          <p>Imagen clara y filtro comercial.</p>
-        </div>
-        <div class="mini-proof">
-          <span>03</span>
-          <strong>Cierre</strong>
-          <p>Acompanamiento hasta firma.</p>
-        </div>
+      <div class="hero-proofline" aria-label="Resumen de servicios">
+        <span>Venta</span>
+        <span>Arriendo</span>
+        <span>Administracion</span>
       </div>
     </div>
 
-    <div class="relative">
-      <div class="hero-card relative overflow-hidden rounded-[2rem] border border-clover-900/10 bg-white p-4 shadow-soft md:p-5">
-        <div class="grid gap-4 lg:grid-cols-[0.92fr_1.08fr]">
-          <div class="relative min-h-[420px] overflow-hidden rounded-[1.6rem] bg-clover-900 md:min-h-[560px]">
-            <img src="/images/corporate/asesora-clover.jpg" alt="Asesora de Clover Propiedades" class="h-full w-full object-cover" loading="eager" />
-            <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/8 to-transparent"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <p class="text-xs font-black uppercase tracking-[0.18em] text-clover-100">Clover Propiedades</p>
-              <p class="mt-2 text-2xl font-black leading-tight">Atencion cercana y gestion profesional.</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col justify-between rounded-[1.6rem] bg-clover-50/70 p-6">
-            <div>
-              <img src="/images/corporate/logo-clover.jpg" alt="Logo Clover Propiedades" class="h-16 w-auto rounded-xl bg-white object-contain p-2 shadow-sm" />
-              <p class="mt-8 text-xs font-black uppercase tracking-[0.2em] text-clover-700">Gestion completa</p>
-              <h2 class="mt-4 text-4xl font-black leading-[0.95] text-clover-900 md:text-5xl">Tu solo recibes tu deposito.</h2>
-              <p class="mt-5 text-sm leading-6 text-ink/68">
-                Evaluacion, marketing, visitas, documentacion, negociacion y seguimiento en un proceso ordenado y transparente.
-              </p>
-            </div>
-            <div class="mt-8 grid gap-3">
-              <div class="check-row">Supervision permanente del inmueble</div>
-              <div class="check-row">Seguridad y transparencia</div>
-              <div class="check-row">Acompanamiento en todo el proceso</div>
-            </div>
-          </div>
-        </div>
+    <div class="hero-visual" aria-label="Material visual Clover Propiedades">
+      <div class="hero-photo hero-photo-main">
+        <img src="/images/corporate/asesora-clover.jpg" alt="Asesora de Clover Propiedades" loading="eager" />
+      </div>
+      <div class="hero-card-note">
+        <img src="/images/corporate/logo-clover.jpg" alt="" />
+        <p>Tu solo recibes tu deposito.</p>
+      </div>
+      <div class="hero-mini hero-mini-one">
+        <img src="/images/proof/venta-renca-1.jpg" alt="Venta finalizada por Clover Propiedades" loading="eager" />
+      </div>
+      <div class="hero-mini hero-mini-two">
+        <img src="/images/portfolio/propiedad-09.jpg" alt="Interior de propiedad gestionada" loading="eager" />
       </div>
     </div>
   </div>

@@ -1,34 +1,31 @@
-﻿---
+---
 import successes from "../data/successes.json";
 
-const visibleSuccesses = successes.filter((item) => item.visible !== false);
+const featured = successes.slice(0, 4);
 ---
 
-<section id="resultados" class="section-shell bg-clover-50 py-14 md:py-20">
-  <div class="container">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Resultados</p>
-        <h2 class="section-title mt-4">Operaciones y publicaciones reales.</h2>
-      </div>
-      <p>
-        Material usado por Clover en publicaciones y cierres: certificados visuales, familias atendidas y operaciones concretas que construyen confianza.
-      </p>
+<section id="resultados" class="results-card">
+  <div class="section-top split">
+    <div>
+      <p class="eyebrow">Resultados</p>
+      <h2>Operaciones y publicaciones que generan confianza.</h2>
     </div>
+    <p>
+      En vez de una vitrina eterna de propiedades disponibles, mostramos evidencia:
+      operaciones cerradas, publicaciones reales y clientes atendidos.
+    </p>
+  </div>
 
-    <div class="mt-10 grid gap-5 md:grid-cols-3">
-      {visibleSuccesses.map((item) => (
-        <article class="proof-card">
-          <div class="proof-image">
-            <img src={item.image} alt={`${item.title} en ${item.location}`} loading="lazy" />
-          </div>
-          <div class="p-5">
-            <p class="text-xs font-black uppercase tracking-[0.16em] text-clover-700">{item.kind}</p>
-            <h3 class="mt-2 text-xl font-black text-ink">{item.title}</h3>
-            <p class="mt-1 text-sm font-semibold text-ink/58">{item.location}</p>
-          </div>
-        </article>
-      ))}
-    </div>
+  <div class="result-strip">
+    {featured.map((item) => (
+      <article class="result-item">
+        <img src={item.image} alt={item.alt} loading="lazy" />
+        <div>
+          <span>{item.type}</span>
+          <h3>{item.title}</h3>
+          <p>{item.location}</p>
+        </div>
+      </article>
+    ))}
   </div>
 </section>

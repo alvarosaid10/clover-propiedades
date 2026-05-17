@@ -1,33 +1,26 @@
-﻿---
+---
 import site from "../data/site.json";
-
-const whatsappUrl = `https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20recibir%20asesoria%20inmobiliaria.`;
-const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 ---
 
-<section id="contacto" class="py-14 md:py-20">
-  <div class="container contact-panel grid gap-8 rounded-[2rem] bg-clover-900 p-8 text-white shadow-soft md:grid-cols-[1fr_0.72fr] md:p-12">
+<section id="contacto" class="contact">
+  <div class="container contact-box">
     <div>
-      <p class="eyebrow text-clover-300">Contacto</p>
-      <h2 class="mt-4 max-w-2xl font-display text-[clamp(2.6rem,6vw,5.3rem)] font-semibold leading-[0.92]">
-        Hablemos de tu proxima operacion inmobiliaria.
-      </h2>
-      <p class="mt-6 max-w-xl text-white/72">
-        Agenda una asesoria, solicita evaluacion comercial o coordina una publicacion con atencion directa.
+      <p class="eyebrow">Contacto directo</p>
+      <h2>Quieres vender, arrendar o administrar una propiedad?</h2>
+      <p>
+        Escrible a Clover y recibe orientacion inicial sobre precio, estrategia,
+        documentacion y pasos recomendados para tu caso.
       </p>
     </div>
-    <div class="flex flex-col justify-end gap-3">
-      <a class="button bg-white text-clover-900 hover:bg-clover-100" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-        Escribir por WhatsApp
+
+    <div class="contact-actions">
+      <a class="button button-light" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20evaluar%20una%20gestion%20inmobiliaria.`} target="_blank" rel="noopener noreferrer">
+        Hablar por WhatsApp
       </a>
-      <a class="button border border-white/20 bg-white/10 text-white hover:border-clover-300 hover:bg-white/14" href={instagramUrl} target="_blank" rel="noopener noreferrer">
-        Ver Instagram
+      <a class="button button-ghost" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">
+        Instagram
       </a>
-      <p class="pt-5 text-sm leading-6 text-white/58">
-        {site.location}<br />
-        WhatsApp: {site.phone}<br />
-        Instagram: @{site.instagram}
-      </p>
+      <p>{site.location}<br />{site.phone}<br />@{site.instagram}</p>
     </div>
   </div>
 </section>

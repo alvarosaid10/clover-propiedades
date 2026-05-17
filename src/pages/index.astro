@@ -2,11 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
-import TrustStrip from "../components/TrustStrip.astro";
 import Services from "../components/Services.astro";
 import PropertiesSection from "../components/PropertiesSection.astro";
 import SuccessSection from "../components/SuccessSection.astro";
-import ProcessSection from "../components/ProcessSection.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Footer from "../components/Footer.astro";
 ---
@@ -15,11 +13,11 @@ import Footer from "../components/Footer.astro";
   <Header />
   <main>
     <Hero />
-    <TrustStrip />
     <Services />
-    <PropertiesSection />
-    <SuccessSection />
-    <ProcessSection />
+    <div class="compact-proof">
+      <PropertiesSection />
+      <SuccessSection />
+    </div>
     <ContactCTA />
   </main>
   <Footer />
