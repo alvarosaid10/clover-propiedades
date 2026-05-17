@@ -8,6 +8,32 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, `https://${site.domain}`);
+const imageUrl = new URL("/images/corporate/info-clover.jpg", `https://${site.domain}`);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: site.name,
+  url: `https://${site.domain}/`,
+  logo: `https://${site.domain}/images/corporate/logo-clover-transparent-final.png`,
+  image: imageUrl.href,
+  description: site.description,
+  telephone: site.phone,
+  email: site.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Renca",
+    addressRegion: "Región Metropolitana",
+    addressCountry: "CL"
+  },
+  areaServed: "Chile",
+  sameAs: [`https://www.instagram.com/${site.instagram}/`],
+  knowsAbout: [
+    "Venta de propiedades",
+    "Arriendo de propiedades",
+    "Administración de propiedades",
+    "Asesoría inmobiliaria"
+  ]
+};
 ---
 
 <!doctype html>
@@ -23,9 +49,10 @@ const canonical = new URL(Astro.url.pathname, `https://${site.domain}`);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="/images/corporate/info-clover.jpg" />
+    <meta property="og:image" content={imageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <slot />
