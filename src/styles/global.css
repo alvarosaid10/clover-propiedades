@@ -157,13 +157,13 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 94px;
+  min-height: 112px;
   gap: 1rem;
 }
 
 .brand-link img {
-  width: 306px;
-  height: 92px;
+  width: 374px;
+  height: 112px;
   object-fit: contain;
   transition: transform 240ms ease, filter 240ms ease;
   animation: logoFloat 5.5s ease-in-out infinite;
@@ -465,15 +465,21 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   opacity: 0;
   transform: scale(1.04);
   filter: saturate(0.92) contrast(1.02);
-  animation: imageFade 12s infinite ease-in-out;
+  animation: imageFade 18s infinite ease-in-out;
 }
 
 .fade-a { animation-delay: 0s; object-position: center top; }
-.fade-b { animation-delay: 2s; object-position: center; }
-.fade-c { animation-delay: 4s; object-position: center; }
-.fade-d { animation-delay: 6s; object-position: center; }
-.fade-e { animation-delay: 8s; object-position: center; }
-.fade-f { animation-delay: 10s; object-position: center; }
+.fade-b { animation-delay: 1.5s; object-position: center; }
+.fade-c { animation-delay: 3s; object-position: center; }
+.fade-d { animation-delay: 4.5s; object-position: center; }
+.fade-e { animation-delay: 6s; object-position: center; }
+.fade-f { animation-delay: 7.5s; object-position: center; }
+.fade-g { animation-delay: 9s; object-position: center; }
+.fade-h { animation-delay: 10.5s; object-position: center; }
+.fade-i { animation-delay: 12s; object-position: center; }
+.fade-j { animation-delay: 13.5s; object-position: center; }
+.fade-k { animation-delay: 15s; object-position: center; }
+.fade-l { animation-delay: 16.5s; object-position: center; }
 
 .image-fade::after {
   content: "";
@@ -486,9 +492,9 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 @keyframes imageFade {
   0% { opacity: 0; transform: scale(1.04); }
-  4% { opacity: 1; }
-  14% { opacity: 1; transform: scale(1); }
-  20% { opacity: 0; transform: scale(1.02); }
+  2.5% { opacity: 1; }
+  7% { opacity: 1; transform: scale(1); }
+  10.5% { opacity: 0; transform: scale(1.02); }
   100% { opacity: 0; transform: scale(1.04); }
 }
 
@@ -541,7 +547,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 .service-intro {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.72fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.7fr);
   gap: 1rem;
   align-items: start;
   position: relative;
@@ -580,7 +586,8 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 .support-row span {
   display: grid;
-  gap: 0.18rem;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 0.14rem 0.55rem;
   border-radius: 18px;
   background: rgba(217, 189, 127, 0.22);
   padding: 0.58rem 0.72rem;
@@ -589,9 +596,38 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   font-weight: 760;
   line-height: 1.35;
   min-height: 100%;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.support-row span:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 250, 241, 0.86);
+}
+
+.support-row i {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(47, 77, 44, 0.12);
+}
+
+.support-row i::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 28% 28%, var(--green) 0 30%, transparent 31%),
+    radial-gradient(circle at 72% 28%, var(--green-2) 0 30%, transparent 31%),
+    radial-gradient(circle at 28% 72%, var(--green-2) 0 30%, transparent 31%),
+    radial-gradient(circle at 72% 72%, var(--green) 0 30%, transparent 31%);
 }
 
 .support-row strong {
+  grid-column: 2;
   color: var(--green-3);
   font-size: 0.72rem;
   font-weight: 950;
@@ -649,6 +685,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.85rem;
+  align-items: stretch;
 }
 
 .service-tile {
@@ -658,7 +695,10 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   grid-template-columns: 42px minmax(0, 1fr);
   gap: 0.85rem;
   padding: 1rem;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  background:
+    radial-gradient(circle at 94% 8%, rgba(200, 216, 175, 0.22), transparent 7rem),
+    rgba(255, 250, 241, 0.82);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .service-tile {
@@ -667,6 +707,10 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 .service-tile-featured {
   grid-column: 1 / -1;
+  background:
+    radial-gradient(circle at 98% 0%, rgba(217, 189, 127, 0.26), transparent 9rem),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.94), rgba(244, 239, 225, 0.7));
+  border-color: rgba(47, 77, 44, 0.2);
 }
 
 .service-tile::after {
@@ -687,6 +731,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 .service-tile:hover {
   transform: translateY(-3px);
   box-shadow: 0 24px 58px rgba(15, 38, 20, 0.12);
+  border-color: rgba(47, 77, 44, 0.26);
 }
 
 .service-symbol {
@@ -710,7 +755,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 }
 
 .service-tile h3 {
-  margin: 0.9rem 0 0;
+  margin: 0.1rem 0 0;
   color: var(--ink);
   font-size: 1.05rem;
   line-height: 1.15;
@@ -1019,8 +1064,8 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   }
 
   .brand-link img {
-    width: 210px;
-    height: 64px;
+    width: 248px;
+    height: 76px;
   }
 
   .hero {

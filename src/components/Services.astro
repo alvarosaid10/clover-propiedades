@@ -4,17 +4,17 @@ const services = [
     name: "Venta de propiedades",
     price: "2% + IVA",
     featured: true,
-    text: "Nos encargamos de todo el proceso de venta para que avances con informacion clara y respaldo en cada etapa.",
+    text: "Nos encargamos de todo el proceso de venta para que avances con información clara y respaldo en cada etapa.",
     bullets: [
-      "Evaluacion y valorizacion",
-      "Marketing y publicacion de la propiedad",
-      "Gestion de visitas y negociacion",
-      "Revision de documentos",
-      "Gestion con bancos y abogados",
-      "Acompanamiento hasta la firma de la escritura",
-      "Regularizacion de ampliaciones y construcciones ante la DOM",
-      "Asesoria y gestion en posesion efectiva en casos de herencias",
-      "Guia y asesoria durante cada etapa del proceso de venta"
+      "Evaluación y valorización",
+      "Marketing y publicación de la propiedad",
+      "Gestión de visitas y negociación",
+      "Revisión de documentos",
+      "Gestión con bancos y abogados",
+      "Acompañamiento hasta la firma de la escritura",
+      "Regularización de ampliaciones y construcciones ante la DOM",
+      "Asesoría y gestión en posesión efectiva en casos de herencias",
+      "Guía y asesoría durante cada etapa del proceso de venta"
     ],
     icon: `<path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path>`
   },
@@ -23,25 +23,25 @@ const services = [
     price: "50% + IVA",
     text: "Publicamos, filtramos interesados y formalizamos el arriendo para entregar el inmueble con orden.",
     bullets: [
-      "Evaluacion y fijacion de precio",
-      "Marketing y publicacion",
-      "Seleccion de arrendatarios",
-      "Redaccion y firma de contrato",
+      "Evaluación y fijación de precio",
+      "Marketing y publicación",
+      "Selección de arrendatarios",
+      "Redacción y firma de contrato",
       "Entrega del inmueble",
-      "Gestion de garantias"
+      "Gestión de garantías"
     ],
     icon: `<circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path>`
   },
   {
     name: "Administracion",
     price: "7% mensual",
-    text: "Administramos la relacion diaria entre propietario, arrendatario y propiedad con seguimiento periodico.",
+    text: "Administramos la relación diaria entre propietario, arrendatario y propiedad con seguimiento periódico.",
     bullets: [
       "Cobro de arriendos",
       "Pago de gastos y proveedores",
-      "Supervision y mantencion del inmueble",
-      "Atencion de arrendatarios",
-      "Informes periodicos y rendicion de cuentas"
+      "Supervisión y mantención del inmueble",
+      "Atención de arrendatarios",
+      "Informes periódicos y rendición de cuentas"
     ],
     icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path>`
   }
@@ -49,16 +49,16 @@ const services = [
 
 const extraServices = [
   {
-    name: "Regularizacion de ampliaciones",
-    text: "Acompanamiento para revisar y ordenar ampliaciones o construcciones ante la DOM."
+    name: "Regularización de ampliaciones",
+    text: "Acompañamiento para revisar y ordenar ampliaciones o construcciones ante la DOM."
   },
   {
-    name: "Asesoria documental y gestion completa",
-    text: "Reunion, revision y gestion de la documentacion necesaria para cada tramite."
+    name: "Asesoría documental y gestión completa",
+    text: "Reunión, revisión y gestión de la documentación necesaria para cada trámite."
   },
   {
-    name: "Acompanamiento de principio a fin",
-    text: "Guia en cada etapa del proceso inmobiliario para tomar decisiones con mayor seguridad."
+    name: "Acompañamiento de principio a fin",
+    text: "Guía en cada etapa del proceso inmobiliario para tomar decisiones con mayor seguridad."
   }
 ];
 ---
@@ -67,23 +67,27 @@ const extraServices = [
   <div class="container service-panel">
     <div class="service-intro">
       <p class="eyebrow">Servicios</p>
-      <h2>Tu operacion en buenas manos</h2>
+      <h2>Tu operación en buenas manos</h2>
       <p>
-        Tu solo recibes tu deposito. Clover se encarga del tramite, la supervision
-        del inmueble y la gestion comercial para que avances con tranquilidad.
+        Tú solo recibes tu depósito. Clover se encarga del trámite, la supervisión
+        del inmueble y la gestión comercial para que avances con tranquilidad.
       </p>
       <div class="service-promise">
-        <strong>Gestion completa de principio a fin</strong>
-        <span>Supervision permanente</span>
+        <strong>Gestión completa de principio a fin</strong>
+        <span>Supervisión permanente</span>
         <span>Seguridad y transparencia</span>
-        <span>Acompanamiento en todo el proceso</span>
+        <span>Acompañamiento en todo el proceso</span>
       </div>
       <div class="support-row" aria-label="Servicios adicionales">
         {extraServices.map((item) => (
-          <span><strong>{item.name}</strong>{item.text}</span>
+          <span>
+            <i aria-hidden="true"></i>
+            <strong>{item.name}</strong>
+            {item.text}
+          </span>
         ))}
       </div>
-      <p class="service-closing">Profesionalismo, compromiso y transparencia para que tu propiedad este en las mejores manos.</p>
+      <p class="service-closing">Profesionalismo, compromiso y transparencia para que tu propiedad esté en las mejores manos.</p>
     </div>
 
     <div class="service-grid">
