@@ -139,11 +139,9 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 }
 
 .brand-link img {
-  width: 158px;
-  height: 46px;
+  width: 168px;
+  height: 52px;
   object-fit: contain;
-  border-radius: 14px;
-  box-shadow: 0 10px 28px rgba(54, 42, 25, 0.06);
 }
 
 .header-nav {
@@ -301,21 +299,64 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   line-height: 1.45;
 }
 
-.hero-card-flyer {
+.hero-card-design {
   top: 10px;
   right: 6px;
   z-index: 2;
-  width: 192px;
-  height: 278px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  width: 188px;
+  min-height: 220px;
+  padding: 1.1rem;
   border: 8px solid rgba(255, 250, 241, 0.94);
   transform: rotate(1.2deg);
+  text-align: center;
 }
 
-.hero-card-flyer img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+.hero-card-design strong {
+  margin-top: 0.8rem;
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.hero-card-design p {
+  margin: 0.55rem 0 0;
+  color: rgba(21, 22, 17, 0.58);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.design-clover {
+  position: relative;
+  display: block;
+  width: 62px;
+  height: 62px;
+  filter: drop-shadow(0 12px 20px rgba(47, 77, 44, 0.16));
+}
+
+.design-clover::before,
+.design-clover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 28% 28%, var(--green) 0 18%, transparent 19%),
+    radial-gradient(circle at 72% 28%, var(--green-2) 0 18%, transparent 19%),
+    radial-gradient(circle at 28% 72%, var(--green-2) 0 18%, transparent 19%),
+    radial-gradient(circle at 72% 72%, var(--green) 0 18%, transparent 19%);
+  border-radius: 50%;
+}
+
+.design-clover::after {
+  inset: 23px 10px 4px 39px;
+  width: 5px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--coffee);
+  transform: rotate(34deg);
 }
 
 .mini-icon {
@@ -380,7 +421,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 .service-panel,
 .proof-panel {
   display: grid;
-  grid-template-columns: 0.62fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   gap: 0.95rem;
   align-items: stretch;
 }
@@ -420,20 +461,68 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 }
 
 .support-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 0.45rem;
   margin-top: 1rem;
 }
 
 .support-row span {
-  display: inline-flex;
+  display: grid;
+  gap: 0.18rem;
   border-radius: 999px;
   background: rgba(217, 189, 127, 0.22);
-  padding: 0.45rem 0.62rem;
+  padding: 0.58rem 0.72rem;
   color: var(--green);
   font-size: 0.76rem;
-  font-weight: 900;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.support-row strong {
+  color: var(--green-3);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-promise {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(139, 109, 78, 0.16);
+  border-radius: 20px;
+  background: rgba(255, 250, 241, 0.62);
+  padding: 0.85rem;
+}
+
+.service-promise strong {
+  color: var(--green);
+  font-size: 0.92rem;
+}
+
+.service-promise span {
+  position: relative;
+  padding-left: 1rem;
+  color: rgba(21, 22, 17, 0.68);
+  font-size: 0.82rem;
+  font-weight: 760;
+}
+
+.service-promise span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.43rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.service-closing {
+  font-size: 0.9rem;
+  font-weight: 850;
 }
 
 .service-grid {
@@ -500,7 +589,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 .service-tile ul {
   display: grid;
-  gap: 0.38rem;
+  gap: 0.32rem;
   margin: 0.72rem 0 0;
   padding: 0;
   list-style: none;
@@ -510,7 +599,7 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   position: relative;
   padding-left: 1.05rem;
   color: rgba(21, 22, 17, 0.72);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 750;
   line-height: 1.3;
 }
@@ -790,9 +879,19 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
     border-width: 7px;
   }
 
-  .hero-card-flyer {
-    width: 132px;
-    height: 190px;
+  .hero-card-design {
+    width: 136px;
+    min-height: 174px;
+    padding: 0.75rem;
+  }
+
+  .hero-card-design strong {
+    font-size: 1.06rem;
+  }
+
+  .design-clover {
+    width: 48px;
+    height: 48px;
   }
 
   .hero-card-note {

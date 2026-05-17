@@ -3,23 +3,61 @@ const services = [
   {
     name: "Venta de propiedades",
     price: "2% + IVA",
-    text: "Valor comercial, publicacion, agenda de visitas, negociacion y cierre con respaldo documental.",
-    bullets: ["Valorizacion y marketing", "Gestion de visitas", "Firma y escritura"],
+    text: "Nos encargamos del proceso de venta desde la evaluacion hasta la firma final.",
+    bullets: [
+      "Evaluacion y valorizacion",
+      "Marketing y publicacion",
+      "Gestion de visitas y negociacion",
+      "Revision de documentos",
+      "Gestion con bancos y abogados",
+      "Acompanamiento hasta la firma de escritura",
+      "Regularizacion de ampliaciones y construcciones ante la DOM",
+      "Asesoria y gestion en posesion efectiva en casos de herencias",
+      "Orientacion en cada etapa del proceso de venta"
+    ],
     icon: `<path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path>`
   },
   {
     name: "Arriendo de propiedades",
     price: "50% + IVA",
-    text: "Precio recomendado, seleccion de arrendatarios, contrato, garantia y entrega ordenada.",
-    bullets: ["Filtro de interesados", "Contrato y garantia", "Entrega del inmueble"],
+    text: "Publicamos, filtramos y formalizamos el arriendo para entregar el inmueble con orden.",
+    bullets: [
+      "Evaluacion y fijacion de precio",
+      "Marketing y publicacion",
+      "Seleccion de arrendatarios",
+      "Redaccion y firma de contrato",
+      "Entrega del inmueble",
+      "Gestion de garantias"
+    ],
     icon: `<circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path>`
   },
   {
     name: "Administracion",
     price: "7% mensual",
-    text: "Cobro de arriendo, pagos, mantencion, atencion de arrendatarios e informes al propietario.",
-    bullets: ["Cobros y pagos", "Supervision del inmueble", "Informes periodicos"],
+    text: "Administramos la relacion diaria entre propietario, arrendatario y propiedad.",
+    bullets: [
+      "Cobro de arriendos",
+      "Pago de gastos y proveedores",
+      "Supervision y mantencion del inmueble",
+      "Atencion de arrendatarios",
+      "Informes periodicos y rendicion de cuentas"
+    ],
     icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path>`
+  }
+];
+
+const extraServices = [
+  {
+    name: "Regularizacion de ampliaciones",
+    text: "Acompanamiento para ordenar ampliaciones y construcciones ante la DOM."
+  },
+  {
+    name: "Asesoria documental y gestion completa",
+    text: "Reunion, revision y gestion de la documentacion necesaria."
+  },
+  {
+    name: "Acompanamiento de principio a fin",
+    text: "Guia en cada etapa del proceso inmobiliario para tomar mejores decisiones."
   }
 ];
 ---
@@ -30,14 +68,21 @@ const services = [
       <p class="eyebrow">Servicios</p>
       <h2>Tu operacion en buenas manos</h2>
       <p>
-        Clover acompana operaciones inmobiliarias completas para propietarios que
-        necesitan avanzar con orden, seguridad y una comunicacion simple.
+        Tu solo recibes tu deposito. Clover se encarga del tramite, la supervision
+        del inmueble y el seguimiento comercial para que avances con tranquilidad.
       </p>
-      <div class="support-row" aria-label="Servicios adicionales">
-        <span>Regularizacion DOM</span>
-        <span>Asesoria documental</span>
-        <span>Acompanamiento integral</span>
+      <div class="service-promise">
+        <strong>Gestion completa de principio a fin</strong>
+        <span>Supervision permanente</span>
+        <span>Seguridad y transparencia</span>
+        <span>Acompanamiento en todo el proceso</span>
       </div>
+      <div class="support-row" aria-label="Servicios adicionales">
+        {extraServices.map((item) => (
+          <span><strong>{item.name}</strong>{item.text}</span>
+        ))}
+      </div>
+      <p class="service-closing">Profesionalismo, compromiso y transparencia para que tu propiedad este en las mejores manos.</p>
     </div>
 
     <div class="service-grid">
