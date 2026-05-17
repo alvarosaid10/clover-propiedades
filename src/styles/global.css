@@ -465,21 +465,21 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   opacity: 0;
   transform: scale(1.04);
   filter: saturate(0.92) contrast(1.02);
-  animation: imageFade 18s infinite ease-in-out;
+  animation: imageFade 30s infinite ease-in-out;
 }
 
 .fade-a { animation-delay: 0s; object-position: center top; }
-.fade-b { animation-delay: 1.5s; object-position: center; }
-.fade-c { animation-delay: 3s; object-position: center; }
-.fade-d { animation-delay: 4.5s; object-position: center; }
-.fade-e { animation-delay: 6s; object-position: center; }
-.fade-f { animation-delay: 7.5s; object-position: center; }
-.fade-g { animation-delay: 9s; object-position: center; }
-.fade-h { animation-delay: 10.5s; object-position: center; }
-.fade-i { animation-delay: 12s; object-position: center; }
-.fade-j { animation-delay: 13.5s; object-position: center; }
-.fade-k { animation-delay: 15s; object-position: center; }
-.fade-l { animation-delay: 16.5s; object-position: center; }
+.fade-b { animation-delay: 2.5s; object-position: center; }
+.fade-c { animation-delay: 5s; object-position: center; }
+.fade-d { animation-delay: 7.5s; object-position: center; }
+.fade-e { animation-delay: 10s; object-position: center; }
+.fade-f { animation-delay: 12.5s; object-position: center; }
+.fade-g { animation-delay: 15s; object-position: center; }
+.fade-h { animation-delay: 17.5s; object-position: center; }
+.fade-i { animation-delay: 20s; object-position: center; }
+.fade-j { animation-delay: 22.5s; object-position: center; }
+.fade-k { animation-delay: 25s; object-position: center; }
+.fade-l { animation-delay: 27.5s; object-position: center; }
 
 .image-fade::after {
   content: "";
@@ -492,9 +492,9 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
 @keyframes imageFade {
   0% { opacity: 0; transform: scale(1.04); }
-  2.5% { opacity: 1; }
-  7% { opacity: 1; transform: scale(1); }
-  10.5% { opacity: 0; transform: scale(1.02); }
+  2% { opacity: 1; }
+  6.7% { opacity: 1; transform: scale(1); }
+  9.2% { opacity: 0; transform: scale(1.02); }
   100% { opacity: 0; transform: scale(1.04); }
 }
 
