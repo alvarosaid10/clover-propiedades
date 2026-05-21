@@ -65,6 +65,8 @@ const structuredData = [...baseStructuredData, ...pageStructuredData];
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/images/corporate/logo-clover-transparent-final.png" type="image/png" />
     <link rel="preload" as="image" href="/images/corporate/asesora-clover.jpg" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CL" />
     <meta property="og:site_name" content={site.name} />
@@ -78,6 +80,13 @@ const structuredData = [...baseStructuredData, ...pageStructuredData];
     <meta name="twitter:image" content={imageUrl} />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G10YJ02TW4"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-G10YJ02TW4");
+    </script>
   </head>
   <body>
     <slot />
