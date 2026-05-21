@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SuccessSection from "../components/SuccessSection.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import Footer from "../components/Footer.astro";
+import site from "../data/site.json";
+import successes from "../data/successes.json";
+
+const title = "Experiencia y propiedades gestionadas | Clover Propiedades";
+const description = "Casos reales y propiedades gestionadas por Clover Propiedades en Renca, Talagante, Papudo y otras zonas de Chile. Evidencia de gestión inmobiliaria profesional.";
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: title,
+    description,
+    url: `https://${site.domain}/experiencia/`,
+    mainEntity: successes.map((item) => ({
+      "@type": "CreativeWork",
+      name: `${item.title} - ${item.location}`,
+      about: item.kind,
+      image: `https://${site.domain}${item.secondaryImage}`
+    }))
+  }
+];
+---
+
+<BaseLayout title={title} description={description} structuredData={structuredData}>
+  <Header />
+  <main class="content-page">
+    <section class="container content-hero">
+      <p class="eyebrow">Experiencia real</p>
+      <h1>Propiedades gestionadas con respaldo</h1>
+      <p>
+        Una selección breve de operaciones y publicaciones reales que muestran el
+        estilo de trabajo de Clover Propiedades: cercanía, orden y gestión comercial.
+      </p>
+    </section>
+    <SuccessSection />
+    <section class="container content-band">
+      <h2>Confianza basada en gestión visible</h2>
+      <p>
+        La presencia digital de Clover se apoya en material real, publicaciones
+        verificables y contacto directo. La prioridad es que cada cliente entienda
+        el proceso antes de avanzar.
+      </p>
+      <a class="button button-primary" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">Ver Instagram</a>
+    </section>
+  </main>
+  <ContactCTA />
+  <Footer />
+</BaseLayout>

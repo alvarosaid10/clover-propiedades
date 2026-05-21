@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import Footer from "../components/Footer.astro";
+import site from "../data/site.json";
+
+const title = "Servicios inmobiliarios | Clover Propiedades";
+const description = "Servicios de venta, arriendo, administración y asesoría inmobiliaria de Clover Propiedades en Chile. Gestión completa, publicación, visitas, contratos y acompañamiento.";
+const faq = [
+  {
+    question: "¿Qué servicios ofrece Clover Propiedades?",
+    answer: "Clover Propiedades ofrece venta, arriendo, administración de propiedades, asesoría documental, regularización de ampliaciones y acompañamiento de principio a fin."
+  },
+  {
+    question: "¿Cómo puedo cotizar una gestión inmobiliaria?",
+    answer: `Puedes contactar directamente por WhatsApp al ${site.phone} para explicar tu caso y recibir orientación comercial.`
+  },
+  {
+    question: "¿Clover Propiedades trabaja solo en Renca?",
+    answer: "La marca tiene base en Renca, Santiago, pero presenta experiencia en distintas zonas de Chile según el tipo de operación inmobiliaria."
+  }
+];
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Gestión inmobiliaria Clover Propiedades",
+    provider: { "@id": `https://${site.domain}/#organization` },
+    areaServed: "Chile",
+    serviceType: ["Venta de propiedades", "Arriendo de propiedades", "Administración de propiedades", "Asesoría inmobiliaria"],
+    url: `https://${site.domain}/servicios/`
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout title={title} description={description} structuredData={structuredData}>
+  <Header />
+  <main class="content-page">
+    <section class="container content-hero">
+      <p class="eyebrow">Servicios inmobiliarios</p>
+      <h1>Venta arriendo y administración de propiedades</h1>
+      <p>
+        Clover Propiedades acompaña operaciones inmobiliarias con gestión comercial,
+        revisión documental, publicación, visitas, contratos y seguimiento cercano.
+      </p>
+    </section>
+
+    <section class="container page-grid" aria-label="Servicios principales">
+      <article class="page-card">
+        <span>Venta</span>
+        <h2>Venta de propiedades</h2>
+        <p>Evaluación, valorización, publicación, visitas, negociación, revisión documental y acompañamiento hasta la firma.</p>
+      </article>
+      <article class="page-card">
+        <span>Arriendo</span>
+        <h2>Arriendo de propiedades</h2>
+        <p>Fijación de precio, marketing, selección de arrendatarios, contrato, entrega del inmueble y gestión de garantías.</p>
+      </article>
+      <article class="page-card">
+        <span>Administración</span>
+        <h2>Administración de propiedades</h2>
+        <p>Cobro de arriendos, pagos, coordinación de mantenciones, atención de arrendatarios e informes periódicos.</p>
+      </article>
+    </section>
+
+    <section class="container content-band">
+      <h2>Gestión completa de principio a fin</h2>
+      <p>
+        El enfoque es simple: que el propietario reciba orientación clara y delegue
+        las etapas operativas de la gestión inmobiliaria con transparencia,
+        seguridad y comunicación directa.
+      </p>
+      <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20consultar%20por%20sus%20servicios%20inmobiliarios.`} target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp</a>
+    </section>
+
+    <section class="container faq-list" aria-label="Preguntas frecuentes">
+      <h2>Preguntas frecuentes</h2>
+      {faq.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </section>
+  </main>
+  <ContactCTA />
+  <Footer />
+</BaseLayout>

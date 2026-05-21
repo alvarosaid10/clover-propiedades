@@ -6,9 +6,12 @@ import Services from "../components/Services.astro";
 import SuccessSection from "../components/SuccessSection.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Footer from "../components/Footer.astro";
+
+const title = "Clover Propiedades | Gestión Inmobiliaria en Chile";
+const description = "Clover Propiedades es una corredora de propiedades en Chile especializada en venta, arriendo, administración y asesoría inmobiliaria con gestión completa.";
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
   <Header />
   <main>
     <Hero />

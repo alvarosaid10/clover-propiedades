@@ -19,8 +19,8 @@ const featured = successes;
       {featured.map((item) => (
         <article class="proof-card">
           <div class="proof-image">
-            <img src={item.image} alt={`${item.title} - ${item.location}`} loading="lazy" />
-            <img class="proof-image-alt" src={item.secondaryImage} alt={`Publicacion Clover - ${item.location}`} loading="lazy" />
+            <img src={item.image} alt={`${item.title} - ${item.location}`} loading="lazy" decoding="async" />
+            <img class="proof-image-alt" src={item.secondaryImage} alt={`Publicación Clover - ${item.location}`} loading="lazy" decoding="async" />
           </div>
           <div class="proof-body">
             <span>{item.kind}</span>

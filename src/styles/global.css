@@ -1017,6 +1017,118 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
   font-size: 0.85rem;
 }
 
+.content-page {
+  padding: 34px 0 0;
+}
+
+.content-hero,
+.content-band,
+.faq-list,
+.contact-directory {
+  border: 1px solid rgba(139, 109, 78, 0.18);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 94% 8%, rgba(200, 216, 175, 0.24), transparent 12rem),
+    rgba(255, 250, 241, 0.86);
+  box-shadow: 0 16px 44px rgba(54, 42, 25, 0.08);
+}
+
+.content-hero {
+  padding: clamp(1.35rem, 4vw, 2.6rem);
+}
+
+.content-hero h1 {
+  max-width: 760px;
+  margin: 0.7rem 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 650;
+  letter-spacing: -0.024em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.content-hero p,
+.content-band p,
+.faq-list p,
+.contact-directory p {
+  max-width: 740px;
+  color: rgba(21, 22, 17, 0.66);
+  line-height: 1.64;
+}
+
+.page-grid,
+.contact-directory {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.page-card,
+.contact-directory article {
+  min-width: 0;
+  border: 1px solid rgba(139, 109, 78, 0.18);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.94), rgba(244, 239, 225, 0.72));
+  padding: 1.1rem;
+  box-shadow: 0 16px 38px rgba(54, 42, 25, 0.07);
+}
+
+.page-card span,
+.contact-directory span {
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-card h2,
+.contact-directory h2,
+.content-band h2,
+.faq-list h2 {
+  margin: 0.58rem 0 0;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.05;
+}
+
+.page-card p {
+  color: rgba(21, 22, 17, 0.66);
+  line-height: 1.55;
+}
+
+.content-band,
+.faq-list,
+.contact-directory {
+  margin-top: 1rem;
+  padding: clamp(1.15rem, 3vw, 1.8rem);
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.faq-list details {
+  border: 1px solid rgba(139, 109, 78, 0.15);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.48);
+  padding: 0.9rem 1rem;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  color: var(--green-3);
+  font-weight: 900;
+}
+
+.contact-directory h2 {
+  word-break: break-word;
+}
+
 .site-footer {
   border-top: 1px solid rgba(139, 109, 78, 0.14);
   padding: 1rem 0;
@@ -1139,6 +1251,11 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 
   .service-tile-featured .service-content,
   .service-tile-featured ul {
+    grid-template-columns: 1fr;
+  }
+
+  .page-grid,
+  .contact-directory {
     grid-template-columns: 1fr;
   }
 

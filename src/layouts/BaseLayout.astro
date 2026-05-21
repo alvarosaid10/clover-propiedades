@@ -4,14 +4,20 @@ import site from "../data/site.json";
 
 const {
   title = `${site.name} | Gestión Inmobiliaria`,
-  description = site.description
+  description = site.description,
+  image = "/images/corporate/info-clover.jpg",
+  structuredData: pageStructuredData = []
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, `https://${site.domain}`);
-const imageUrl = new URL("/images/corporate/info-clover.jpg", `https://${site.domain}`);
-const structuredData = {
+const imageUrl = new URL(image, `https://${site.domain}`);
+const organizationId = `https://${site.domain}/#organization`;
+const websiteId = `https://${site.domain}/#website`;
+const baseStructuredData = [
+{
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
+  "@id": organizationId,
   name: site.name,
   url: `https://${site.domain}/`,
   logo: `https://${site.domain}/images/corporate/logo-clover-transparent-final.png`,
@@ -33,7 +39,19 @@ const structuredData = {
     "Administración de propiedades",
     "Asesoría inmobiliaria"
   ]
-};
+},
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": websiteId,
+  name: site.name,
+  url: `https://${site.domain}/`,
+  publisher: { "@id": organizationId },
+  inLanguage: "es-CL"
+}
+];
+
+const structuredData = [...baseStructuredData, ...pageStructuredData];
 ---
 
 <!doctype html>
@@ -43,14 +61,21 @@ const structuredData = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2f4d2c" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/images/corporate/logo-clover-transparent-final.png" type="image/png" />
+    <link rel="preload" as="image" href="/images/corporate/asesora-clover.jpg" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={imageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>

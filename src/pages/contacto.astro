@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import Footer from "../components/Footer.astro";
+import site from "../data/site.json";
+
+const title = "Contacto | Clover Propiedades";
+const description = "Contacta a Clover Propiedades por WhatsApp, Instagram o correo para venta, arriendo, administración y asesoría inmobiliaria en Chile.";
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: title,
+    description,
+    url: `https://${site.domain}/contacto/`,
+    mainEntity: { "@id": `https://${site.domain}/#organization` }
+  }
+];
+---
+
+<BaseLayout title={title} description={description} structuredData={structuredData}>
+  <Header />
+  <main class="content-page">
+    <section class="container content-hero">
+      <p class="eyebrow">Contacto directo</p>
+      <h1>Conversemos sobre tu propiedad</h1>
+      <p>
+        Para cotizar una gestión inmobiliaria o resolver dudas sobre venta,
+        arriendo y administración, el canal principal es WhatsApp.
+      </p>
+    </section>
+
+    <section class="container contact-directory" aria-label="Datos de contacto">
+      <article>
+        <span>WhatsApp</span>
+        <h2>{site.phone}</h2>
+        <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20recibir%20asesor%C3%ADa%20inmobiliaria.`} target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a>
+      </article>
+      <article>
+        <span>Instagram</span>
+        <h2>@{site.instagram}</h2>
+        <a class="button button-soft" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">Ver perfil</a>
+      </article>
+      <article>
+        <span>Correo</span>
+        <h2>{site.email}</h2>
+        <a class="button button-soft" href={`mailto:${site.email}`}>Enviar correo</a>
+      </article>
+    </section>
+  </main>
+  <ContactCTA />
+  <Footer />
+</BaseLayout>

@@ -1,7 +1,7 @@
 [
   {
     "id": "renca-la-hacienda",
-    "title": "Venta finalizada con exito",
+    "title": "Venta finalizada con éxito",
     "location": "Renca La Hacienda",
     "kind": "Casa familiar",
     "image": "/images/proof/caso-renca-foto.jpg",
@@ -9,7 +9,7 @@
   },
   {
     "id": "talagante-venta",
-    "title": "Gestion de venta publicada",
+    "title": "Gestión de venta publicada",
     "location": "Talagante",
     "kind": "Terreno y vivienda",
     "image": "/images/proof/caso-talagante-foto.jpg",
