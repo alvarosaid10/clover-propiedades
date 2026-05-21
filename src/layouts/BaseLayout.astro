@@ -13,18 +13,31 @@ const canonical = new URL(Astro.url.pathname, `https://${site.domain}`);
 const imageUrl = new URL(image, `https://${site.domain}`);
 const organizationId = `https://${site.domain}/#organization`;
 const websiteId = `https://${site.domain}/#website`;
+const brandId = `https://${site.domain}/#brand`;
 const baseStructuredData = [
 {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   "@id": organizationId,
   name: site.name,
+  legalName: "Clover Propiedades",
+  alternateName: "Clover Propiedades Chile",
+  slogan: "Compra, vende y arrienda con nosotros",
   url: `https://${site.domain}/`,
   logo: `https://${site.domain}/images/corporate/logo-clover-transparent-final.png`,
   image: imageUrl.href,
   description: site.description,
   telephone: site.phone,
   email: site.email,
+  priceRange: "$$",
+  brand: { "@id": brandId },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: site.phone,
+    contactType: "sales",
+    areaServed: "CL",
+    availableLanguage: "Spanish"
+  },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Renca",
@@ -39,6 +52,14 @@ const baseStructuredData = [
     "Administración de propiedades",
     "Asesoría inmobiliaria"
   ]
+},
+{
+  "@context": "https://schema.org",
+  "@type": "Brand",
+  "@id": brandId,
+  name: "Clover Propiedades",
+  logo: `https://${site.domain}/images/corporate/logo-clover-transparent-final.png`,
+  url: `https://${site.domain}/`
 },
 {
   "@context": "https://schema.org",
