@@ -58,6 +58,46 @@ src/data/site.json
 src/data/successes.json
 ```
 
+## Propiedades futuras
+
+La web no muestra propiedades activas por defecto para evitar confusiones con publicaciones que puedan dejar de estar disponibles.
+
+El archivo activo esta en:
+
+```text
+src/data/properties.json
+```
+
+Hoy debe mantenerse como `[]` hasta que exista una propiedad real lista para publicar.
+
+Hay un modelo editable en:
+
+```text
+src/data/properties.example.json
+```
+
+Campos minimos para una propiedad:
+
+- `id`: texto unico sin espacios, por ejemplo `casa-renca-2026`.
+- `title`: titulo comercial corto.
+- `operation`: `venta` o `arriendo`.
+- `status`: `disponible`, `vendida`, `arrendada` o `en gestion`.
+- `location`: comuna o ubicacion general.
+- `summary`: descripcion breve.
+- `visible`: `true` para mostrarla en el futuro, `false` para ocultarla.
+
+Campos opcionales:
+
+- `price`
+- `image`
+- `gallery`
+- `bedrooms`
+- `bathrooms`
+- `surface`
+- `featured`
+
+Para ocultar una propiedad, cambiar `visible` a `false`. Para marcarla como vendida o arrendada, cambiar `status`. Para eliminarla, borrar su bloque completo del arreglo JSON.
+
 Las imagenes reales estan organizadas en:
 
 ```text

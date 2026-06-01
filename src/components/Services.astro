@@ -63,20 +63,25 @@ const extraServices = [
 ];
 ---
 
-<section id="servicios" class="services">
+<section id="servicios" class="services" data-reveal>
   <div class="container service-panel">
     <div class="service-intro">
       <p class="eyebrow">Servicios</p>
       <h2>Tu operación en buenas manos</h2>
       <p>
-        Tú solo recibes tu depósito. Clover se encarga del trámite, la supervisión
+        Tú solo recibes tu depósito. Clover Propiedades se encarga del trámite, la supervisión
         del inmueble y la gestión comercial para que avances con tranquilidad.
       </p>
       <div class="service-promise">
-        <strong>Gestión completa de principio a fin</strong>
-        <span>Supervisión permanente</span>
-        <span>Seguridad y transparencia</span>
-        <span>Acompañamiento en todo el proceso</span>
+        <div class="promise-head">
+          <span class="promise-mark" aria-hidden="true"></span>
+          <strong>Gestión completa de principio a fin</strong>
+        </div>
+        <div class="promise-list">
+          <span>Supervisión permanente</span>
+          <span>Seguridad y transparencia</span>
+          <span>Acompañamiento en todo el proceso</span>
+        </div>
       </div>
       <div class="support-row" aria-label="Servicios adicionales">
         {extraServices.map((item) => (

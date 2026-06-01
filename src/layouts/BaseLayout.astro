@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 import site from "../data/site.json";
 
 const {
@@ -55,6 +56,41 @@ const baseStructuredData = [
 },
 {
   "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `https://${site.domain}/#organization-profile`,
+  name: "Clover Propiedades",
+  url: `https://${site.domain}/`,
+  logo: `https://${site.domain}/images/corporate/logo-clover-transparent-final.png`,
+  description: site.description,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: site.phone,
+    contactType: "customer service",
+    areaServed: "CL",
+    availableLanguage: "Spanish"
+  },
+  sameAs: [`https://www.instagram.com/${site.instagram}/`]
+},
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `https://${site.domain}/#localbusiness`,
+  name: "Clover Propiedades",
+  url: `https://${site.domain}/`,
+  image: imageUrl.href,
+  telephone: site.phone,
+  email: site.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Renca",
+    addressRegion: "Región Metropolitana",
+    addressCountry: "CL"
+  },
+  areaServed: "Chile",
+  priceRange: "$$"
+},
+{
+  "@context": "https://schema.org",
   "@type": "Brand",
   "@id": brandId,
   name: "Clover Propiedades",
@@ -100,6 +136,7 @@ const structuredData = [...baseStructuredData, ...pageStructuredData];
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
     <title>{title}</title>
+    <ClientRouter />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G10YJ02TW4"></script>
     <script is:inline>
@@ -107,6 +144,27 @@ const structuredData = [...baseStructuredData, ...pageStructuredData];
       function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
       gtag("config", "G-G10YJ02TW4");
+    </script>
+    <script is:inline>
+      const revealItems = () => {
+        const items = document.querySelectorAll("[data-reveal]");
+        if (!("IntersectionObserver" in window)) {
+          items.forEach((item) => item.classList.add("is-visible"));
+          return;
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+        items.forEach((item) => observer.observe(item));
+      };
+
+      revealItems();
+      document.addEventListener("astro:page-load", revealItems);
     </script>
   </head>
   <body>

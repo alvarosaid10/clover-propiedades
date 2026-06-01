@@ -49,7 +49,7 @@ const structuredData = [
 <BaseLayout title={title} description={description} structuredData={structuredData}>
   <Header />
   <main class="content-page">
-    <section class="container content-hero">
+    <section class="container content-hero" data-reveal>
       <p class="eyebrow">Servicios inmobiliarios</p>
       <h1>Servicios de Clover Propiedades</h1>
       <p>
@@ -58,7 +58,7 @@ const structuredData = [
       </p>
     </section>
 
-    <section class="container page-grid" aria-label="Servicios principales">
+    <section class="container page-grid" aria-label="Servicios principales" data-reveal>
       <article class="page-card">
         <span>Venta</span>
         <h2>Venta de propiedades</h2>
@@ -76,7 +76,7 @@ const structuredData = [
       </article>
     </section>
 
-    <section class="container content-band">
+    <section class="container content-band" data-reveal>
       <h2>Gestión completa de principio a fin</h2>
       <p>
         El enfoque es simple: que el propietario reciba orientación clara y delegue
@@ -86,7 +86,7 @@ const structuredData = [
       <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20consultar%20por%20sus%20servicios%20inmobiliarios.`} target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp</a>
     </section>
 
-    <section class="container faq-list" aria-label="Preguntas frecuentes">
+    <section class="container faq-list" aria-label="Preguntas frecuentes" data-reveal>
       <h2>Preguntas frecuentes</h2>
       {faq.map((item) => (
         <details>

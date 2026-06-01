@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ejemplo-casa-renca",
+    "title": "Casa familiar en sector residencial",
+    "operation": "venta",
+    "status": "disponible",
+    "location": "Renca, Santiago",
+    "price": "$000.000.000",
+    "summary": "Descripcion breve de la propiedad y su principal valor comercial.",
+    "image": "/images/properties/imagen-principal.jpg",
+    "gallery": [
+      "/images/properties/imagen-1.jpg",
+      "/images/properties/imagen-2.jpg"
+    ],
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "surface": "90 m2",
+    "featured": true,
+    "visible": false
+  }
+]
