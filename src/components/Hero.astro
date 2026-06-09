@@ -1,27 +1,80 @@
 ---
 import site from "../data/site.json";
+
+const heroImages = [
+  {
+    src: "/images/corporate/asesora-clover.jpg",
+    alt: "Asesora de Clover Propiedades mostrando una propiedad"
+  },
+  {
+    src: "/images/portfolio/propiedad-09.jpg",
+    alt: "Propiedad gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-01.jpg",
+    alt: "Terraza de propiedad gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-02.jpg",
+    alt: "Interior de propiedad gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-04.jpg",
+    alt: "Walking closet de propiedad gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-05.jpg",
+    alt: "Patio de propiedad gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-06.jpg",
+    alt: "Cocina de propiedad gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-07.jpg",
+    alt: "Exterior de casa gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-08.jpg",
+    alt: "Comedor de propiedad gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-09.jpg",
+    alt: "Comedor interior de propiedad gestionada por Clover Propiedades"
+  },
+  {
+    src: "/images/hero/hero-propiedad-10.jpg",
+    alt: "Hall de edificio gestionado por Clover Propiedades"
+  }
+];
 ---
 
-<section class="hero" data-reveal>
+<section class="hero cinematic-hero" data-reveal>
   <div class="container hero-panel premium-surface" data-parallax-scope>
     <div class="hero-ambient hero-ambient-a" aria-hidden="true" data-parallax="0.35"></div>
     <div class="hero-ambient hero-ambient-b" aria-hidden="true" data-parallax="-0.25"></div>
+    <div class="hero-cinematic-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
     <div class="hero-copy">
       <p class="eyebrow">Corretaje y gestión inmobiliaria</p>
-      <h1>
+      <h1 aria-label="Clover Propiedades Gestión Inmobiliaria">
         <span>Clover Propiedades</span>
         <span>Gestión Inmobiliaria</span>
       </h1>
       <p class="hero-lead">
-        Clover Propiedades te acompaña en Chile. Compra, vende y arrienda con nosotros.
-        Cumple tu sueño y obtén tu propiedad con asesoría inmobiliaria profesional.
+        Propiedades en Chile. Compra, vende y arrienda con Clover Propiedades.
+        Cumple tu sueño y obtén tu propiedad con asesoría cercana, ordenada y profesional.
       </p>
 
       <div class="hero-proof" aria-label="Servicios principales de Clover Propiedades">
         <span>Compra</span>
-        <span>Vende</span>
-        <span>Arrienda</span>
+        <span>Venta</span>
+        <span>Arriendo</span>
+        <span>Administración</span>
       </div>
 
       <div class="hero-actions">
@@ -42,28 +95,29 @@ import site from "../data/site.json";
 
     <div class="hero-media" aria-label="Material real de Clover Propiedades">
       <div class="hero-orbit" aria-hidden="true" data-parallax="0.2"></div>
+      <div class="hero-stage-glow" aria-hidden="true"></div>
 
       <div class="hero-card hero-card-main" data-tilt-card>
         <div class="image-fade">
-          <img class="fade-img fade-a" src="/images/corporate/asesora-clover.jpg" alt="Asesora de Clover Propiedades" loading="eager" fetchpriority="high" decoding="async" />
-          <img class="fade-img fade-b" src="/images/portfolio/propiedad-09.jpg" alt="Propiedad gestionada por Clover Propiedades" loading="lazy" decoding="async" />
-          <img class="fade-img fade-c" src="/images/hero/hero-propiedad-01.jpg" alt="Terraza de propiedad gestionada por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-d" src="/images/hero/hero-propiedad-02.jpg" alt="Interior de propiedad gestionada por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-e" src="/images/hero/hero-propiedad-03.jpg" alt="Acceso de condominio gestionado por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-f" src="/images/hero/hero-propiedad-04.jpg" alt="Walking closet de propiedad gestionada por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-g" src="/images/hero/hero-propiedad-05.jpg" alt="Patio de propiedad gestionada por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-h" src="/images/hero/hero-propiedad-06.jpg" alt="Cocina de propiedad gestionada por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-i" src="/images/hero/hero-propiedad-07.jpg" alt="Exterior de casa gestionada por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-j" src="/images/hero/hero-propiedad-08.jpg" alt="Comedor de propiedad gestionada por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-k" src="/images/hero/hero-propiedad-09.jpg" alt="Comedor interior de propiedad gestionada por Clover" loading="lazy" decoding="async" />
-          <img class="fade-img fade-l" src="/images/hero/hero-propiedad-10.jpg" alt="Hall de edificio gestionado por Clover" loading="lazy" decoding="async" />
+          {heroImages.map((image, index) => (
+            <img
+              class={`fade-img fade-${index + 1}`}
+              src={image.src}
+              alt={image.alt}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchpriority={index === 0 ? "high" : null}
+              decoding="async"
+              style={`--i:${index}; --total:${heroImages.length};`}
+            />
+          ))}
         </div>
       </div>
 
-      <div class="hero-card hero-card-design" aria-hidden="true" data-parallax="-0.18">
-        <span class="design-clover"></span>
-        <strong>Todo Chile</strong>
-        <p>Venta, arriendo y asesoría con trato directo.</p>
+      <div class="hero-status-strip" aria-hidden="true">
+        <span>Venta</span>
+        <span>Arriendo</span>
+        <span>Gestión segura</span>
+        <span>Asesoría</span>
       </div>
 
       <div class="hero-card hero-card-note" data-parallax="0.12">
@@ -71,9 +125,26 @@ import site from "../data/site.json";
           <svg viewBox="0 0 24 24"><path d="M20 7 9 18l-5-5"></path></svg>
         </span>
         <div>
-          <strong>Gestión clara y segura</strong>
+          <strong>Gestión clara</strong>
           <p>Evaluación, publicación, visitas, contratos y cierre acompañado.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="hero-marquee" aria-hidden="true">
+      <div>
+        <span>Clover Propiedades</span>
+        <span>Compra</span>
+        <span>Venta</span>
+        <span>Arriendo</span>
+        <span>Administración</span>
+        <span>Chile</span>
+        <span>Clover Propiedades</span>
+        <span>Compra</span>
+        <span>Venta</span>
+        <span>Arriendo</span>
+        <span>Administración</span>
+        <span>Chile</span>
       </div>
     </div>
   </div>
