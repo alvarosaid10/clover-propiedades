@@ -3,11 +3,14 @@ import site from "../data/site.json";
 ---
 
 <section id="contacto" class="contact" data-reveal>
-  <div class="container contact-box">
-    <div>
+  <div class="container contact-box premium-surface" data-parallax-scope>
+    <div class="contact-copy">
       <p class="eyebrow">Contacto</p>
-      <h2>Agenda una asesoría</h2>
-      <p>Cuéntanos qué propiedad necesitas vender, arrendar o administrar y recibe una orientación clara por WhatsApp.</p>
+      <h2>Conversemos tu próxima gestión</h2>
+      <p>
+        Cuéntanos qué propiedad necesitas vender, arrendar o administrar y recibe
+        una orientación clara por WhatsApp, sin formularios ni datos sensibles guardados en la web.
+      </p>
     </div>
 
     <div class="contact-actions">
@@ -18,6 +21,10 @@ import site from "../data/site.json";
         Instagram
       </a>
       <p>{site.location}<br />{site.phone}<br />{site.email}</p>
+    </div>
+
+    <div class="contact-seal" aria-hidden="true" data-parallax="-0.2">
+      <span></span>
     </div>
   </div>
 </section>

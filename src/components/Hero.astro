@@ -3,7 +3,10 @@ import site from "../data/site.json";
 ---
 
 <section class="hero" data-reveal>
-  <div class="container hero-panel">
+  <div class="container hero-panel premium-surface" data-parallax-scope>
+    <div class="hero-ambient hero-ambient-a" aria-hidden="true" data-parallax="0.35"></div>
+    <div class="hero-ambient hero-ambient-b" aria-hidden="true" data-parallax="-0.25"></div>
+
     <div class="hero-copy">
       <p class="eyebrow">Corretaje y gestión inmobiliaria</p>
       <h1>
@@ -29,10 +32,18 @@ import site from "../data/site.json";
           Ver publicaciones
         </a>
       </div>
+
+      <div class="hero-metrics" aria-label="Enfoque de trabajo">
+        <span><strong>01</strong> Evaluación</span>
+        <span><strong>02</strong> Gestión</span>
+        <span><strong>03</strong> Cierre</span>
+      </div>
     </div>
 
     <div class="hero-media" aria-label="Material real de Clover Propiedades">
-      <div class="hero-card hero-card-main">
+      <div class="hero-orbit" aria-hidden="true" data-parallax="0.2"></div>
+
+      <div class="hero-card hero-card-main" data-tilt-card>
         <div class="image-fade">
           <img class="fade-img fade-a" src="/images/corporate/asesora-clover.jpg" alt="Asesora de Clover Propiedades" loading="eager" fetchpriority="high" decoding="async" />
           <img class="fade-img fade-b" src="/images/portfolio/propiedad-09.jpg" alt="Propiedad gestionada por Clover Propiedades" loading="lazy" decoding="async" />
@@ -49,13 +60,13 @@ import site from "../data/site.json";
         </div>
       </div>
 
-      <div class="hero-card hero-card-design" aria-hidden="true">
+      <div class="hero-card hero-card-design" aria-hidden="true" data-parallax="-0.18">
         <span class="design-clover"></span>
-        <strong>Propiedades en Chile</strong>
-        <p>Asesoría clara para avanzar con confianza.</p>
+        <strong>Todo Chile</strong>
+        <p>Venta, arriendo y asesoría con trato directo.</p>
       </div>
 
-      <div class="hero-card hero-card-note">
+      <div class="hero-card hero-card-note" data-parallax="0.12">
         <span class="mini-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M20 7 9 18l-5-5"></path></svg>
         </span>

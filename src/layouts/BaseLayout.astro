@@ -146,6 +146,8 @@ const structuredData = [...baseStructuredData, ...pageStructuredData];
       gtag("config", "G-G10YJ02TW4");
     </script>
     <script is:inline>
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
       const revealItems = () => {
         const items = document.querySelectorAll("[data-reveal]");
         if (!("IntersectionObserver" in window)) {
@@ -163,8 +165,49 @@ const structuredData = [...baseStructuredData, ...pageStructuredData];
         items.forEach((item) => observer.observe(item));
       };
 
+      const bindMotion = () => {
+        if (reduceMotion) return;
+
+        document.querySelectorAll("[data-parallax-scope]").forEach((scope) => {
+          if (scope.dataset.motionBound) return;
+          scope.dataset.motionBound = "true";
+
+          scope.addEventListener("pointermove", (event) => {
+            const rect = scope.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+            const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+
+            scope.querySelectorAll("[data-parallax]").forEach((item) => {
+              const strength = Number(item.dataset.parallax || 0.18);
+              item.style.transform = `translate3d(${x * strength * 26}px, ${y * strength * 22}px, 0)`;
+            });
+
+            scope.querySelectorAll("[data-tilt-card]").forEach((card) => {
+              card.style.setProperty("--tilt-x", `${y * -2.4}deg`);
+              card.style.setProperty("--tilt-y", `${x * 2.4}deg`);
+              card.style.setProperty("--glow-x", `${(x + 1) * 50}%`);
+              card.style.setProperty("--glow-y", `${(y + 1) * 50}%`);
+            });
+          });
+
+          scope.addEventListener("pointerleave", () => {
+            scope.querySelectorAll("[data-parallax]").forEach((item) => {
+              item.style.transform = "";
+            });
+            scope.querySelectorAll("[data-tilt-card]").forEach((card) => {
+              card.style.removeProperty("--tilt-x");
+              card.style.removeProperty("--tilt-y");
+              card.style.removeProperty("--glow-x");
+              card.style.removeProperty("--glow-y");
+            });
+          });
+        });
+      };
+
       revealItems();
+      bindMotion();
       document.addEventListener("astro:page-load", revealItems);
+      document.addEventListener("astro:page-load", bindMotion);
     </script>
   </head>
   <body>

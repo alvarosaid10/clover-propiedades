@@ -1,78 +1,87 @@
 ---
 const services = [
   {
-    name: "Venta de propiedades",
+    name: "Venta",
+    title: "Venta de propiedades",
     price: "2% + IVA",
     featured: true,
-    text: "Nos encargamos de todo el proceso de venta para que avances con información clara y respaldo en cada etapa.",
+    text: "Evaluación, valorización, publicación, visitas, negociación, revisión documental y acompañamiento hasta la firma.",
     bullets: [
-      "Evaluación y valorización",
-      "Marketing y publicación de la propiedad",
-      "Gestión de visitas y negociación",
+      "Marketing y publicación",
+      "Gestión de visitas",
+      "Negociación y cierre",
       "Revisión de documentos",
-      "Gestión con bancos y abogados",
-      "Acompañamiento hasta la firma de la escritura",
-      "Regularización de ampliaciones y construcciones ante la DOM",
-      "Asesoría y gestión en posesión efectiva en casos de herencias",
-      "Guía y asesoría durante cada etapa del proceso de venta"
+      "Bancos y abogados",
+      "Regularización ante DOM"
     ],
     icon: `<path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path>`
   },
   {
-    name: "Arriendo de propiedades",
+    name: "Arriendo",
+    title: "Arriendo de propiedades",
     price: "50% + IVA",
-    text: "Publicamos, filtramos interesados y formalizamos el arriendo para entregar el inmueble con orden.",
+    text: "Fijación de precio, difusión, selección de arrendatarios, contrato, entrega del inmueble y gestión de garantías.",
     bullets: [
-      "Evaluación y fijación de precio",
-      "Marketing y publicación",
-      "Selección de arrendatarios",
-      "Redacción y firma de contrato",
-      "Entrega del inmueble",
+      "Precio y publicación",
+      "Filtro de interesados",
+      "Contrato y entrega",
       "Gestión de garantías"
     ],
     icon: `<circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path>`
   },
   {
     name: "Administración",
+    title: "Administración de propiedades",
     price: "% mensual",
-    text: "Administramos la relación diaria entre propietario, arrendatario y propiedad con seguimiento periódico.",
+    text: "Cobro de arriendos, pagos, coordinación de mantenciones, atención de arrendatarios e informes periódicos.",
     bullets: [
       "Cobro de arriendos",
-      "Pago de gastos y proveedores",
-      "Supervisión y mantención del inmueble",
-      "Atención de arrendatarios",
-      "Informes periódicos y rendición de cuentas"
+      "Pagos y proveedores",
+      "Mantención",
+      "Informes periódicos"
     ],
     icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path>`
   }
 ];
 
+const process = [
+  "Evaluación",
+  "Publicación",
+  "Visitas",
+  "Negociación",
+  "Documentación",
+  "Cierre"
+];
+
 const extraServices = [
   {
-    name: "Regularización de ampliaciones",
-    text: "Acompañamiento para revisar y ordenar ampliaciones o construcciones ante la DOM."
+    name: "Regularización",
+    text: "Revisión y orden de ampliaciones o construcciones ante la DOM."
   },
   {
-    name: "Asesoría documental y gestión completa",
-    text: "Reunión, revisión y gestión de la documentación necesaria para cada trámite."
+    name: "Asesoría documental",
+    text: "Reunión, revisión y gestión de la documentación necesaria."
   },
   {
-    name: "Acompañamiento de principio a fin",
-    text: "Guía en cada etapa del proceso inmobiliario para tomar decisiones con mayor seguridad."
+    name: "Acompañamiento",
+    text: "Guía de principio a fin para decidir con mayor seguridad."
   }
 ];
 ---
 
 <section id="servicios" class="services" data-reveal>
-  <div class="container service-panel">
+  <div class="container service-panel premium-surface">
     <div class="service-intro">
-      <p class="eyebrow">Servicios</p>
-      <h2>Tu operación en buenas manos</h2>
-      <p>
-        Tú solo recibes tu depósito. Clover Propiedades se encarga del trámite, la supervisión
-        del inmueble y la gestión comercial para que avances con tranquilidad.
-      </p>
-      <div class="service-promise">
+      <div>
+        <p class="eyebrow">Servicios</p>
+        <h2>Tu operación en buenas manos</h2>
+        <p>
+          Tú solo recibes tu depósito. Clover Propiedades se encarga del trámite,
+          la supervisión del inmueble y la gestión comercial para que avances con tranquilidad.
+        </p>
+      </div>
+
+      <div class="service-promise" data-tilt-card>
         <div class="promise-head">
           <span class="promise-mark" aria-hidden="true"></span>
           <strong>Gestión completa de principio a fin</strong>
@@ -83,25 +92,25 @@ const extraServices = [
           <span>Acompañamiento en todo el proceso</span>
         </div>
       </div>
-      <div class="support-row" aria-label="Servicios adicionales">
-        {extraServices.map((item) => (
-          <span>
-            <i aria-hidden="true"></i>
-            <strong>{item.name}</strong>
-            {item.text}
-          </span>
-        ))}
-      </div>
-      <p class="service-closing">Profesionalismo, compromiso y transparencia para que tu propiedad esté en las mejores manos.</p>
+    </div>
+
+    <div class="process-strip" aria-label="Proceso de trabajo de Clover Propiedades">
+      {process.map((step, index) => (
+        <span style={`--step:${index}`}>
+          <strong>{String(index + 1).padStart(2, "0")}</strong>
+          {step}
+        </span>
+      ))}
     </div>
 
     <div class="service-grid">
       {services.map((service) => (
-        <article class={`service-tile ${service.featured ? "service-tile-featured" : ""}`}>
+        <article class={`service-tile ${service.featured ? "service-tile-featured" : ""}`} data-tilt-card>
           <span class="service-symbol" set:html={`<svg viewBox="0 0 24 24">${service.icon}</svg>`} />
           <div class="service-content">
             <div>
-              <h3>{service.name}</h3>
+              <span class="service-label">{service.name}</span>
+              <h3>{service.title}</h3>
               <p>{service.text}</p>
             </div>
             <ul>
@@ -110,6 +119,16 @@ const extraServices = [
             <strong>{service.price}</strong>
           </div>
         </article>
+      ))}
+    </div>
+
+    <div class="support-row" aria-label="Servicios adicionales">
+      {extraServices.map((item) => (
+        <span>
+          <i aria-hidden="true"></i>
+          <strong>{item.name}</strong>
+          {item.text}
+        </span>
       ))}
     </div>
   </div>

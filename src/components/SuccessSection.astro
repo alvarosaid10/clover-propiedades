@@ -5,19 +5,24 @@ const featured = successes;
 ---
 
 <section id="experiencia" class="proof-section" data-reveal>
-  <div class="container proof-panel">
+  <div class="container proof-panel premium-surface">
     <div class="proof-copy">
       <p class="eyebrow">Experiencia real</p>
-      <h2>Propiedades gestionadas con confianza</h2>
+      <h2>Gestiones que se pueden ver</h2>
       <p>
-        Tres ejemplos reales de gestión en distintas zonas. La imagen cambia suavemente
-        entre foto de propiedad y publicación de Clover Propiedades para mostrar contexto y respaldo.
+        Casos reales en distintas zonas de Chile. Cada tarjeta alterna entre foto
+        de propiedad y publicación de Clover Propiedades para mostrar contexto y respaldo.
       </p>
+      <div class="proof-badges" aria-label="Señales de confianza">
+        <span>Transparencia</span>
+        <span>Publicación real</span>
+        <span>Contacto directo</span>
+      </div>
     </div>
 
     <div class="proof-grid">
       {featured.map((item) => (
-        <article class="proof-card">
+        <article class="proof-card" data-tilt-card>
           <div class="proof-image">
             <img src={item.image} alt={`${item.title} - ${item.location}`} loading="lazy" decoding="async" />
             <img class="proof-image-alt" src={item.secondaryImage} alt={`Publicación Clover - ${item.location}`} loading="lazy" decoding="async" />
