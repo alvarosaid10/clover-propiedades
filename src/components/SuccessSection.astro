@@ -10,8 +10,9 @@ const featured = successes;
       <p class="eyebrow">Experiencia real</p>
       <h2>Gestiones que se pueden ver</h2>
       <p>
-        Casos reales en distintas zonas de Chile. Cada tarjeta alterna entre foto
-        de propiedad y publicación de Clover Propiedades para mostrar contexto y respaldo.
+        Casos reales en distintas zonas de Chile. Cada pieza combina fotografía
+        de propiedad y publicación de Clover Propiedades para mostrar contexto,
+        trazabilidad y respaldo comercial.
       </p>
       <div class="proof-badges" aria-label="Señales de confianza">
         <span>Transparencia</span>
@@ -21,8 +22,8 @@ const featured = successes;
     </div>
 
     <div class="proof-grid">
-      {featured.map((item) => (
-        <article class="proof-card" data-tilt-card>
+      {featured.map((item, index) => (
+        <article class="proof-card" style={`--proof:${index}`} data-tilt-card>
           <div class="proof-image">
             <img src={item.image} alt={`${item.title} - ${item.location}`} loading="lazy" decoding="async" />
             <img class="proof-image-alt" src={item.secondaryImage} alt={`Publicación Clover - ${item.location}`} loading="lazy" decoding="async" />

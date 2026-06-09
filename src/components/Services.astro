@@ -4,16 +4,8 @@ const services = [
     name: "Venta",
     title: "Venta de propiedades",
     price: "2% + IVA",
-    featured: true,
     text: "Valoración, publicación, visitas, negociación, revisión documental y acompañamiento hasta la firma de escritura.",
-    bullets: [
-      "Marketing y publicación",
-      "Gestión de visitas",
-      "Negociación y cierre",
-      "Revisión de documentos",
-      "Bancos y abogados",
-      "Regularización ante DOM"
-    ],
+    bullets: ["Marketing", "Visitas", "Negociación", "Documentos", "Bancos", "Regularización"],
     icon: `<path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path>`
   },
   {
@@ -21,12 +13,7 @@ const services = [
     title: "Arriendo de propiedades",
     price: "50% + IVA",
     text: "Fijación de precio, difusión, selección de arrendatarios, contrato, entrega del inmueble y gestión de garantías.",
-    bullets: [
-      "Precio y publicación",
-      "Filtro de interesados",
-      "Contrato y entrega",
-      "Gestión de garantías"
-    ],
+    bullets: ["Precio", "Publicación", "Filtro", "Contrato", "Entrega", "Garantías"],
     icon: `<circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path>`
   },
   {
@@ -34,38 +21,17 @@ const services = [
     title: "Administración de propiedades",
     price: "% mensual",
     text: "Cobro de arriendos, pagos, coordinación de mantenciones, atención de arrendatarios e informes periódicos.",
-    bullets: [
-      "Cobro de arriendos",
-      "Pagos y proveedores",
-      "Mantención",
-      "Informes periódicos"
-    ],
+    bullets: ["Cobro", "Pagos", "Proveedores", "Mantención", "Atención", "Informes"],
     icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path>`
   }
 ];
 
-const process = [
-  "Evaluación",
-  "Publicación",
-  "Visitas",
-  "Negociación",
-  "Documentación",
-  "Cierre"
-];
+const process = ["Evaluación", "Publicación", "Visitas", "Negociación", "Documentación", "Cierre"];
 
 const extraServices = [
-  {
-    name: "Regularización",
-    text: "Revisión y orden de ampliaciones o construcciones ante la DOM."
-  },
-  {
-    name: "Asesoría documental",
-    text: "Reunión, revisión y gestión de la documentación necesaria."
-  },
-  {
-    name: "Acompañamiento",
-    text: "Guía de principio a fin para decidir con mayor seguridad."
-  }
+  { name: "Regularización", text: "Revisión y orden de ampliaciones o construcciones ante la DOM." },
+  { name: "Asesoría documental", text: "Reunión, revisión y gestión de la documentación necesaria." },
+  { name: "Acompañamiento", text: "Guía de principio a fin para decidir con mayor seguridad." }
 ];
 ---
 
@@ -83,6 +49,7 @@ const extraServices = [
 
       <div class="service-promise" data-tilt-card>
         <span class="promise-orbit" aria-hidden="true"></span>
+        <span class="promise-house" aria-hidden="true"></span>
         <div class="promise-head">
           <span class="promise-mark" aria-hidden="true"></span>
           <strong>Gestión completa de principio a fin</strong>
@@ -96,31 +63,29 @@ const extraServices = [
       </div>
     </div>
 
+    <div class="service-showcase">
+      {services.map((service, index) => (
+        <article class="service-lane" style={`--lane:${index}`} data-tilt-card>
+          <div class="service-lane-icon" set:html={`<svg viewBox="0 0 24 24">${service.icon}</svg>`} />
+          <div class="service-lane-copy">
+            <span>{service.name}</span>
+            <h3>{service.title}</h3>
+            <p>{service.text}</p>
+            <div class="service-tags">
+              {service.bullets.map((bullet) => <small>{bullet}</small>)}
+            </div>
+          </div>
+          <strong>{service.price}</strong>
+        </article>
+      ))}
+    </div>
+
     <div class="process-strip" aria-label="Proceso de trabajo de Clover Propiedades">
       {process.map((step, index) => (
         <span style={`--step:${index}`}>
           <strong>{String(index + 1).padStart(2, "0")}</strong>
           {step}
         </span>
-      ))}
-    </div>
-
-    <div class="service-grid">
-      {services.map((service) => (
-        <article class={`service-tile ${service.featured ? "service-tile-featured" : ""}`} data-tilt-card>
-          <span class="service-symbol" set:html={`<svg viewBox="0 0 24 24">${service.icon}</svg>`} />
-          <div class="service-content">
-            <div>
-              <span class="service-label">{service.name}</span>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-            </div>
-            <ul>
-              {service.bullets.map((bullet) => <li>{bullet}</li>)}
-            </ul>
-            <strong>{service.price}</strong>
-          </div>
-        </article>
       ))}
     </div>
 

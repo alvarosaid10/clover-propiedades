@@ -2,52 +2,27 @@
 import site from "../data/site.json";
 
 const heroImages = [
-  {
-    src: "/images/corporate/asesora-clover.jpg",
-    alt: "Asesora de Clover Propiedades mostrando una propiedad"
-  },
-  {
-    src: "/images/portfolio/propiedad-09.jpg",
-    alt: "Propiedad gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-01.jpg",
-    alt: "Terraza de propiedad gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-02.jpg",
-    alt: "Interior de propiedad gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-04.jpg",
-    alt: "Walking closet de propiedad gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-05.jpg",
-    alt: "Patio de propiedad gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-06.jpg",
-    alt: "Cocina de propiedad gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-07.jpg",
-    alt: "Exterior de casa gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-08.jpg",
-    alt: "Comedor de propiedad gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-09.jpg",
-    alt: "Comedor interior de propiedad gestionada por Clover Propiedades"
-  },
-  {
-    src: "/images/hero/hero-propiedad-10.jpg",
-    alt: "Hall de edificio gestionado por Clover Propiedades"
-  }
+  { src: "/images/corporate/asesora-clover.jpg", alt: "Asesora de Clover Propiedades mostrando una propiedad" },
+  { src: "/images/portfolio/propiedad-09.jpg", alt: "Propiedad gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-01.jpg", alt: "Terraza de propiedad gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-02.jpg", alt: "Interior de propiedad gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-04.jpg", alt: "Walking closet de propiedad gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-05.jpg", alt: "Patio de propiedad gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-06.jpg", alt: "Cocina de propiedad gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-07.jpg", alt: "Exterior de casa gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-08.jpg", alt: "Comedor de propiedad gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-09.jpg", alt: "Comedor interior de propiedad gestionada por Clover Propiedades" },
+  { src: "/images/hero/hero-propiedad-10.jpg", alt: "Hall de edificio gestionado por Clover Propiedades" }
 ];
 ---
+
+<div class="brand-loader" aria-hidden="true">
+  <div class="brand-loader-mark">
+    <img src="/images/corporate/logo-clover-transparent-final.png" alt="" />
+    <span></span>
+  </div>
+  <p>Clover Propiedades</p>
+</div>
 
 <section class="hero cinematic-hero" data-reveal>
   <div class="container hero-panel premium-surface" data-parallax-scope>
@@ -57,33 +32,36 @@ const heroImages = [
       <span></span>
       <span></span>
       <span></span>
+      <span></span>
     </div>
 
     <div class="hero-copy">
-      <p class="eyebrow">Corretaje y gestión inmobiliaria</p>
-      <h1 aria-label="Clover Propiedades Gestión Inmobiliaria">
-        <span>Clover Propiedades</span>
-        <span>Gestión Inmobiliaria</span>
-      </h1>
-      <p class="hero-lead">
-        Propiedades en Chile. Compra, vende y arrienda con Clover Propiedades.
-        Cumple tu sueño y obtén tu propiedad con asesoría cercana, ordenada y profesional.
-      </p>
+      <div class="hero-copy-surface">
+        <p class="eyebrow">Corretaje y gestión inmobiliaria</p>
+        <h1 aria-label="Clover Propiedades Gestión Inmobiliaria">
+          <span>Clover Propiedades</span>
+          <span>Gestión Inmobiliaria</span>
+        </h1>
+        <p class="hero-lead">
+          Propiedades en Chile. Compra, vende y arrienda con Clover Propiedades.
+          Cumple tu sueño y obtén tu propiedad con asesoría cercana, ordenada y profesional.
+        </p>
 
-      <div class="hero-proof" aria-label="Servicios principales de Clover Propiedades">
-        <span>Compra</span>
-        <span>Venta</span>
-        <span>Arriendo</span>
-        <span>Administración</span>
-      </div>
+        <div class="hero-proof" aria-label="Servicios principales de Clover Propiedades">
+          <span>Compra</span>
+          <span>Venta</span>
+          <span>Arriendo</span>
+          <span>Administración</span>
+        </div>
 
-      <div class="hero-actions">
-        <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20inmobiliaria.`} target="_blank" rel="noopener noreferrer">
-          Hablar por WhatsApp
-        </a>
-        <a class="button button-soft" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">
-          Ver publicaciones
-        </a>
+        <div class="hero-actions">
+          <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20inmobiliaria.`} target="_blank" rel="noopener noreferrer">
+            Hablar por WhatsApp
+          </a>
+          <a class="button button-soft" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">
+            Ver publicaciones
+          </a>
+        </div>
       </div>
 
       <div class="hero-metrics" aria-label="Enfoque de trabajo">
@@ -111,6 +89,18 @@ const heroImages = [
             />
           ))}
         </div>
+      </div>
+
+      <div class="hero-stickers" aria-hidden="true">
+        <span class="estate-sticker sticker-key">
+          <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path></svg>
+        </span>
+        <span class="estate-sticker sticker-shield">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path></svg>
+        </span>
+        <span class="estate-sticker sticker-home">
+          <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path></svg>
+        </span>
       </div>
 
       <div class="hero-status-strip" aria-hidden="true">
