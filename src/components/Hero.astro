@@ -27,58 +27,52 @@ const lazyImage = { loading: "lazy" };
   <p>Clover Propiedades</p>
 </div>
 
-<section class="hero cinematic-hero" data-reveal>
-  <div class="container hero-panel premium-surface" data-parallax-scope>
-    <div class="hero-ambient hero-ambient-a" aria-hidden="true" data-parallax="0.35"></div>
-    <div class="hero-ambient hero-ambient-b" aria-hidden="true" data-parallax="-0.25"></div>
-    <div class="hero-cinematic-lines" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
+<section class="hero hero-astrowind" data-reveal>
+  <div class="container hero-panel" data-parallax-scope>
     <div class="hero-copy">
-      <div class="hero-copy-surface">
-        <p class="eyebrow">Corretaje y gestión inmobiliaria</p>
-        <h1 aria-label="Clover Propiedades Gestión Inmobiliaria">
-          <span>Clover Propiedades</span>
-          <span>Gestión Inmobiliaria</span>
-        </h1>
-        <p class="hero-lead">
-          Propiedades en Chile. Compra, vende y arrienda con Clover Propiedades.
-          Cumple tu sueño y obtén tu propiedad con asesoría cercana, ordenada y profesional.
-        </p>
+      <p class="eyebrow">Corretaje y gestión inmobiliaria</p>
+      <h1 aria-label="Clover Propiedades Gestión Inmobiliaria">
+        <span>Clover Propiedades</span>
+        <span>Gestión Inmobiliaria</span>
+      </h1>
+      <p class="hero-lead">
+        Propiedades en Chile. Compra, vende y arrienda con Clover Propiedades.
+        Cumple tu sueño y obtén tu propiedad con asesoría cercana, ordenada y profesional.
+      </p>
 
-        <div class="hero-proof" aria-label="Servicios principales de Clover Propiedades">
-          <span>Compra</span>
-          <span>Venta</span>
-          <span>Arriendo</span>
-          <span>Administración</span>
-        </div>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20inmobiliaria.`} target="_blank" rel="noopener noreferrer">
-            Hablar por WhatsApp
-          </a>
-          <a class="button button-soft" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">
-            Ver publicaciones
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-metrics" aria-label="Enfoque de trabajo">
-        <span><strong>01</strong> Evaluación</span>
-        <span><strong>02</strong> Gestión</span>
-        <span><strong>03</strong> Cierre</span>
+      <div class="hero-actions">
+        <a class="button button-primary" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20asesoria%20inmobiliaria.`} target="_blank" rel="noopener noreferrer">
+          Hablar por WhatsApp
+        </a>
+        <a class="button button-soft" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">
+          Ver publicaciones
+        </a>
       </div>
     </div>
 
-    <div class="hero-media" aria-label="Material real de Clover Propiedades">
-      <div class="hero-orbit" aria-hidden="true" data-parallax="0.2"></div>
-      <div class="hero-stage-glow" aria-hidden="true"></div>
+    <div class="hero-showcase" aria-label="Gestión inmobiliaria Clover Propiedades">
+      <div class="showcase-orbit orbit-a" aria-hidden="true"></div>
+      <div class="showcase-orbit orbit-b" aria-hidden="true"></div>
 
-      <div class="hero-card hero-card-main" data-tilt-card>
+      <div class="clover-scene" aria-hidden="true" data-parallax="0.12">
+        <div class="scene-house">
+          <svg viewBox="0 0 420 260">
+            <path class="house-roof" d="M58 142 210 48l152 94"></path>
+            <path class="house-base" d="M88 134v86h244v-86"></path>
+            <path class="house-door" d="M184 220v-58h52v58"></path>
+            <path class="house-window" d="M118 158h42v34h-42z"></path>
+            <path class="house-window" d="M260 158h42v34h-42z"></path>
+          </svg>
+        </div>
+        <div class="scene-clover">
+          <img src="/images/brand/clover-mark.svg" alt="" />
+        </div>
+        <span class="scene-label scene-label-a">Venta</span>
+        <span class="scene-label scene-label-b">Arriendo</span>
+        <span class="scene-label scene-label-c">Administración</span>
+      </div>
+
+      <div class="showcase-photo photo-main">
         <div class="image-fade">
           {heroImages.map((image, index) => (
             <img
@@ -93,51 +87,25 @@ const lazyImage = { loading: "lazy" };
         </div>
       </div>
 
-      <div class="hero-stickers" aria-hidden="true">
-        <span class="estate-sticker sticker-key">
-          <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path></svg>
-        </span>
-        <span class="estate-sticker sticker-shield">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path></svg>
-        </span>
-        <span class="estate-sticker sticker-home">
-          <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path></svg>
-        </span>
-      </div>
+      <img class="showcase-photo photo-one" src="/images/proof/caso-renca-foto.jpg" alt="Caso gestionado por Clover Propiedades en Renca" loading="lazy" decoding="async" />
+      <img class="showcase-photo photo-two" src="/images/proof/caso-talagante-foto.jpg" alt="Caso gestionado por Clover Propiedades en Talagante" loading="lazy" decoding="async" />
+      <img class="showcase-photo photo-three" src="/images/proof/caso-papudo-foto.jpg" alt="Caso gestionado por Clover Propiedades en Papudo" loading="lazy" decoding="async" />
 
-      <div class="hero-status-strip" aria-hidden="true">
-        <span>Venta</span>
-        <span>Arriendo</span>
-        <span>Gestión segura</span>
-        <span>Asesoría</span>
-      </div>
-
-      <div class="hero-card hero-card-note" data-parallax="0.12">
+      <div class="hero-card-note">
         <span class="mini-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M20 7 9 18l-5-5"></path></svg>
         </span>
         <div>
-          <strong>Gestión clara</strong>
+          <strong>Gestión clara y segura</strong>
           <p>Evaluación, publicación, visitas, contratos y cierre acompañado.</p>
         </div>
       </div>
     </div>
 
-    <div class="hero-marquee" aria-hidden="true">
-      <div>
-        <span>Clover Propiedades</span>
-        <span>Compra</span>
-        <span>Venta</span>
-        <span>Arriendo</span>
-        <span>Administración</span>
-        <span>Chile</span>
-        <span>Clover Propiedades</span>
-        <span>Compra</span>
-        <span>Venta</span>
-        <span>Arriendo</span>
-        <span>Administración</span>
-        <span>Chile</span>
-      </div>
+    <div class="hero-metrics" aria-label="Enfoque de trabajo">
+      <span><strong>01</strong> Evaluación</span>
+      <span><strong>02</strong> Gestión comercial</span>
+      <span><strong>03</strong> Cierre acompañado</span>
     </div>
   </div>
 </section>
