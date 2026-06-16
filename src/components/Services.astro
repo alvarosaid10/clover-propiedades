@@ -1,11 +1,11 @@
 ---
-const services = [
+const pillars = [
   {
     name: "Venta",
     title: "Venta de propiedades",
     price: "2% + IVA",
-    text: "Valoración, publicación, visitas, negociación, revisión documental y acompañamiento hasta la firma de escritura.",
-    bullets: ["Marketing", "Visitas", "Negociación", "Documentos", "Bancos", "Regularización"],
+    text: "Evaluación comercial, publicación, visitas, negociación, revisión documental y acompañamiento hasta la firma de escritura.",
+    points: ["Valoración", "Marketing", "Visitas", "Documentos"],
     icon: `<path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path>`
   },
   {
@@ -13,88 +13,87 @@ const services = [
     title: "Arriendo de propiedades",
     price: "50% + IVA",
     text: "Fijación de precio, difusión, selección de arrendatarios, contrato, entrega del inmueble y gestión de garantías.",
-    bullets: ["Precio", "Publicación", "Filtro", "Contrato", "Entrega", "Garantías"],
+    points: ["Precio", "Filtro", "Contrato", "Entrega"],
     icon: `<circle cx="8" cy="8" r="4"></circle><path d="m11 11 9 9"></path><path d="m16 16 2-2"></path><path d="m19 19 2-2"></path>`
   },
   {
     name: "Administración",
     title: "Administración de propiedades",
     price: "% mensual",
-    text: "Cobro de arriendos, pagos, coordinación de mantenciones, atención de arrendatarios e informes periódicos.",
-    bullets: ["Cobro", "Pagos", "Proveedores", "Mantención", "Atención", "Informes"],
+    text: "Cobro de arriendos, pago de gastos y proveedores, supervisión de mantenciones, atención de arrendatarios e informes periódicos.",
+    points: ["Cobros", "Pagos", "Mantención", "Informes"],
     icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-5"></path>`
   }
 ];
 
 const process = ["Evaluación", "Publicación", "Visitas", "Negociación", "Documentación", "Cierre"];
 
-const extraServices = [
-  { name: "Regularización", text: "Revisión y orden de ampliaciones o construcciones ante la DOM." },
-  { name: "Asesoría documental", text: "Reunión, revisión y gestión de la documentación necesaria." },
-  { name: "Acompañamiento", text: "Guía de principio a fin para decidir con mayor seguridad." }
+const support = [
+  "Regularización de ampliaciones",
+  "Asesoría documental",
+  "Acompañamiento de principio a fin"
 ];
 ---
 
-<section id="servicios" class="services" data-reveal>
-  <div class="container service-panel premium-surface">
-    <div class="service-intro">
-      <div class="service-copy">
+<section id="servicios" class="services clover-services" data-reveal>
+  <div class="container clover-services-board">
+    <span class="board-line" aria-hidden="true"></span>
+    <div class="clover-services-top">
+      <div class="clover-services-copy">
         <p class="eyebrow">Servicios</p>
         <h2>Tu operación en buenas manos</h2>
         <p>
-          Tú solo recibes tu depósito. Clover Propiedades se encarga del trámite,
-          la supervisión del inmueble y la gestión comercial para que avances con tranquilidad.
+          Clover Propiedades se encarga del trámite, la supervisión del inmueble y
+          la gestión comercial para que tú solo te enfoques en avanzar con tranquilidad.
         </p>
       </div>
 
-      <div class="service-promise" data-tilt-card>
-        <span class="promise-orbit" aria-hidden="true"></span>
-        <span class="promise-house" aria-hidden="true"></span>
-        <div class="promise-head">
-          <span class="promise-mark" aria-hidden="true"></span>
+      <aside class="clover-promise" aria-label="Gestión completa de principio a fin">
+        <div>
+          <span class="promise-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 7 9 18l-5-5"></path></svg>
+          </span>
           <strong>Gestión completa de principio a fin</strong>
         </div>
-        <div class="promise-list">
-          <span>Supervisión permanente</span>
-          <span>Seguridad y transparencia</span>
-          <span>Acompañamiento en todo el proceso</span>
-        </div>
-        <div class="promise-signature" aria-hidden="true">Clover</div>
-      </div>
+        <ul>
+          <li>Supervisión permanente del inmueble</li>
+          <li>Seguridad y transparencia en cada trámite</li>
+          <li>Acompañamiento comercial durante todo el proceso</li>
+        </ul>
+      </aside>
     </div>
 
-    <div class="service-showcase">
-      {services.map((service, index) => (
-        <article class="service-lane" style={`--lane:${index}`} data-tilt-card>
-          <div class="service-lane-icon" set:html={`<svg viewBox="0 0 24 24">${service.icon}</svg>`} />
-          <div class="service-lane-copy">
-            <span>{service.name}</span>
-            <h3>{service.title}</h3>
-            <p>{service.text}</p>
-            <div class="service-tags">
-              {service.bullets.map((bullet) => <small>{bullet}</small>)}
-            </div>
+    <div class="clover-pillars" aria-label="Servicios principales">
+      {pillars.map((pillar, index) => (
+        <article class="clover-pillar" style={`--pillar:${index}`}>
+          <div class="pillar-top">
+            <span class="pillar-icon" set:html={`<svg viewBox="0 0 24 24">${pillar.icon}</svg>`} />
+            <span class="pillar-name">{pillar.name}</span>
           </div>
-          <strong>{service.price}</strong>
+          <h3>{pillar.title}</h3>
+          <p>{pillar.text}</p>
+          <div class="pillar-points">
+            {pillar.points.map((point) => <span>{point}</span>)}
+          </div>
+          <strong>{pillar.price}</strong>
         </article>
       ))}
     </div>
 
-    <div class="process-strip" aria-label="Proceso de trabajo de Clover Propiedades">
+    <div class="clover-flow" aria-label="Proceso de trabajo">
       {process.map((step, index) => (
-        <span style={`--step:${index}`}>
+        <span>
           <strong>{String(index + 1).padStart(2, "0")}</strong>
           {step}
         </span>
       ))}
     </div>
 
-    <div class="support-row" aria-label="Servicios adicionales">
-      {extraServices.map((item) => (
+    <div class="clover-support" aria-label="Servicios adicionales">
+      {support.map((item) => (
         <span>
           <i aria-hidden="true"></i>
-          <strong>{item.name}</strong>
-          {item.text}
+          {item}
         </span>
       ))}
     </div>

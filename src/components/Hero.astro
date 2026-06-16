@@ -14,11 +14,14 @@ const heroImages = [
   { src: "/images/hero/hero-propiedad-09.jpg", alt: "Comedor interior de propiedad gestionada por Clover Propiedades" },
   { src: "/images/hero/hero-propiedad-10.jpg", alt: "Hall de edificio gestionado por Clover Propiedades" }
 ];
+
+const priorityImage = { loading: "eager", fetchpriority: "high" };
+const lazyImage = { loading: "lazy" };
 ---
 
 <div class="brand-loader" aria-hidden="true">
   <div class="brand-loader-mark">
-    <img src="/images/corporate/logo-clover-transparent-final.png" alt="" />
+    <img src="/images/corporate/clover-logo-transparent.svg" alt="" />
     <span></span>
   </div>
   <p>Clover Propiedades</p>
@@ -82,8 +85,7 @@ const heroImages = [
               class={`fade-img fade-${index + 1}`}
               src={image.src}
               alt={image.alt}
-              loading={index === 0 ? "eager" : "lazy"}
-              fetchpriority={index === 0 ? "high" : null}
+              {...(index === 0 ? priorityImage : lazyImage)}
               decoding="async"
               style={`--i:${index}; --total:${heroImages.length};`}
             />
