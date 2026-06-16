@@ -54,19 +54,29 @@ const lazyImage = { loading: "lazy" };
       <div class="showcase-orbit orbit-a" aria-hidden="true"></div>
       <div class="showcase-orbit orbit-b" aria-hidden="true"></div>
 
-      <div class="clover-scene" aria-hidden="true" data-parallax="0.12">
-        <div class="scene-house">
-          <svg viewBox="0 0 420 260">
-            <path class="house-roof" d="M58 142 210 48l152 94"></path>
-            <path class="house-base" d="M88 134v86h244v-86"></path>
-            <path class="house-door" d="M184 220v-58h52v58"></path>
-            <path class="house-window" d="M118 158h42v34h-42z"></path>
-            <path class="house-window" d="M260 158h42v34h-42z"></path>
-          </svg>
-        </div>
-        <div class="scene-clover">
+      <div class="property-bloom" aria-hidden="true" data-parallax="0.12">
+        <span class="bloom-dust dust-a"></span>
+        <span class="bloom-dust dust-b"></span>
+        <span class="bloom-dust dust-c"></span>
+        <span class="bloom-dust dust-d"></span>
+
+        <div class="bloom-petal petal-one" style="--photo:url('/images/hero/hero-propiedad-05.jpg');"></div>
+        <div class="bloom-petal petal-two" style="--photo:url('/images/hero/hero-propiedad-06.jpg');"></div>
+        <div class="bloom-petal petal-three" style="--photo:url('/images/hero/hero-propiedad-08.jpg');"></div>
+        <div class="bloom-petal petal-four" style="--photo:url('/images/portfolio/propiedad-09.jpg');"></div>
+
+        <svg class="bloom-house" viewBox="0 0 520 330">
+          <path d="M92 178 260 72l168 106"></path>
+          <path d="M132 164v102h256V164"></path>
+          <path d="M232 266v-72h56v72"></path>
+          <path d="M164 194h46v38h-46z"></path>
+          <path d="M310 194h46v38h-46z"></path>
+        </svg>
+
+        <div class="bloom-core">
           <img src="/images/brand/clover-mark.svg" alt="" />
         </div>
+
         <span class="scene-label scene-label-a">Venta</span>
         <span class="scene-label scene-label-b">Arriendo</span>
         <span class="scene-label scene-label-c">Administración</span>
@@ -86,10 +96,6 @@ const lazyImage = { loading: "lazy" };
           ))}
         </div>
       </div>
-
-      <img class="showcase-photo photo-one" src="/images/proof/caso-renca-foto.jpg" alt="Caso gestionado por Clover Propiedades en Renca" loading="lazy" decoding="async" />
-      <img class="showcase-photo photo-two" src="/images/proof/caso-talagante-foto.jpg" alt="Caso gestionado por Clover Propiedades en Talagante" loading="lazy" decoding="async" />
-      <img class="showcase-photo photo-three" src="/images/proof/caso-papudo-foto.jpg" alt="Caso gestionado por Clover Propiedades en Papudo" loading="lazy" decoding="async" />
 
       <div class="hero-card-note">
         <span class="mini-icon" aria-hidden="true">
