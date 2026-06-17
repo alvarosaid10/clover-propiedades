@@ -2412,6 +2412,369 @@ svg {
   }
 }
 
+/* Clover visual reset v3 */
+body {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.72), transparent 18rem),
+    radial-gradient(circle at 88% 12%, rgba(221, 229, 214, 0.48), transparent 32rem),
+    radial-gradient(circle at 62% 82%, rgba(230, 220, 199, 0.32), transparent 34rem),
+    linear-gradient(135deg, #f6f8f2 0%, #eef4eb 48%, #f8f2e8 100%);
+}
+
+body::before {
+  opacity: 0.78;
+  background-image:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.86) 0 1px, transparent 1px 110px),
+    linear-gradient(22deg, rgba(255, 255, 255, 0.7) 0 1px, transparent 1px 150px),
+    radial-gradient(circle at 40px 40px, rgba(47, 77, 44, 0.035) 0 1px, transparent 2px);
+  background-size: 220px 140px, 310px 190px, 96px 96px;
+}
+
+.site-header {
+  padding: 8px 0;
+  background:
+    linear-gradient(90deg, rgba(248, 248, 242, 0.92), rgba(239, 242, 231, 0.88), rgba(248, 242, 231, 0.92));
+}
+
+.site-header .container {
+  width: calc(100% - 24px);
+  max-width: none;
+}
+
+.header-inner {
+  align-items: center;
+}
+
+.brand-link {
+  width: clamp(68px, 5.2vw, 96px);
+  margin-left: 2px;
+  animation: cornerLogoPulse 3.8s cubic-bezier(.2, .85, .2, 1) infinite;
+}
+
+.brand-link::after {
+  display: none;
+}
+
+.brand-link img {
+  filter: drop-shadow(0 5px 10px rgba(47, 77, 44, 0.08));
+}
+
+@keyframes cornerLogoPulse {
+  0%, 100% { transform: translateX(0) scale(0.96); }
+  38% { transform: translateX(2px) scale(1.18); }
+  62% { transform: translateX(0) scale(1.02); }
+}
+
+.hero-estate {
+  padding-top: clamp(28px, 4vw, 54px);
+  background:
+    radial-gradient(circle at 48% 12%, rgba(255, 255, 255, 0.62), transparent 16rem),
+    linear-gradient(180deg, rgba(248, 250, 244, 0.58), rgba(238, 245, 235, 0.22) 72%, transparent);
+}
+
+.hero-estate .container {
+  width: min(1480px, calc(100% - 28px));
+}
+
+.hero-estate-panel {
+  min-height: calc(100vh - 92px);
+  padding: clamp(32px, 5vw, 72px) clamp(16px, 4vw, 54px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.hero-estate-panel::before,
+.hero-estate-panel::after {
+  display: none;
+}
+
+.hero-estate .hero-copy {
+  width: min(100%, 980px);
+}
+
+.hero-estate h1 {
+  font-size: clamp(3rem, 8.3vw, 7.4rem);
+  line-height: 0.9;
+}
+
+.hero-estate h1 span + span {
+  margin-top: 0.24em;
+  font-size: clamp(1.38rem, 3.15vw, 2.95rem);
+}
+
+.estate-stage {
+  width: min(100%, 980px);
+  min-height: clamp(360px, 42vw, 540px);
+  margin-top: -6px;
+}
+
+.estate-stage::before {
+  inset: 1% 6% 2%;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.7) 0 1px, transparent 1px 96px),
+    linear-gradient(140deg, rgba(255, 255, 255, 0.54), rgba(226, 235, 216, 0.42), rgba(239, 226, 206, 0.34));
+  box-shadow: 0 26px 80px rgba(47, 77, 44, 0.08);
+  filter: saturate(0.92);
+}
+
+.estate-stage::after {
+  bottom: 2%;
+  height: 14px;
+  opacity: 0.5;
+}
+
+.premium-estate-art {
+  width: min(94%, 820px);
+  min-height: clamp(330px, 39vw, 500px);
+  display: grid;
+  place-items: center;
+}
+
+.premium-estate-art::before {
+  inset: 6% 2% 4%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.64), transparent 13rem),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.42), rgba(225, 234, 214, 0.24));
+  opacity: 0.74;
+}
+
+.premium-estate-svg {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 780px);
+  height: auto;
+  overflow: visible;
+}
+
+.premium-backdrop path:first-child {
+  fill: url(#glassFill);
+  stroke: rgba(255, 255, 255, 0.86);
+  stroke-width: 2;
+}
+
+.premium-glass-line {
+  fill: none;
+  stroke: rgba(138, 107, 79, 0.28);
+  stroke-width: 18;
+  stroke-linecap: round;
+  animation: premiumLine 8s ease-in-out infinite;
+}
+
+.premium-glass-line.line-two {
+  stroke: rgba(47, 77, 44, 0.2);
+  animation-delay: -2.2s;
+}
+
+.premium-clover .leaf-a {
+  fill: url(#cloverLeaf);
+  stroke: rgba(47, 77, 44, 0.34);
+  stroke-width: 2;
+  transform-origin: 390px 288px;
+  animation: premiumClover 8s ease-in-out infinite;
+}
+
+.leaf-shine {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.72);
+  stroke-width: 10;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.premium-home path,
+.premium-key path,
+.premium-key circle {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-roof {
+  stroke: url(#roofStroke);
+  stroke-width: 18;
+}
+
+.home-base,
+.home-floor {
+  stroke: rgba(47, 77, 44, 0.74);
+  stroke-width: 9;
+}
+
+.home-door,
+.home-window {
+  stroke: rgba(138, 107, 79, 0.58);
+  stroke-width: 8;
+}
+
+.premium-key {
+  stroke: rgba(47, 77, 44, 0.72);
+  stroke-width: 8;
+  animation: premiumKey 6.8s ease-in-out infinite;
+}
+
+.premium-dots circle {
+  fill: rgba(138, 107, 79, 0.4);
+  stroke: none;
+  animation: dustFloat 7s ease-in-out infinite;
+}
+
+.premium-orbit {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgba(47, 77, 44, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-one {
+  width: 88%;
+  aspect-ratio: 1.85;
+  transform: rotate(-8deg);
+  animation: premiumOrbit 18s linear infinite;
+}
+
+.orbit-two {
+  width: 68%;
+  aspect-ratio: 1.6;
+  transform: rotate(13deg);
+  animation: premiumOrbit 24s linear infinite reverse;
+}
+
+.premium-label,
+.premium-glass-badge {
+  position: absolute;
+  z-index: 4;
+  border: 1px solid rgba(47, 77, 44, 0.12);
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 42px rgba(47, 77, 44, 0.1);
+}
+
+.premium-label {
+  padding: 0.7rem 0.95rem;
+  border-radius: 999px;
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  animation: labelFloat 6s ease-in-out infinite;
+}
+
+.premium-label-left { left: 3%; top: 38%; }
+.premium-label-right { right: 4%; top: 42%; animation-delay: -1.5s; }
+.premium-label-bottom { left: 50%; bottom: 2%; transform: translateX(-50%); animation-delay: -2.8s; }
+
+.premium-glass-badge {
+  right: 14%;
+  bottom: 13%;
+  display: grid;
+  place-items: center;
+  width: clamp(58px, 6vw, 82px);
+  aspect-ratio: 1;
+  border-radius: 24px;
+  animation: cloverFloat 5.4s ease-in-out infinite;
+}
+
+.premium-glass-badge img {
+  width: 58%;
+}
+
+.estate-service {
+  display: none;
+}
+
+.hero-metrics span {
+  border: 0;
+  border-top: 1px solid rgba(47, 77, 44, 0.18);
+  border-radius: 0;
+  background: transparent;
+}
+
+.clover-services > .container,
+.proof-section > .container,
+.contact-cta > .container {
+  width: min(1360px, calc(100% - 28px));
+}
+
+.clover-services-board,
+.proof-panel,
+.contact-box {
+  border-radius: clamp(22px, 3vw, 42px);
+  box-shadow: 0 22px 70px rgba(47, 77, 44, 0.08);
+}
+
+@keyframes premiumClover {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  45% { transform: scale(1.025) rotate(-1.4deg); }
+}
+
+@keyframes premiumKey {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+@keyframes premiumLine {
+  0%, 100% { opacity: 0.58; transform: translateX(0); }
+  50% { opacity: 0.86; transform: translateX(10px); }
+}
+
+@keyframes premiumOrbit {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+@media (max-width: 860px) {
+  .site-header .container {
+    width: calc(100% - 18px);
+  }
+
+  .header-inner {
+    align-items: flex-start;
+  }
+
+  .brand-link {
+    width: 76px;
+  }
+
+  .hero-estate-panel {
+    min-height: auto;
+    padding-top: 26px;
+  }
+
+  .hero-estate h1 {
+    font-size: clamp(2.7rem, 14vw, 4.4rem);
+  }
+
+  .estate-stage {
+    min-height: 330px;
+  }
+
+  .premium-estate-art {
+    width: 100%;
+    min-height: 310px;
+  }
+
+  .premium-label {
+    padding: 0.52rem 0.64rem;
+    font-size: 0.6rem;
+  }
+
+  .premium-label-left { left: 1%; top: 39%; }
+  .premium-label-right { right: 1%; top: 43%; }
+  .premium-label-bottom { bottom: 0; }
+
+  .premium-glass-badge {
+    right: 8%;
+    bottom: 15%;
+    width: 54px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -44,28 +44,64 @@ import site from "../data/site.json";
       <div class="estate-clover clover-a" aria-hidden="true"></div>
       <div class="estate-clover clover-b" aria-hidden="true"></div>
 
-      <div class="estate-art architectural-art" aria-hidden="true">
-        <div class="glass-pane pane-main">
-          <svg class="blueprint-house" viewBox="0 0 760 460" role="img" aria-label="Casa, llave y paisaje inmobiliario">
-            <path class="land land-back" d="M34 352 C134 292 210 318 304 260 C420 188 538 238 634 168 C682 134 724 130 758 112" />
-            <path class="land land-front" d="M18 390 C120 326 236 352 342 296 C470 230 568 300 678 242 C712 224 742 214 772 208" />
-            <path class="roof-line" d="M190 244 L380 126 L570 244" />
-            <path class="home-line" d="M238 232 V350 H522 V232" />
-            <path class="door-line" d="M348 350 V284 H412 V350" />
-            <path class="window-line" d="M282 268 H324 V304 H282 Z" />
-            <path class="window-line" d="M456 268 H498 V304 H456 Z" />
-            <path class="terrace-line" d="M168 350 H592" />
-            <path class="key-line" d="M578 168 a28 28 0 1 0 0.1 0 M598 190 L656 248 M636 228 L654 210 M662 254 L680 236" />
-          </svg>
-          <span class="pane-label label-one">Gestión completa</span>
-          <span class="pane-label label-two">Propiedad segura</span>
-        </div>
-        <div class="glass-pane pane-side">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="glass-clover">
+      <div class="estate-art premium-estate-art" aria-hidden="true">
+        <div class="premium-orbit orbit-one"></div>
+        <div class="premium-orbit orbit-two"></div>
+        <svg class="premium-estate-svg" viewBox="0 0 780 520" role="img" aria-label="Emblema premium de propiedad, llave y trébol">
+          <defs>
+            <linearGradient id="cloverLeaf" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#eef3e8" />
+              <stop offset="0.54" stop-color="#b9caa5" />
+              <stop offset="1" stop-color="#496a3b" />
+            </linearGradient>
+            <linearGradient id="glassFill" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.86" />
+              <stop offset="0.55" stop-color="#f1eee7" stop-opacity="0.66" />
+              <stop offset="1" stop-color="#dfe8d2" stop-opacity="0.54" />
+            </linearGradient>
+            <linearGradient id="roofStroke" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="#8a6b4f" />
+              <stop offset="0.42" stop-color="#2f4d2c" />
+              <stop offset="1" stop-color="#496a3b" />
+            </linearGradient>
+            <filter id="softPremiumShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#2f4d2c" flood-opacity="0.14" />
+            </filter>
+          </defs>
+          <g class="premium-backdrop" filter="url(#softPremiumShadow)">
+            <path d="M132 108 C244 34 522 22 650 116 C740 182 724 350 612 420 C482 502 246 496 126 410 C20 334 36 172 132 108 Z" />
+            <path class="premium-glass-line" d="M88 310 C198 236 286 276 390 202 C508 118 590 172 704 104" />
+            <path class="premium-glass-line line-two" d="M90 385 C212 320 320 350 444 284 C552 226 636 254 724 206" />
+          </g>
+          <g class="premium-clover" filter="url(#softPremiumShadow)">
+            <path class="leaf leaf-a" d="M390 95 C342 30 226 76 260 168 C164 135 112 256 204 305 C132 390 252 476 330 382 C350 486 490 486 510 382 C588 476 708 390 636 305 C728 256 676 135 520 168 C554 76 438 30 390 95 Z" />
+            <path class="leaf-shine" d="M274 170 C344 128 436 126 506 166" />
+          </g>
+          <g class="premium-home">
+            <path class="home-base" d="M238 310 L238 394 L540 394 L540 310" />
+            <path class="home-roof" d="M190 312 L390 190 L590 312" />
+            <path class="home-door" d="M354 394 L354 334 Q354 322 366 322 L414 322 Q426 322 426 334 L426 394" />
+            <path class="home-window" d="M276 324 H318 V360 H276 Z" />
+            <path class="home-window" d="M462 324 H504 V360 H462 Z" />
+            <path class="home-floor" d="M194 394 H586" />
+          </g>
+          <g class="premium-key">
+            <circle cx="570" cy="210" r="34" />
+            <path d="M594 236 L664 306" />
+            <path d="M638 280 L664 254" />
+            <path d="M666 308 L692 282" />
+          </g>
+          <g class="premium-dots">
+            <circle cx="156" cy="176" r="5" />
+            <circle cx="642" cy="158" r="4" />
+            <circle cx="686" cy="370" r="6" />
+            <circle cx="118" cy="356" r="4" />
+          </g>
+        </svg>
+        <div class="premium-label premium-label-left">Venta</div>
+        <div class="premium-label premium-label-right">Arriendo</div>
+        <div class="premium-label premium-label-bottom">Gestión completa</div>
+        <div class="premium-glass-badge">
           <img src="/images/brand/clover-mark.svg" alt="" loading="eager" decoding="async" />
         </div>
       </div>
