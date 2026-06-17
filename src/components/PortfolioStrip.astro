@@ -1,0 +1,30 @@
+---
+const photos = [
+  { src: "/images/portfolio/propiedad-01.jpg", alt: "Propiedad gestionada por Clover Propiedades" },
+  { src: "/images/portfolio/propiedad-02.jpg", alt: "Interior de propiedad gestionada por Clover Propiedades" },
+  { src: "/images/portfolio/propiedad-03.jpg", alt: "Espacio exterior de propiedad gestionada" },
+  { src: "/images/portfolio/propiedad-04.jpg", alt: "Casa gestionada por Clover Propiedades" },
+  { src: "/images/portfolio/propiedad-05.jpg", alt: "Comedor de propiedad gestionada" },
+  { src: "/images/portfolio/propiedad-06.jpg", alt: "Espacio residencial gestionado" },
+  { src: "/images/portfolio/propiedad-07.jpg", alt: "Edificio gestionado por Clover Propiedades" },
+  { src: "/images/portfolio/propiedad-08.jpg", alt: "Departamento gestionado por Clover Propiedades" },
+  { src: "/images/portfolio/propiedad-09.jpg", alt: "Vista de propiedad gestionada" }
+];
+---
+
+<section class="portfolio-strip" aria-label="Fotografías reales de propiedades gestionadas" data-reveal>
+  <div class="container portfolio-strip-inner">
+    <div class="portfolio-strip-copy">
+      <p class="eyebrow">Registro real</p>
+      <h2>Propiedades visitadas y gestionadas</h2>
+      <p>Una muestra breve de espacios reales trabajados por Clover Propiedades.</p>
+    </div>
+    <div class="portfolio-ribbon">
+      {photos.map((photo, index) => (
+        <figure class="portfolio-tile" style={`--tile:${index}`}>
+          <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
