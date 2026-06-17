@@ -1,34 +1,23 @@
 ---
 import site from "../data/site.json";
-
-const heroImages = [
-  { src: "/images/corporate/asesora-clover.jpg", alt: "Asesora de Clover Propiedades mostrando una propiedad" },
-  { src: "/images/portfolio/propiedad-09.jpg", alt: "Propiedad gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-01.jpg", alt: "Terraza de propiedad gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-02.jpg", alt: "Interior de propiedad gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-04.jpg", alt: "Walking closet de propiedad gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-05.jpg", alt: "Patio de propiedad gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-06.jpg", alt: "Cocina de propiedad gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-07.jpg", alt: "Exterior de casa gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-08.jpg", alt: "Comedor de propiedad gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-09.jpg", alt: "Comedor interior de propiedad gestionada por Clover Propiedades" },
-  { src: "/images/hero/hero-propiedad-10.jpg", alt: "Hall de edificio gestionado por Clover Propiedades" }
-];
-
-const priorityImage = { loading: "eager", fetchpriority: "high" };
-const lazyImage = { loading: "lazy" };
 ---
 
 <div class="brand-loader" aria-hidden="true">
   <div class="brand-loader-mark">
-    <img src="/images/corporate/clover-logo-transparent.svg" alt="" />
+    <img src="/images/corporate/clover-logo-official-cropped.png" alt="" />
     <span></span>
   </div>
   <p>Clover Propiedades</p>
 </div>
 
-<section class="hero hero-astrowind" data-reveal>
-  <div class="container hero-panel" data-parallax-scope>
+<section class="hero hero-estate" data-reveal>
+  <div class="container hero-panel hero-estate-panel" data-parallax-scope>
+    <div class="estate-ambient" aria-hidden="true">
+      <span class="ambient-line line-a"></span>
+      <span class="ambient-line line-b"></span>
+      <span class="ambient-line line-c"></span>
+    </div>
+
     <div class="hero-copy">
       <p class="eyebrow">Corretaje y gestión inmobiliaria</p>
       <h1 aria-label="Clover Propiedades Gestión Inmobiliaria">
@@ -50,62 +39,46 @@ const lazyImage = { loading: "lazy" };
       </div>
     </div>
 
-    <div class="hero-showcase" aria-label="Gestión inmobiliaria Clover Propiedades">
-      <div class="showcase-orbit orbit-a" aria-hidden="true"></div>
-      <div class="showcase-orbit orbit-b" aria-hidden="true"></div>
+    <div class="estate-stage" aria-label="Gestión inmobiliaria Clover Propiedades" data-parallax="0.08">
+      <div class="estate-sun" aria-hidden="true"></div>
+      <div class="estate-clover clover-a" aria-hidden="true"></div>
+      <div class="estate-clover clover-b" aria-hidden="true"></div>
 
-      <div class="property-bloom" aria-hidden="true" data-parallax="0.12">
-        <span class="bloom-dust dust-a"></span>
-        <span class="bloom-dust dust-b"></span>
-        <span class="bloom-dust dust-c"></span>
-        <span class="bloom-dust dust-d"></span>
+      <svg class="estate-illustration" viewBox="0 0 880 520" role="img" aria-labelledby="estateTitle estateDesc">
+        <title id="estateTitle">Ilustración de Clover Propiedades</title>
+        <desc id="estateDesc">Casa, jardín y gestión inmobiliaria en estilo minimalista.</desc>
+        <path class="hill hill-back" d="M20 390 C130 286 242 314 338 250 C450 176 575 234 666 176 C742 128 811 164 866 122 L866 520 L20 520 Z"></path>
+        <path class="hill hill-front" d="M0 430 C122 338 247 372 352 310 C488 230 596 312 708 250 C775 212 830 226 880 188 L880 520 L0 520 Z"></path>
+        <path class="path-road" d="M404 520 C418 448 424 390 440 326 C456 388 482 448 520 520"></path>
+        <g class="estate-house">
+          <path class="house-shadow" d="M242 348 H642 V432 H242 Z"></path>
+          <path class="house-roof" d="M226 302 L440 174 L654 302"></path>
+          <path class="house-body" d="M282 292 H598 V430 H282 Z"></path>
+          <path class="house-door" d="M406 430 V348 H474 V430"></path>
+          <path class="house-window" d="M324 326 H370 V366 H324 Z"></path>
+          <path class="house-window" d="M514 326 H560 V366 H514 Z"></path>
+          <path class="house-line" d="M320 400 H382"></path>
+          <path class="house-line" d="M498 400 H560"></path>
+        </g>
+        <g class="tree tree-left">
+          <path d="M178 430 C180 382 184 344 192 308"></path>
+          <path d="M194 318 C148 310 132 276 158 246 C176 224 210 232 218 260 C254 252 284 278 276 310 C268 346 226 350 194 318 Z"></path>
+        </g>
+        <g class="tree tree-right">
+          <path d="M704 430 C706 386 710 352 718 320"></path>
+          <path d="M720 328 C682 322 668 292 690 268 C706 250 734 256 742 278 C774 272 800 296 792 324 C784 354 748 356 720 328 Z"></path>
+        </g>
+        <g class="key-mark">
+          <circle cx="628" cy="228" r="22"></circle>
+          <path d="M644 244 L686 286"></path>
+          <path d="M670 270 L684 256"></path>
+          <path d="M690 290 L704 276"></path>
+        </g>
+      </svg>
 
-        <div class="bloom-petal petal-one" style="--photo:url('/images/hero/hero-propiedad-05.jpg');"></div>
-        <div class="bloom-petal petal-two" style="--photo:url('/images/hero/hero-propiedad-06.jpg');"></div>
-        <div class="bloom-petal petal-three" style="--photo:url('/images/hero/hero-propiedad-08.jpg');"></div>
-        <div class="bloom-petal petal-four" style="--photo:url('/images/portfolio/propiedad-09.jpg');"></div>
-
-        <svg class="bloom-house" viewBox="0 0 520 330">
-          <path d="M92 178 260 72l168 106"></path>
-          <path d="M132 164v102h256V164"></path>
-          <path d="M232 266v-72h56v72"></path>
-          <path d="M164 194h46v38h-46z"></path>
-          <path d="M310 194h46v38h-46z"></path>
-        </svg>
-
-        <div class="bloom-core">
-          <img src="/images/brand/clover-mark.svg" alt="" />
-        </div>
-
-        <span class="scene-label scene-label-a">Venta</span>
-        <span class="scene-label scene-label-b">Arriendo</span>
-        <span class="scene-label scene-label-c">Administración</span>
-      </div>
-
-      <div class="showcase-photo photo-main">
-        <div class="image-fade">
-          {heroImages.map((image, index) => (
-            <img
-              class={`fade-img fade-${index + 1}`}
-              src={image.src}
-              alt={image.alt}
-              {...(index === 0 ? priorityImage : lazyImage)}
-              decoding="async"
-              style={`--i:${index}; --total:${heroImages.length};`}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div class="hero-card-note">
-        <span class="mini-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M20 7 9 18l-5-5"></path></svg>
-        </span>
-        <div>
-          <strong>Gestión clara y segura</strong>
-          <p>Evaluación, publicación, visitas, contratos y cierre acompañado.</p>
-        </div>
-      </div>
+      <div class="estate-service service-sale">Venta</div>
+      <div class="estate-service service-rent">Arriendo</div>
+      <div class="estate-service service-admin">Administración</div>
     </div>
 
     <div class="hero-metrics" aria-label="Enfoque de trabajo">
