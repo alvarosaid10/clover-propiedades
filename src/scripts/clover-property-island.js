@@ -149,7 +149,9 @@ function makeRoof(width, depth, x, y, z, material, edgeMaterial) {
   const lipBack = makeWall(width + 0.08, 0.035, 0.04, 0, -0.045, -depth / 2 - 0.025, edgeMaterial);
   const lipLeft = makeWall(0.045, 0.04, depth + 0.08, -width / 2 - 0.03, -0.05, 0, edgeMaterial);
   const lipRight = makeWall(0.045, 0.04, depth + 0.08, width / 2 + 0.03, -0.05, 0, edgeMaterial);
-  roof.add(slab, lipFront, lipBack, lipLeft, lipRight);
+  const seamA = makeWall(width - 0.22, 0.012, 0.016, 0, 0.045, -depth * 0.14, edgeMaterial);
+  const seamB = makeWall(width - 0.34, 0.012, 0.014, 0.04, 0.047, depth * 0.17, edgeMaterial);
+  roof.add(slab, lipFront, lipBack, lipLeft, lipRight, seamA, seamB);
   roof.position.set(x, y, z);
   return roof;
 }
@@ -157,12 +159,49 @@ function makeRoof(width, depth, x, y, z, material, edgeMaterial) {
 function makeSteps(material) {
   const steps = new THREE.Group();
   [
-    [0.72, 0.055, 0.25, 0.02, 0.03, 0],
-    [0.58, 0.05, 0.2, 0.02, 0.095, -0.17],
-    [0.42, 0.045, 0.16, 0.02, 0.155, -0.31]
+    [0.7, 0.045, 0.24, 0.02, 0.025, 0],
+    [0.56, 0.045, 0.2, 0.02, 0.08, -0.17],
+    [0.42, 0.04, 0.16, 0.02, 0.132, -0.31]
   ].forEach(([w, h, d, x, y, z]) => steps.add(makeWall(w, h, d, x, y, z, material)));
   steps.position.set(-0.35, 0.34, 0.98);
   return steps;
+}
+
+function makeDoor(materials) {
+  const door = new THREE.Group();
+  const recess = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.55, 0.042), materials.recess);
+  const panel = new THREE.Mesh(new THREE.BoxGeometry(0.27, 0.48, 0.04), materials.wood);
+  const lintel = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.035, 0.05), materials.frame);
+  const knob = new THREE.Mesh(new THREE.SphereGeometry(0.018, 10, 8), materials.roofEdge);
+  panel.position.z = 0.034;
+  lintel.position.set(0, 0.292, 0.052);
+  knob.position.set(0.095, -0.02, 0.064);
+  door.add(recess, panel, lintel, knob);
+  door.position.set(-0.72, 0.36, 0.704);
+  return door;
+}
+
+function makeRail(material) {
+  const rail = new THREE.Group();
+  const top = makeWall(0.78, 0.025, 0.028, 0, 0.26, 0, material);
+  const posts = [-0.34, -0.12, 0.12, 0.34].map((x) => makeWall(0.024, 0.24, 0.024, x, 0.14, 0, material));
+  rail.add(top, ...posts);
+  rail.position.set(0.54, 0.44, 1.18);
+  return rail;
+}
+
+function makeSoftShadow(x, z, sx, sz, opacity = 0.18) {
+  const material = new THREE.MeshBasicMaterial({
+    color: 0x17201b,
+    transparent: true,
+    opacity,
+    depthWrite: false
+  });
+  const shadow = new THREE.Mesh(new THREE.CircleGeometry(1, 36), material);
+  shadow.rotation.x = -Math.PI / 2;
+  shadow.position.set(x, 0.335, z);
+  shadow.scale.set(sx, sz, 1);
+  return shadow;
 }
 
 function makePath(points, radius, material) {
@@ -221,8 +260,8 @@ async function createScene(root) {
   const canvasHost = root.querySelector("[data-island-canvas]");
   const fallback = root.querySelector("[data-island-fallback]");
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(31, 1, 0.1, 80);
-  camera.position.set(5.9, 3.8, 6.35);
+  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 80);
+  camera.position.set(5.35, 3.35, 5.85);
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
   renderer.setClearColor(0x000000, 0);
@@ -246,9 +285,9 @@ async function createScene(root) {
   controls.maxPolarAngle = Math.PI * 0.39;
   controls.minAzimuthAngle = -Math.PI * 0.16;
   controls.maxAzimuthAngle = Math.PI * 0.16;
-  controls.minDistance = 6.1;
-  controls.maxDistance = 9.2;
-  controls.target.set(0.1, 0.52, 0);
+  controls.minDistance = 5.7;
+  controls.maxDistance = 8.7;
+  controls.target.set(0.12, 0.58, 0.02);
 
   const isMobile = window.matchMedia("(max-width: 720px)").matches;
   controls.enableZoom = !isMobile;
@@ -283,12 +322,12 @@ async function createScene(root) {
     turf: new THREE.MeshStandardMaterial({ color: 0x8fa083, roughness: 0.92 }),
     turfAlt: new THREE.MeshStandardMaterial({ color: 0x738765, roughness: 0.94 }),
     natural: new THREE.MeshStandardMaterial({ color: 0xb3b9ae, roughness: 0.96 }),
-    stone: new THREE.MeshStandardMaterial({ color: 0xd0d5d0, roughness: 0.88 }),
-    concrete: new THREE.MeshStandardMaterial({ color: 0xd7ddd8, roughness: 0.86 }),
+    stone: new THREE.MeshStandardMaterial({ color: 0xc8cec8, roughness: 0.9 }),
+    concrete: new THREE.MeshStandardMaterial({ color: 0xd4dad5, roughness: 0.88 }),
     concreteLight: new THREE.MeshStandardMaterial({ color: 0xf0f3ef, roughness: 0.84 }),
     wall: new THREE.MeshStandardMaterial({ color: 0xe8ece7, roughness: 0.88 }),
     wallAlt: new THREE.MeshStandardMaterial({ color: 0xd7ded8, roughness: 0.9 }),
-    wood: new THREE.MeshStandardMaterial({ color: 0xbca987, roughness: 0.78 }),
+    wood: new THREE.MeshStandardMaterial({ color: 0xb7a27e, roughness: 0.82 }),
     dark: new THREE.MeshStandardMaterial({ color: 0x24302a, roughness: 0.82 }),
     roofEdge: new THREE.MeshStandardMaterial({ color: 0x151d19, roughness: 0.86 }),
     green: new THREE.MeshStandardMaterial({ color: 0x2f4d2c, roughness: 0.86 }),
@@ -307,28 +346,38 @@ async function createScene(root) {
     })
   };
 
-  const lower = extrudeIsland(makeRoundedIslandShape(1.02), 0.18, mat.base);
+  const lower = extrudeIsland(makeRoundedIslandShape(0.9), 0.14, mat.base);
   lower.position.y = -0.16;
+  lower.scale.set(1, 1, 0.88);
   lower.receiveShadow = true;
   addAnimated(island, lower, 0, "grow-y");
 
-  const bevelBand = extrudeIsland(makeRoundedIslandShape(0.96), 0.055, mat.baseEdge);
+  const bevelBand = extrudeIsland(makeRoundedIslandShape(0.84), 0.045, mat.baseEdge);
   bevelBand.position.y = -0.035;
-  bevelBand.scale.set(0.99, 1, 0.96);
+  bevelBand.scale.set(1, 1, 0.86);
   bevelBand.receiveShadow = true;
   addAnimated(island, bevelBand, 0.1, "grow-y");
 
-  const middle = extrudeIsland(makeRoundedIslandShape(0.9), 0.12, mat.mid);
+  const middle = extrudeIsland(makeRoundedIslandShape(0.78), 0.1, mat.mid);
   middle.position.y = 0.045;
-  middle.scale.set(0.98, 1, 0.94);
+  middle.scale.set(1, 1, 0.82);
   middle.receiveShadow = true;
   addAnimated(island, middle, 0.16, "grow-y");
 
-  const top = extrudeIsland(makeRoundedIslandShape(0.74), 0.11, mat.turf);
+  const top = extrudeIsland(makeRoundedIslandShape(0.68), 0.09, mat.turf);
   top.position.y = 0.17;
-  top.scale.set(0.98, 1, 0.9);
+  top.scale.set(1.04, 1, 0.78);
   top.receiveShadow = true;
   addAnimated(island, top, 0.28, "grow-y");
+
+  const meadowA = extrudeIsland(makeRoundedIslandShape(0.18), 0.012, mat.turfAlt);
+  meadowA.position.set(-1.08, 0.245, 1.2);
+  meadowA.scale.set(1.4, 1, 0.7);
+  const meadowB = extrudeIsland(makeRoundedIslandShape(0.13), 0.012, mat.turfAlt);
+  meadowB.position.set(1.2, 0.248, -1.12);
+  meadowB.scale.set(1.1, 1, 0.66);
+  addAnimated(island, meadowA, 0.54, "grow");
+  addAnimated(island, meadowB, 0.6, "grow");
 
   const contourGroup = new THREE.Group();
   [2.68, 2.24, 1.82, 1.38].forEach((radius, index) => {
@@ -340,7 +389,21 @@ async function createScene(root) {
   });
   island.add(contourGroup);
 
-  const pathMaterial = mat.concrete;
+  const shadowGroup = new THREE.Group();
+  [
+    makeSoftShadow(-0.1, 0.18, 1.35, 0.78, 0.13),
+    makeSoftShadow(-1.8, 0.74, 0.26, 0.16, 0.16),
+    makeSoftShadow(1.62, 0.98, 0.22, 0.14, 0.14),
+    makeSoftShadow(1.85, -0.94, 0.22, 0.14, 0.12)
+  ].forEach((shadow) => shadowGroup.add(shadow));
+  island.add(shadowGroup);
+
+  const pathMaterial = mat.concrete.clone();
+  pathMaterial.emissive = new THREE.Color(0xf2e9c7);
+  pathMaterial.emissiveIntensity = 0.02;
+  const gardenPathMaterial = mat.stone.clone();
+  gardenPathMaterial.emissive = new THREE.Color(0xe8f0df);
+  gardenPathMaterial.emissiveIntensity = 0.01;
   const driveway = makePath([
     new THREE.Vector3(-2.16, 0.38, -1.42),
     new THREE.Vector3(-1.28, 0.42, -1.02),
@@ -354,29 +417,32 @@ async function createScene(root) {
     new THREE.Vector3(0.74, 0.43, 0.62),
     new THREE.Vector3(0.12, 0.44, 0.84),
     new THREE.Vector3(-0.52, 0.44, 1.28)
-  ], 0.065, mat.stone);
+  ], 0.065, gardenPathMaterial);
   addAnimated(island, gardenPath, 1.02, "grow");
 
   const court = makeWall(1.3, 0.035, 0.78, 0.52, 0.39, 0.9, mat.concreteLight);
   court.rotation.y = -0.05;
   addAnimated(island, court, 0.94, "grow-y");
 
-  const privacyWall = makeWall(1.08, 0.22, 0.055, -0.98, 0.52, 0.9, mat.concrete);
+  const privacyWall = makeWall(0.92, 0.18, 0.055, -0.98, 0.5, 0.9, mat.concrete);
   privacyWall.rotation.y = 0.08;
   addAnimated(island, privacyWall, 1.08, "grow-y");
 
   const house = new THREE.Group();
-  house.position.set(0.06, 0.47, -0.18);
-  const mainBlock = makeWall(1.62, 0.8, 1.18, -0.18, 0.4, 0.08, mat.wall);
-  const sideBlock = makeWall(0.92, 0.6, 1.02, 0.88, 0.3, -0.28, mat.wallAlt);
-  const entryBlock = makeWall(0.52, 0.7, 0.56, -1.08, 0.35, -0.08, mat.wallAlt);
-  const plinthA = makePanel(1.68, 0.08, 1.24, -0.18, 0.045, 0.08, mat.concrete);
-  const plinthB = makePanel(0.96, 0.07, 1.08, 0.88, 0.04, -0.28, mat.concrete);
-  const roofA = makeRoof(1.86, 1.36, -0.18, 0.85, 0.08, mat.dark, mat.roofEdge);
-  const roofB = makeRoof(1.08, 1.16, 0.88, 0.64, -0.28, mat.dark, mat.roofEdge);
-  const roofC = makeRoof(0.66, 0.72, -1.08, 0.73, -0.08, mat.dark, mat.roofEdge);
+  house.position.set(0.02, 0.47, -0.16);
+  const mainBlock = makeWall(1.56, 0.86, 1.08, -0.18, 0.43, 0.06, mat.wall);
+  const sideBlock = makeWall(0.86, 0.66, 0.96, 0.82, 0.33, -0.28, mat.wallAlt);
+  const entryBlock = makeWall(0.48, 0.74, 0.52, -1.02, 0.37, -0.06, mat.wallAlt);
+  const plinthA = makePanel(1.62, 0.075, 1.14, -0.18, 0.045, 0.06, mat.concrete);
+  const plinthB = makePanel(0.9, 0.065, 1.0, 0.82, 0.04, -0.28, mat.concrete);
+  const roofA = makeRoof(1.78, 1.22, -0.18, 0.91, 0.06, mat.dark, mat.roofEdge);
+  const roofB = makeRoof(1.0, 1.08, 0.82, 0.69, -0.28, mat.dark, mat.roofEdge);
+  const roofC = makeRoof(0.62, 0.66, -1.02, 0.78, -0.06, mat.dark, mat.roofEdge);
   const terrace = makeWall(1.16, 0.05, 0.68, 0.5, 0.07, 0.87, mat.concrete);
   const deck = makeWall(0.92, 0.035, 0.46, -0.68, 0.06, 0.78, mat.wood);
+  const door = makeDoor(mat);
+  const rail = makeRail(mat.roofEdge);
+  const entryCanopy = makePanel(0.62, 0.04, 0.34, -0.72, 0.68, 0.79, mat.dark);
   const timberScreen = new THREE.Group();
   [-0.18, 0, 0.18].forEach((px) => {
     const slat = makePanel(0.035, 0.56, 0.045, px, 0.32, 0, mat.wood);
@@ -389,7 +455,7 @@ async function createScene(root) {
   const entryGlass = makeFramedWindow(0.24, 0.42, -1.08, 0.4, 0.205, 0, mat);
   const clerestory = makeFramedWindow(0.56, 0.16, 0.52, 0.68, 0.705, 0, mat, true);
   const steps = makeSteps(mat.concreteLight);
-  [mainBlock, sideBlock, entryBlock, plinthA, plinthB, roofA, roofB, roofC, terrace, deck, timberScreen, frontGlass, sideGlass, entryGlass, clerestory, steps].forEach((part, index) => {
+  [mainBlock, sideBlock, entryBlock, plinthA, plinthB, roofA, roofB, roofC, terrace, deck, door, rail, entryCanopy, timberScreen, frontGlass, sideGlass, entryGlass, clerestory, steps].forEach((part, index) => {
     part.userData.delay = 0.7 + index * 0.035;
     part.userData.mode = "grow-y";
     part.userData.initialScale = part.scale.clone();
@@ -412,10 +478,10 @@ async function createScene(root) {
 
   const vegetation = new THREE.Group();
   const trees = isMobile ? [
-    [-1.8, 0.72, 0.9], [1.68, 1.02, 0.75], [1.82, -1.1, 0.72]
+    [-1.64, 0.74, 0.78], [1.58, 1.02, 0.62], [1.74, -1.0, 0.58]
   ] : [
-    [-1.9, 0.76, 0.95], [-1.46, 1.38, 0.66], [1.7, 1.08, 0.82],
-    [2.08, -0.86, 0.72], [1.18, -1.62, 0.58], [-2.02, -1.2, 0.55]
+    [-1.72, 0.76, 0.82], [-1.3, 1.22, 0.58], [1.54, 1.08, 0.68],
+    [1.82, -0.86, 0.6], [1.02, -1.42, 0.5]
   ];
   trees.forEach(([x, z, scale], index) => {
     const tree = makeTree(x, z, scale, mat.dark, index % 2 ? mat.softGreen : mat.green);
@@ -541,6 +607,11 @@ async function createScene(root) {
       island.rotation.y += (targetRotation - island.rotation.y) * 0.035;
       island.rotation.x = Math.sin(elapsed * 0.2) * 0.009;
     }
+
+    const activeGlow = interacting ? 0.2 : 0.035 + Math.sin(elapsed * 0.72) * 0.012;
+    pathMaterial.emissiveIntensity += (activeGlow - pathMaterial.emissiveIntensity) * 0.08;
+    gardenPathMaterial.emissiveIntensity += (activeGlow * 0.6 - gardenPathMaterial.emissiveIntensity) * 0.08;
+    windowGlow.intensity += ((interacting ? 0.42 : 0.3) - windowGlow.intensity) * 0.06;
 
     controls.update();
     renderer.render(scene, camera);
