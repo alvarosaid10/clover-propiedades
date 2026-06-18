@@ -16,13 +16,13 @@ const photos = [
   <div class="container portfolio-strip-inner">
     <div class="portfolio-strip-copy">
       <p class="eyebrow">Registro real</p>
-      <h2>Espacios reales trabajados por Clover</h2>
-      <p>Fotografías utilizadas como respaldo visual de gestiones anteriores, sin indicar disponibilidad actual.</p>
+      <h2>Espacios reales de Clover</h2>
+      <p>Registros de gestiones anteriores de Clover Propiedades, usados solo como respaldo visual sin indicar disponibilidad actual.</p>
     </div>
     <div class="portfolio-ribbon">
-      {photos.map((photo, index) => (
+      {photos.slice(0, 6).map((photo, index) => (
         <figure class="portfolio-tile" style={`--tile:${index}`}>
-          <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+          <img src={photo.src} alt={photo.alt} loading="eager" decoding="async" />
         </figure>
       ))}
     </div>

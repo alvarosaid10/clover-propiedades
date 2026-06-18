@@ -972,44 +972,57 @@ svg {
 /* Photo strip */
 .portfolio-strip-inner {
   display: grid;
-  grid-template-columns: minmax(220px, 0.34fr) 1fr;
-  gap: clamp(20px, 4vw, 46px);
+  grid-template-columns: minmax(260px, 0.48fr) minmax(0, 1fr);
+  gap: clamp(26px, 5vw, 64px);
   align-items: center;
-  width: min(1360px, calc(100% - 28px));
+  width: min(1120px, calc(100% - 44px));
 }
 
 .portfolio-strip-copy {
   display: grid;
-  gap: 10px;
+  gap: 12px;
+  max-width: 390px;
+}
+
+.portfolio-strip-copy h2 {
+  max-width: 9.8ch;
+  font-size: clamp(2.45rem, 4.25vw, 4.55rem);
+}
+
+.portfolio-strip-copy p {
+  max-width: 32ch;
 }
 
 .portfolio-ribbon {
+  justify-self: end;
   display: grid;
-  grid-template-columns: repeat(9, minmax(92px, 1fr));
-  gap: clamp(8px, 1vw, 13px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(9px, 1.1vw, 13px);
   align-items: stretch;
-  padding: 14px;
+  width: min(100%, 520px);
+  padding: clamp(10px, 1.2vw, 14px);
   border: 1px solid rgba(47, 77, 44, 0.1);
-  border-radius: 28px;
+  border-radius: 30px;
   background:
-    linear-gradient(112deg, rgba(255, 255, 255, 0.7), rgba(221, 226, 223, 0.58)),
+    linear-gradient(118deg, rgba(255, 255, 255, 0.74), rgba(226, 232, 228, 0.5)),
+    radial-gradient(circle at 16% 18%, rgba(225, 216, 168, 0.22), transparent 34%),
     linear-gradient(116deg, rgba(255, 255, 255, 0.62) 0 1px, transparent 1px 90px);
-  box-shadow: 0 22px 62px rgba(47, 77, 44, 0.08);
+  box-shadow: 0 24px 58px rgba(47, 77, 44, 0.1);
   overflow: hidden;
 }
 
 .portfolio-tile {
   position: relative;
   margin: 0;
-  min-height: 146px;
-  border-radius: 18px;
+  aspect-ratio: 4 / 4.7;
+  border-radius: 19px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.62);
   transition: transform 500ms ease, box-shadow 500ms ease;
 }
 
 .portfolio-tile:nth-child(2n) {
-  transform: translateY(12px);
+  transform: translateY(0);
 }
 
 .portfolio-tile:hover {
@@ -1020,7 +1033,6 @@ svg {
 .portfolio-tile img {
   width: 100%;
   height: 100%;
-  min-height: 146px;
   object-fit: cover;
   filter: saturate(0.94) contrast(1.02);
   transition: transform 900ms ease;
@@ -1285,6 +1297,27 @@ svg {
     font-size: clamp(2.15rem, 11vw, 3.35rem);
   }
 
+  .portfolio-strip-inner {
+    width: min(420px, calc(100% - 28px));
+    grid-template-columns: 1fr;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .portfolio-strip-copy {
+    max-width: none;
+    justify-items: center;
+  }
+
+  .portfolio-strip-copy h2 {
+    max-width: 9.5ch;
+    font-size: clamp(2.15rem, 10vw, 3.05rem);
+  }
+
+  .portfolio-strip-copy p {
+    max-width: 30ch;
+  }
+
   .clover-pillars,
   .clover-flow {
     grid-template-columns: 1fr;
@@ -1306,11 +1339,16 @@ svg {
 
   .portfolio-ribbon {
     grid-template-columns: repeat(3, 1fr);
+    justify-self: center;
+    width: 100%;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 22px;
   }
 
-  .portfolio-tile,
-  .portfolio-tile img {
-    min-height: 108px;
+  .portfolio-tile {
+    aspect-ratio: 1 / 1.12;
+    border-radius: 14px;
   }
 
   .contact-actions {
