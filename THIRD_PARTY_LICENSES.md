@@ -8,3 +8,9 @@
 - Author/credit: Steve Schoger / Hero Patterns
 - Usage: Local SVG texture used as an architectural/topographic background pattern in the Clover Propiedades hero section.
 
+## Three.js
+
+- Source: https://threejs.org/
+- Package: `three`
+- License: MIT
+- Usage: Client-side WebGL scene used to render the interactive Clover Property Island in the hero section.

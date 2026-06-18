@@ -32,8 +32,8 @@ import site from "../data/site.json";
     <div class="hero-copy">
       <p class="eyebrow">Corretaje y gestión inmobiliaria</p>
       <h1 aria-label="Clover Propiedades Gestión Inmobiliaria">
-        <span>Clover Propiedades</span>
-        <span>Gestión Inmobiliaria</span>
+        <span class="hero-title-main"><span>Clover</span> <span>Propiedades</span></span>
+        <span class="hero-title-sub">Gestión Inmobiliaria</span>
       </h1>
       <p class="hero-lead">
         Propiedades en Chile. Compra, vende y arrienda con Clover Propiedades.
@@ -50,16 +50,28 @@ import site from "../data/site.json";
       </div>
     </div>
 
-    <div class="hero-editorial-mark" aria-label="Logo editorial Clover Propiedades" data-parallax="0.035">
-      <span class="editorial-number">01</span>
-      <span class="editorial-axis" aria-hidden="true"></span>
-      <div class="editorial-logo-lockup">
-        <p>Gestión inmobiliaria</p>
-        <img src="/images/corporate/logo-clover-transparent-final.png" alt="Clover Propiedades" />
-      </div>
-      <span class="editorial-coordinates">33.4569° S · 70.6827° W</span>
-      <span class="editorial-route" aria-hidden="true"></span>
-      <span class="editorial-point" aria-hidden="true"></span>
+    <div class="clover-island-shell" data-clover-island data-parallax="0.018" aria-hidden="true">
+      <div class="clover-island-canvas-host" data-island-canvas></div>
+      <svg class="clover-island-fallback" data-island-fallback viewBox="0 0 720 520" role="img" aria-label="Maqueta de una propiedad sobre terreno con jardín">
+        <defs>
+          <linearGradient id="islandFallbackGround" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#eff2f0" />
+            <stop offset="100%" stop-color="#d3d9d5" />
+          </linearGradient>
+        </defs>
+        <path d="M132 310c12-96 108-160 216-172 130-14 245 36 270 126 18 68-18 132-98 154-96 26-278 24-354-24-30-19-39-48-34-84Z" fill="url(#islandFallbackGround)" />
+        <path d="M168 306c64-46 138-67 224-62 86 6 152 33 197 79" fill="none" stroke="#bfc8c2" stroke-width="3" />
+        <path d="M210 346c56-35 116-50 183-45 66 5 118 24 158 59" fill="none" stroke="#bfc8c2" stroke-width="3" />
+        <path d="M254 250h176v94H254z" fill="#eff2f0" stroke="#17201b" stroke-width="5" />
+        <path d="M242 250l100-62 102 62" fill="none" stroke="#2f4d2c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M448 272h72v72h-72z" fill="#d3d9d5" stroke="#17201b" stroke-width="4" />
+        <path d="M286 286h48m32 0h48" stroke="#496a3b" stroke-width="5" stroke-linecap="round" />
+        <path d="M132 386c54-30 102-39 154-31" fill="none" stroke="#2f4d2c" stroke-width="12" stroke-linecap="round" />
+        <circle cx="552" cy="258" r="16" fill="none" stroke="#2f4d2c" stroke-width="5" />
+        <path d="M552 275v38" stroke="#2f4d2c" stroke-width="5" stroke-linecap="round" />
+        <path d="M176 268c20-28 45-28 66 0-27 16-45 16-66 0Z" fill="#7f9076" />
+        <path d="M560 374c20-28 45-28 66 0-27 16-45 16-66 0Z" fill="#7f9076" />
+      </svg>
     </div>
 
     <div class="hero-metrics" aria-label="Enfoque de trabajo">
@@ -69,3 +81,17 @@ import site from "../data/site.json";
     </div>
   </div>
 </section>
+
+<script>
+  import { destroyCloverPropertyIslands, initCloverPropertyIsland } from "../scripts/clover-property-island.js";
+
+  const bootCloverIsland = () => {
+    document
+      .querySelectorAll("[data-clover-island]:not([data-island-ready])")
+      .forEach((root) => initCloverPropertyIsland(root));
+  };
+
+  bootCloverIsland();
+  document.addEventListener("astro:page-load", bootCloverIsland);
+  document.addEventListener("astro:before-swap", destroyCloverPropertyIslands);
+</script>
