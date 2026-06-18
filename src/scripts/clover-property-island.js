@@ -204,6 +204,24 @@ function makeSoftShadow(x, z, sx, sz, opacity = 0.18) {
   return shadow;
 }
 
+function makePlanter(x, z, width, material, leafMaterial, rotation = 0) {
+  const planter = new THREE.Group();
+  const base = new THREE.Mesh(new THREE.BoxGeometry(width, 0.08, 0.16), material);
+  base.position.y = 0.04;
+  planter.add(base);
+  for (let i = 0; i < 5; i += 1) {
+    const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.055, 8, 6), leafMaterial);
+    leaf.position.set(-width * 0.38 + i * (width * 0.19), 0.12 + (i % 2) * 0.025, 0.012);
+    leaf.scale.set(1.2, 0.42, 0.7);
+    leaf.rotation.y = i * 0.7;
+    leaf.castShadow = true;
+    planter.add(leaf);
+  }
+  planter.position.set(x, 0.43, z);
+  planter.rotation.y = rotation;
+  return planter;
+}
+
 function makePath(points, radius, material) {
   const curve = new THREE.CatmullRomCurve3(points);
   const geometry = new THREE.TubeGeometry(curve, 32, radius, 8, false);
@@ -276,7 +294,7 @@ async function createScene(root) {
   const fallback = root.querySelector("[data-island-fallback]");
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 80);
-  camera.position.set(5.15, 3.18, 5.42);
+  camera.position.set(5.05, 3.08, 5.32);
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
   renderer.setClearColor(0x000000, 0);
@@ -300,8 +318,8 @@ async function createScene(root) {
   controls.maxPolarAngle = Math.PI * 0.37;
   controls.minAzimuthAngle = -Math.PI * 0.1;
   controls.maxAzimuthAngle = Math.PI * 0.1;
-  controls.minDistance = 6.05;
-  controls.maxDistance = 7.25;
+  controls.minDistance = 6.12;
+  controls.maxDistance = 7.0;
   controls.target.set(0.06, 0.56, 0.0);
 
   const isMobile = window.matchMedia("(max-width: 720px)").matches;
@@ -352,7 +370,7 @@ async function createScene(root) {
     roofEdge: new THREE.MeshStandardMaterial({ color: 0x151d19, roughness: 0.86 }),
     green: new THREE.MeshStandardMaterial({ color: 0x2f4d2c, roughness: 0.86 }),
     softGreen: new THREE.MeshStandardMaterial({ color: 0x506f45, roughness: 0.9 }),
-    line: new THREE.LineBasicMaterial({ color: 0x9eaaa3, transparent: true, opacity: 0.62 }),
+    line: new THREE.LineBasicMaterial({ color: 0x9eaaa3, transparent: true, opacity: 0.34 }),
     recess: new THREE.MeshStandardMaterial({ color: 0x233129, roughness: 0.9 }),
     frame: new THREE.MeshStandardMaterial({ color: 0x29352f, roughness: 0.78 }),
     lightFrame: new THREE.MeshStandardMaterial({ color: 0xe7ece8, roughness: 0.76 }),
@@ -401,7 +419,7 @@ async function createScene(root) {
   addAnimated(island, meadowB, 0.6, "grow");
 
   const contourGroup = new THREE.Group();
-  [2.68, 2.24, 1.82, 1.38].forEach((radius, index) => {
+  [2.42, 1.94, 1.48].forEach((radius, index) => {
     const line = makeContour(radius, radius * 0.72, 0.27 + index * 0.012, mat.line, index === 1 ? 0.12 : 0, index === 2 ? -0.12 : 0.02);
     line.scale.set(0.001, 0.001, 0.001);
     line.userData.delay = 0.42 + index * 0.08;
@@ -449,6 +467,10 @@ async function createScene(root) {
   privacyWall.rotation.y = 0.08;
   addAnimated(island, privacyWall, 1.08, "grow-y");
 
+  const secondaryPaving = makeWall(0.86, 0.026, 0.52, 1.05, 0.375, -0.78, mat.stone);
+  secondaryPaving.rotation.y = 0.12;
+  addAnimated(island, secondaryPaving, 1.02, "grow-y");
+
   const house = new THREE.Group();
   house.position.set(0.02, 0.47, -0.16);
   const mainBlock = makeWall(1.56, 0.86, 1.08, -0.18, 0.43, 0.06, mat.wall);
@@ -492,7 +514,16 @@ async function createScene(root) {
   commerceSign.add(signBase, signLineA, signLineB);
   commerceSign.position.set(-1.48, 0.48, -1.08);
   commerceSign.rotation.y = 0.22;
-  [mainBlock, sideBlock, entryBlock, plinthA, plinthB, roofA, roofB, roofC, terrace, deck, door, rail, entryCanopy, timberScreen, frontGlass, sideGlass, entryGlass, clerestory, upperGlass, accentPanel, serviceVolume, slimPergola, commerceSign, steps].forEach((part, index) => {
+  const apartmentMarker = new THREE.Group();
+  const markerCore = makeWall(0.22, 0.78, 0.18, 0, 0.39, 0, mat.wallAlt);
+  const markerCap = makeWall(0.28, 0.04, 0.24, 0, 0.8, 0, mat.dark);
+  [-0.19, 0.03, 0.25].forEach((py) => {
+    apartmentMarker.add(makeWall(0.12, 0.045, 0.028, 0, 0.38 + py, 0.095, mat.glass));
+  });
+  apartmentMarker.add(markerCore, markerCap);
+  apartmentMarker.position.set(1.2, 0.43, -0.94);
+  apartmentMarker.rotation.y = -0.28;
+  [mainBlock, sideBlock, entryBlock, plinthA, plinthB, roofA, roofB, roofC, terrace, deck, door, rail, entryCanopy, timberScreen, frontGlass, sideGlass, entryGlass, clerestory, upperGlass, accentPanel, serviceVolume, slimPergola, commerceSign, apartmentMarker, steps].forEach((part, index) => {
     part.userData.delay = 0.7 + index * 0.035;
     part.userData.mode = "grow-y";
     part.userData.initialScale = part.scale.clone();
@@ -532,10 +563,18 @@ async function createScene(root) {
     [-0.94, 1.48, 0.9],
     [-1.18, -1.08, 0.72],
     [1.14, 1.34, 0.68],
-    [1.82, 0.24, 0.58]
+    [1.82, 0.24, 0.58],
+    [0.28, -1.42, 0.48]
   ].forEach(([x, z, scale], index) => {
     const shrub = makeShrub(x, z, scale, index % 2 ? mat.turfAlt : mat.softGreen);
     addAnimated(vegetation, shrub, 1.32 + index * 0.04, "grow");
+  });
+  [
+    [-0.86, 0.86, 0.42, 0.05],
+    [0.76, 0.64, 0.5, -0.16]
+  ].forEach(([x, z, width, rotation], index) => {
+    const planter = makePlanter(x, z, width, mat.concrete, index % 2 ? mat.green : mat.softGreen, rotation);
+    addAnimated(vegetation, planter, 1.42 + index * 0.05, "grow-y");
   });
   [
     [-0.66, 1.12, 0.72, -0.4],
@@ -618,7 +657,7 @@ async function createScene(root) {
       const eased = 1 - Math.pow(1 - t, 3);
       if (child.userData.mode === "line") {
         child.scale.setScalar(Math.max(0.001, eased));
-        if (child.material) child.material.opacity = 0.76 * eased;
+        if (child.material) child.material.opacity = 0.38 * eased;
         return;
       }
       const initial = child.userData.initialScale || new THREE.Vector3(1, 1, 1);

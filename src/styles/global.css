@@ -10,6 +10,10 @@
   --line-strong: rgba(47, 77, 44, 0.28);
   --shadow: 0 24px 68px rgba(27, 36, 30, 0.12);
   --soft-shadow: 0 14px 34px rgba(27, 36, 30, 0.09);
+  --glass: rgba(255, 255, 255, 0.66);
+  --glass-strong: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.48);
+  --glass-shadow: 0 18px 46px rgba(27, 36, 30, 0.075);
   --radius-xl: 30px;
   --radius-lg: 22px;
   --radius-md: 14px;
@@ -317,9 +321,11 @@ svg {
   gap: 12px;
   place-items: center;
   padding: 24px;
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   background: linear-gradient(135deg, #f1f3f2, #e9ecea 58%, #dde2df);
-  animation: loaderCurtain 1.2s cubic-bezier(.16, 1, .3, 1) forwards;
+  animation: loaderCurtain 1.2s cubic-bezier(.16, 1, .3, 1) both;
 }
 
 .brand-loader > img {
@@ -370,8 +376,8 @@ svg {
 /* Clover Property Island hero */
 .hero-editorial {
   position: relative;
-  min-height: calc(86vh - 78px);
-  padding: clamp(12px, 2vw, 26px) 0 clamp(24px, 3vw, 40px);
+  min-height: calc(82vh - 78px);
+  padding: clamp(6px, 1.4vw, 18px) 0 clamp(22px, 2.6vw, 36px);
   overflow: hidden;
   background: transparent;
 }
@@ -405,11 +411,11 @@ svg {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(390px, 0.82fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(390px, 0.86fr);
   align-items: center;
   gap: clamp(24px, 4vw, 58px);
   width: min(1210px, calc(100% - 48px));
-  min-height: calc(80vh - 112px);
+  min-height: calc(76vh - 104px);
 }
 
 .hero-copy {
@@ -453,7 +459,7 @@ svg {
 
 .hero-lead {
   margin: 0;
-  max-width: 630px;
+  max-width: 570px;
   color: rgba(27, 36, 30, 0.76);
   font-size: clamp(1rem, 1.25vw, 1.18rem);
   line-height: 1.76;
@@ -468,8 +474,8 @@ svg {
 .clover-island-shell {
   position: relative;
   min-width: 0;
-  min-height: clamp(500px, 40vw, 600px);
-  width: min(100%, 650px);
+  min-height: clamp(500px, 39vw, 590px);
+  width: min(100%, 640px);
   justify-self: end;
   overflow: visible;
   opacity: 0;
@@ -492,7 +498,7 @@ svg {
 .clover-island-canvas-host,
 .clover-island-fallback {
   position: absolute;
-  inset: -8%;
+  inset: -12%;
   width: 100%;
   height: 100%;
 }
@@ -615,21 +621,29 @@ svg {
   position: relative;
   overflow: hidden;
   padding: clamp(26px, 4vw, 50px);
-  border: 1px solid var(--line);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.7), rgba(221, 226, 223, 0.46)),
-    linear-gradient(28deg, rgba(255, 255, 255, 0.42) 0 1px, transparent 1px 132px);
-  box-shadow: var(--soft-shadow);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.42)),
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.42), transparent 18rem);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(8px);
+}
+
+@supports not (backdrop-filter: blur(8px)) {
+  .clover-services-board,
+  .proof-panel,
+  .contact-box,
+  .content-hero,
+  .content-band,
+  .faq-list,
+  .contact-directory {
+    background: rgba(255, 255, 255, 0.82);
+  }
 }
 
 .board-line {
-  position: absolute;
-  left: clamp(18px, 3vw, 34px);
-  top: clamp(22px, 4vw, 48px);
-  bottom: clamp(22px, 4vw, 48px);
-  width: 1px;
-  background: rgba(47, 77, 44, 0.34);
+  display: none;
 }
 
 .clover-services-top {
@@ -751,9 +765,10 @@ svg {
   display: grid;
   gap: 14px;
   padding: 20px;
-  border: 1px solid rgba(47, 77, 44, 0.12);
+  border: 1px solid rgba(47, 77, 44, 0.1);
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 10px 24px rgba(27, 36, 30, 0.04);
   transition: transform 260ms ease, box-shadow 260ms ease;
 }
 
@@ -816,7 +831,7 @@ svg {
   border: 1px solid rgba(47, 77, 44, 0.12);
   border-radius: 999px;
   color: var(--green);
-  background: rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.66);
   font-size: 0.78rem;
   font-weight: 900;
 }
@@ -830,7 +845,7 @@ svg {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   margin-top: 14px;
-  border: 1px solid rgba(47, 77, 44, 0.12);
+  border: 1px solid rgba(47, 77, 44, 0.1);
   border-radius: 20px;
   overflow: hidden;
 }
@@ -839,7 +854,8 @@ svg {
   display: grid;
   gap: 4px;
   padding: 14px 12px;
-  border-right: 1px solid rgba(47, 77, 44, 0.1);
+  border-right: 1px solid rgba(47, 77, 44, 0.08);
+  background: rgba(255, 255, 255, 0.34);
   color: rgba(27, 36, 30, 0.76);
   font-size: 0.82rem;
   font-weight: 800;
@@ -883,7 +899,7 @@ svg {
   overflow: hidden;
   border: 1px solid rgba(47, 77, 44, 0.12);
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 16px 36px rgba(27, 36, 30, 0.08);
   transition: transform 420ms cubic-bezier(.16, 1, .3, 1), box-shadow 420ms ease;
 }
@@ -1199,14 +1215,16 @@ svg {
 
   .header-nav {
     justify-content: center;
-    width: min(100%, 360px);
+    width: 100%;
+    max-width: 326px;
+    padding: 5px;
   }
 
   .header-nav a {
     flex: 1;
-    padding: 0.68rem 0.48rem;
+    padding: 0.66rem 0.34rem;
     text-align: center;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
   }
 
   .hero-editorial {
@@ -1225,11 +1243,12 @@ svg {
     grid-template-columns: 1fr;
     width: min(100% - 28px, 370px);
     min-height: 0;
-    gap: 28px;
+    gap: 18px;
     overflow: hidden;
   }
 
   .hero-editorial .hero-copy {
+    gap: 14px;
     justify-items: center;
     text-align: center;
   }
@@ -1244,6 +1263,7 @@ svg {
   .hero-lead {
     max-width: 34ch;
     margin-inline: auto;
+    line-height: 1.62;
   }
 
   .hero-actions .button {
@@ -1268,7 +1288,8 @@ svg {
   .clover-island-shell {
     justify-self: center;
     width: min(100%, 520px);
-    min-height: 360px;
+    min-height: 330px;
+    margin-top: -10px;
   }
 
   .hero-metrics {
