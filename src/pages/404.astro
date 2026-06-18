@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import site from "../data/site.json";
+
+const title = "Página no encontrada | Clover Propiedades";
+const description = "La página solicitada no existe. Vuelve al inicio o contacta a Clover Propiedades por WhatsApp.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main class="content-page">
+    <section class="container content-hero" data-reveal>
+      <p class="eyebrow">Error 404</p>
+      <h1>Página no encontrada</h1>
+      <p>
+        Es posible que el enlace haya cambiado o que la página ya no esté disponible.
+        Puedes volver al inicio o escribirnos por WhatsApp para recibir orientación.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/">Volver al inicio</a>
+        <a class="button button-soft" href={`https://wa.me/${site.whatsapp}?text=Hola%20Clover%20Propiedades%2C%20quiero%20hacer%20una%20consulta.`} target="_blank" rel="noopener noreferrer">
+          Contactar por WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

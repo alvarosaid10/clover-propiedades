@@ -8,7 +8,7 @@ import site from "../data/site.json";
 import successes from "../data/successes.json";
 
 const title = "Clover Propiedades | Experiencia y propiedades gestionadas";
-const description = "Clover Propiedades muestra casos reales y propiedades gestionadas en Renca, Talagante, Papudo y otras zonas de Chile como evidencia de gestión inmobiliaria profesional.";
+const description = "Clover Propiedades muestra casos reales y registros de propiedades trabajadas como respaldo visual de su gestión inmobiliaria en distintas zonas.";
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -22,6 +22,14 @@ const structuredData = [
       about: item.kind,
       image: `https://${site.domain}${item.secondaryImage}`
     }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `https://${site.domain}/` },
+      { "@type": "ListItem", position: 2, name: "Experiencia", item: `https://${site.domain}/experiencia/` }
+    ]
   }
 ];
 ---
@@ -33,17 +41,17 @@ const structuredData = [
       <p class="eyebrow">Experiencia real</p>
       <h1>Experiencia de Clover Propiedades</h1>
       <p>
-        Una selección breve de operaciones y publicaciones reales que muestran el
-        estilo de trabajo de Clover Propiedades: cercanía, orden y gestión comercial.
+        Una selección breve de operaciones, registros y publicaciones reales que
+        muestran cómo Clover Propiedades comunica, organiza y acompaña sus gestiones.
       </p>
     </section>
     <SuccessSection />
     <section class="container content-band" data-reveal>
       <h2>Confianza basada en gestión visible</h2>
       <p>
-        La presencia digital de Clover se apoya en material real, publicaciones
-        verificables y contacto directo. La prioridad es que cada cliente entienda
-        el proceso antes de avanzar.
+        La presencia digital de Clover se apoya en material real y contacto directo.
+        Estos registros no son un catálogo de disponibilidad, sino una muestra del
+        tipo de seguimiento y presentación que puede acompañar cada operación.
       </p>
       <a class="button button-primary" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener noreferrer">Ver Instagram</a>
     </section>

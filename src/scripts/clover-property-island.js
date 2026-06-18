@@ -257,6 +257,14 @@ async function createScene(root) {
   ], 0.055, mat.concreteLight);
   addAnimated(island, gardenPath, 1.02, "grow");
 
+  const court = makeWall(1.36, 0.028, 0.86, 0.62, 0.34, 0.92, mat.concreteLight);
+  court.rotation.y = -0.05;
+  addAnimated(island, court, 0.94, "grow-y");
+
+  const privacyWall = makeWall(1.18, 0.26, 0.055, -0.94, 0.46, 0.9, mat.concrete);
+  privacyWall.rotation.y = 0.08;
+  addAnimated(island, privacyWall, 1.08, "grow-y");
+
   const house = new THREE.Group();
   house.position.set(0.1, 0.38, -0.2);
   const mainBlock = makeWall(1.55, 0.78, 1.22, -0.18, 0.39, 0.08, mat.concreteLight);
@@ -301,7 +309,7 @@ async function createScene(root) {
   island.add(vegetation);
 
   const rocks = new THREE.Group();
-  for (let i = 0; i < (isMobile ? 4 : 8); i += 1) {
+  for (let i = 0; i < (isMobile ? 3 : 5); i += 1) {
     const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.07 + (i % 3) * 0.018, 0), mat.natural);
     rock.position.set(-1.9 + i * 0.47, 0.35, 1.72 - (i % 2) * 0.24);
     rock.scale.y = 0.46;
@@ -391,17 +399,17 @@ async function createScene(root) {
     if (disposed) return;
     raf = requestAnimationFrame(render);
     if (!active || !visible) return;
-    const targetInterval = interacting ? 16 : 34;
+    const elapsed = clock.getElapsedTime();
+    const targetInterval = interacting || elapsed < 2.8 ? 16 : 34;
     if (time - lastFrame < targetInterval) return;
     lastFrame = time;
 
-    const elapsed = clock.getElapsedTime();
     animateBuild(elapsed);
 
     if (!interacting && elapsed > 2.2) {
-      const targetRotation = -0.16 + Math.sin(elapsed * 0.34) * 0.055;
+      const targetRotation = -0.16 + Math.sin(elapsed * 0.28) * 0.045;
       island.rotation.y += (targetRotation - island.rotation.y) * 0.035;
-      island.rotation.x = Math.sin(elapsed * 0.24) * 0.012;
+      island.rotation.x = Math.sin(elapsed * 0.2) * 0.009;
     }
 
     controls.update();

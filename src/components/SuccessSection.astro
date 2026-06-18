@@ -8,15 +8,14 @@ const featured = successes;
   <div class="container proof-panel premium-surface">
     <div class="proof-copy">
       <p class="eyebrow">Experiencia real</p>
-      <h2>Gestiones que se pueden ver</h2>
+      <h2>Casos gestionados con respaldo visual</h2>
       <p>
-        Casos reales en distintas zonas de Chile. Cada pieza combina fotografía
-        de propiedad y publicación de Clover Propiedades para mostrar contexto,
-        trazabilidad y respaldo comercial.
+        Una muestra acotada de propiedades y publicaciones reales trabajadas por
+        Clover Propiedades. Esta sección comunica experiencia, no disponibilidad actual.
       </p>
       <div class="proof-badges" aria-label="Señales de confianza">
         <span>Transparencia</span>
-        <span>Publicación real</span>
+        <span>Material real</span>
         <span>Contacto directo</span>
       </div>
     </div>
@@ -25,8 +24,8 @@ const featured = successes;
       {featured.map((item, index) => (
         <article class="proof-card" style={`--proof:${index}`} data-tilt-card>
           <div class="proof-image">
-            <img src={item.image} alt={`${item.title} - ${item.location}`} loading="lazy" decoding="async" />
-            <img class="proof-image-alt" src={item.secondaryImage} alt={`Publicación Clover - ${item.location}`} loading="lazy" decoding="async" />
+            <img src={item.image} alt={`Registro de experiencia inmobiliaria de Clover Propiedades en ${item.location}`} loading="lazy" decoding="async" />
+            <img class="proof-image-alt" src={item.secondaryImage} alt={`Publicación real de Clover Propiedades asociada a ${item.location}`} loading="lazy" decoding="async" />
           </div>
           <div class="proof-body">
             <span>{item.kind}</span>

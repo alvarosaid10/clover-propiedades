@@ -6,7 +6,7 @@ import site from "../data/site.json";
 const {
   title = `${site.name} | Gestión Inmobiliaria`,
   description = site.description,
-  image = "/images/corporate/info-clover.jpg",
+  image = site.socialImage,
   structuredData: pageStructuredData = []
 } = Astro.props;
 
@@ -25,7 +25,7 @@ const baseStructuredData = [
   alternateName: "Clover Propiedades Chile",
   slogan: "Compra, vende y arrienda con nosotros",
   url: `https://${site.domain}/`,
-  logo: `https://${site.domain}/images/corporate/logo-clover-transparent-final.png`,
+  logo: `https://${site.domain}${site.logo}`,
   image: imageUrl.href,
   description: site.description,
   telephone: site.phone,
@@ -41,11 +41,11 @@ const baseStructuredData = [
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Renca",
-    addressRegion: "Región Metropolitana",
-    addressCountry: "CL"
+    addressLocality: site.city,
+    addressRegion: site.region,
+    addressCountry: site.country
   },
-  areaServed: "Chile",
+  areaServed: [site.region, "Chile"],
   sameAs: [`https://www.instagram.com/${site.instagram}/`],
   knowsAbout: [
     "Venta de propiedades",
@@ -60,7 +60,7 @@ const baseStructuredData = [
   "@id": `https://${site.domain}/#organization-profile`,
   name: "Clover Propiedades",
   url: `https://${site.domain}/`,
-  logo: `https://${site.domain}/images/corporate/logo-clover-transparent-final.png`,
+  logo: `https://${site.domain}${site.logo}`,
   description: site.description,
   contactPoint: {
     "@type": "ContactPoint",
@@ -82,11 +82,11 @@ const baseStructuredData = [
   email: site.email,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Renca",
-    addressRegion: "Región Metropolitana",
-    addressCountry: "CL"
+    addressLocality: site.city,
+    addressRegion: site.region,
+    addressCountry: site.country
   },
-  areaServed: "Chile",
+  areaServed: [site.region, "Chile"],
   priceRange: "$$"
 },
 {
@@ -94,7 +94,7 @@ const baseStructuredData = [
   "@type": "Brand",
   "@id": brandId,
   name: "Clover Propiedades",
-  logo: `https://${site.domain}/images/corporate/logo-clover-transparent-final.png`,
+  logo: `https://${site.domain}${site.logo}`,
   url: `https://${site.domain}/`
 },
 {
@@ -120,7 +120,7 @@ const structuredData = [...baseStructuredData, ...pageStructuredData];
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#2f4d2c" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/images/corporate/logo-clover-transparent-final.png" type="image/png" />
+    <link rel="icon" href={site.logo} type="image/png" />
     <link rel="preload" as="image" href="/images/corporate/asesora-clover.jpg" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.google-analytics.com" />
@@ -145,6 +145,14 @@ const structuredData = [...baseStructuredData, ...pageStructuredData];
       gtag("js", new Date());
       gtag("config", "G-G10YJ02TW4");
     </script>
+    <noscript>
+      <style>
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
     <script is:inline>
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

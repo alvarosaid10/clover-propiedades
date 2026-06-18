@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 import site from "../data/site.json";
 
 const title = "Clover Propiedades | Contacto";
-const description = "Contacta a Clover Propiedades por WhatsApp, Instagram o correo para venta, arriendo, administración y asesoría inmobiliaria en Chile.";
+const description = "Contacta a Clover Propiedades por WhatsApp, Instagram o correo para venta, arriendo, administración y asesoría inmobiliaria en Santiago de Chile.";
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -15,6 +15,14 @@ const structuredData = [
     description,
     url: `https://${site.domain}/contacto/`,
     mainEntity: { "@id": `https://${site.domain}/#organization` }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `https://${site.domain}/` },
+      { "@type": "ListItem", position: 2, name: "Contacto", item: `https://${site.domain}/contacto/` }
+    ]
   }
 ];
 ---
@@ -27,7 +35,8 @@ const structuredData = [
       <h1>Contacta a Clover Propiedades</h1>
       <p>
         Para cotizar una gestión inmobiliaria o resolver dudas sobre venta,
-        arriendo y administración, el canal principal es WhatsApp.
+        arriendo y administración, el canal principal es WhatsApp. No almacenamos
+        formularios ni datos sensibles en la web.
       </p>
     </section>
 

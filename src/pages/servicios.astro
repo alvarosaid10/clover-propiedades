@@ -5,20 +5,48 @@ import ContactCTA from "../components/ContactCTA.astro";
 import Footer from "../components/Footer.astro";
 import site from "../data/site.json";
 
-const title = "Clover Propiedades | Servicios inmobiliarios en Chile";
-const description = "Clover Propiedades ofrece servicios de venta, arriendo, administración y asesoría inmobiliaria en Chile con gestión completa, publicación, visitas, contratos y acompañamiento.";
+const title = "Clover Propiedades | Servicios inmobiliarios en Santiago";
+const description = "Servicios de venta, arriendo, administración y asesoría inmobiliaria en Santiago de Chile con publicación, visitas, revisión documental y acompañamiento claro.";
 const faq = [
   {
     question: "¿Qué servicios ofrece Clover Propiedades?",
-    answer: "Clover Propiedades ofrece venta, arriendo, administración de propiedades, asesoría documental, regularización de ampliaciones y acompañamiento de principio a fin."
+    answer: "Clover Propiedades apoya procesos de venta, arriendo y administración de propiedades. También orienta en publicación, coordinación de visitas, revisión documental y seguimiento comercial."
+  },
+  {
+    question: "¿Cómo comienza el proceso para vender una propiedad?",
+    answer: "El primer paso es conversar por WhatsApp para entender el tipo de propiedad, ubicación, estado general y objetivo del propietario. Luego se revisan los antecedentes disponibles y se define una forma de trabajo."
+  },
+  {
+    question: "¿Qué documentos se necesitan para vender?",
+    answer: "Depende de cada propiedad. Normalmente se revisan antecedentes del inmueble, dominio, contribuciones, gastos comunes cuando correspondan y documentos relacionados con la operación. Esta información debe validarse caso a caso con los profesionales correspondientes."
+  },
+  {
+    question: "¿Cómo funciona la publicación de una propiedad?",
+    answer: "Se prepara la información comercial, se seleccionan fotografías disponibles, se redacta una presentación clara y se coordina la difusión según el tipo de operación. No se publican datos sensibles sin acuerdo previo."
+  },
+  {
+    question: "¿Cómo se coordinan las visitas?",
+    answer: "Las visitas se coordinan de forma ordenada con el propietario y las personas interesadas, procurando confirmar horarios, disponibilidad y condiciones básicas antes de avanzar."
+  },
+  {
+    question: "¿Qué incluye la administración de una propiedad?",
+    answer: "Puede incluir cobro de arriendo, coordinación de pagos o gastos, comunicación con arrendatarios, apoyo en mantenciones e informes. El alcance exacto se define mediante cotización personalizada."
+  },
+  {
+    question: "¿La evaluación inicial tiene costo?",
+    answer: "La orientación inicial por WhatsApp permite revisar el caso de forma general. Cualquier condición comercial específica debe confirmarse directamente con Clover Propiedades."
   },
   {
     question: "¿Cómo puedo cotizar una gestión inmobiliaria?",
-    answer: `Puedes contactar directamente por WhatsApp al ${site.phone} para explicar tu caso y recibir orientación comercial.`
+    answer: `Puedes contactar directamente por WhatsApp al ${site.phone} para explicar tu caso y recibir una orientación inicial.`
   },
   {
-    question: "¿Clover Propiedades trabaja solo en Renca?",
-    answer: "La marca tiene base en Renca, Santiago, pero presenta experiencia en distintas zonas de Chile según el tipo de operación inmobiliaria."
+    question: "¿En qué comunas trabajan?",
+    answer: "Clover Propiedades atiende principalmente en Santiago de Chile y Región Metropolitana. La cobertura puede evaluarse según la ubicación y características de cada propiedad."
+  },
+  {
+    question: "¿Qué ocurre después de contactar por WhatsApp?",
+    answer: "Se solicita información básica de la propiedad y del objetivo de la gestión. Con eso se orienta el siguiente paso: evaluación, publicación, arriendo, administración o revisión documental."
   }
 ];
 const structuredData = [
@@ -27,7 +55,7 @@ const structuredData = [
     "@type": "Service",
     name: "Gestión inmobiliaria Clover Propiedades",
     provider: { "@id": `https://${site.domain}/#organization` },
-    areaServed: "Chile",
+    areaServed: [site.region, "Chile"],
     serviceType: ["Venta de propiedades", "Arriendo de propiedades", "Administración de propiedades", "Asesoría inmobiliaria"],
     url: `https://${site.domain}/servicios/`
   },
@@ -42,6 +70,14 @@ const structuredData = [
         text: item.answer
       }
     }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `https://${site.domain}/` },
+      { "@type": "ListItem", position: 2, name: "Servicios", item: `https://${site.domain}/servicios/` }
+    ]
   }
 ];
 ---
@@ -54,7 +90,7 @@ const structuredData = [
       <h1>Servicios de Clover Propiedades</h1>
       <p>
         Clover Propiedades acompaña operaciones inmobiliarias con gestión comercial,
-        revisión documental, publicación, visitas, contratos y seguimiento cercano.
+        revisión documental, publicación, visitas, contratos y seguimiento cercano en Santiago de Chile.
       </p>
     </section>
 
@@ -72,7 +108,7 @@ const structuredData = [
       <article class="page-card">
         <span>Administración</span>
         <h2>Administración de propiedades</h2>
-        <p>Cobro de arriendos, pagos, coordinación de mantenciones, atención de arrendatarios e informes periódicos.</p>
+        <p>Cobro de arriendos, pagos, coordinación de mantenciones, atención de arrendatarios e informes según una cotización personalizada.</p>
       </article>
     </section>
 

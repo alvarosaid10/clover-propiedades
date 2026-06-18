@@ -62,13 +62,21 @@ src/data/successes.json
 
 La web no muestra propiedades activas por defecto para evitar confusiones con publicaciones que puedan dejar de estar disponibles.
 
-El archivo activo esta en:
+La arquitectura futura recomendada está documentada en:
+
+```text
+docs/propiedades-futuro.md
+```
+
+La idea es implementar el catálogo más adelante con archivos locales y Astro Content Collections, sin base de datos ni servicios pagados.
+
+El archivo actual se mantiene vacío:
 
 ```text
 src/data/properties.json
 ```
 
-Hoy debe mantenerse como `[]` hasta que exista una propiedad real lista para publicar.
+Hoy debe mantenerse como `[]` hasta que exista una propiedad real lista para publicar con datos confirmados.
 
 Hay un modelo editable en:
 
