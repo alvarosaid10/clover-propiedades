@@ -370,8 +370,8 @@ svg {
 /* Clover Property Island hero */
 .hero-editorial {
   position: relative;
-  min-height: calc(92vh - 78px);
-  padding: clamp(26px, 3.4vw, 46px) 0 clamp(28px, 3.4vw, 48px);
+  min-height: calc(86vh - 78px);
+  padding: clamp(12px, 2vw, 26px) 0 clamp(24px, 3vw, 40px);
   overflow: hidden;
   background: transparent;
 }
@@ -382,28 +382,13 @@ svg {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 74% 46%, rgba(255, 255, 255, 0.56), transparent 26rem),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 1px, transparent 1px 156px),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px 132px);
-  opacity: 0.56;
+    radial-gradient(circle at 76% 42%, rgba(255, 255, 255, 0.62), transparent 26rem),
+    radial-gradient(circle at 24% 52%, rgba(255, 255, 255, 0.28), transparent 22rem);
+  opacity: 0.74;
 }
 
 .hero-editorial::after {
-  content: "";
-  position: absolute;
-  top: clamp(18px, 4vw, 48px);
-  left: min(7vw, 96px);
-  right: min(7vw, 96px);
-  height: clamp(86px, 11vw, 142px);
-  pointer-events: none;
-  border-top: 1px solid rgba(47, 77, 44, 0.13);
-  border-bottom: 1px solid rgba(47, 77, 44, 0.08);
-  background:
-    radial-gradient(circle at 16% 52%, rgba(47, 77, 44, 0.12) 0 2px, transparent 3px),
-    radial-gradient(circle at 82% 48%, rgba(47, 77, 44, 0.1) 0 2px, transparent 3px),
-    linear-gradient(116deg, transparent 0 42%, rgba(255, 255, 255, 0.38) 42% 44%, transparent 44%),
-    linear-gradient(90deg, transparent 0 20%, rgba(47, 77, 44, 0.07) 20% 20.15%, transparent 20.15% 100%);
-  opacity: 0.74;
+  content: none;
 }
 
 .topography-texture {
@@ -416,47 +401,6 @@ svg {
   -webkit-mask: url("/graphics/hero-patterns-topography.svg") 70% 42% / 1180px 1180px repeat;
 }
 
-.hero-linework {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.hero-linework path,
-.hero-linework circle {
-  fill: none;
-  vector-effect: non-scaling-stroke;
-}
-
-.plan-lines {
-  stroke: #1b241e;
-  stroke-width: 1;
-  opacity: 0.22;
-}
-
-.plan-lines path {
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: editorialDraw 1.8s cubic-bezier(.16, 1, .3, 1) forwards;
-}
-
-.plan-lines path:nth-child(5),
-.plan-lines path:nth-child(6) {
-  stroke: var(--green-2);
-  stroke-width: 1.5;
-  opacity: 0.36;
-  animation-delay: 200ms;
-}
-
-.survey-points {
-  stroke: #71806f;
-  stroke-width: 1;
-  opacity: 0;
-  animation: surveyFade 1.2s ease forwards 750ms;
-}
-
 .hero-editorial-grid {
   position: relative;
   z-index: 1;
@@ -465,7 +409,7 @@ svg {
   align-items: center;
   gap: clamp(24px, 4vw, 58px);
   width: min(1210px, calc(100% - 48px));
-  min-height: calc(88vh - 142px);
+  min-height: calc(80vh - 112px);
 }
 
 .hero-copy {
@@ -524,9 +468,10 @@ svg {
 .clover-island-shell {
   position: relative;
   min-width: 0;
-  min-height: clamp(460px, 38vw, 560px);
-  width: min(100%, 610px);
+  min-height: clamp(500px, 40vw, 600px);
+  width: min(100%, 650px);
   justify-self: end;
+  overflow: visible;
   opacity: 0;
   transform: translateY(10px);
   animation: islandShellReveal 900ms cubic-bezier(.16, 1, .3, 1) forwards 220ms;
@@ -545,8 +490,14 @@ svg {
 }
 
 .clover-island-canvas-host,
-.clover-island-canvas,
 .clover-island-fallback {
+  position: absolute;
+  inset: -8%;
+  width: 100%;
+  height: 100%;
+}
+
+.clover-island-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -555,6 +506,7 @@ svg {
 
 .clover-island-canvas-host {
   z-index: 2;
+  overflow: visible;
 }
 
 .clover-island-canvas {
@@ -573,22 +525,7 @@ svg {
 }
 
 .clover-island-shell::after {
-  content: "Explora la propiedad";
-  position: absolute;
-  right: 12%;
-  bottom: 10.5%;
-  z-index: 3;
-  padding: 7px 13px 6px;
-  border: 1px solid rgba(47, 77, 44, 0.14);
-  border-radius: 999px;
-  background: rgba(247, 249, 246, 0.72);
-  box-shadow: 0 10px 26px rgba(23, 32, 27, 0.08);
-  color: rgba(47, 77, 44, 0.76);
-  font-size: 0.64rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  pointer-events: none;
+  content: none;
 }
 
 .hero-metrics {
@@ -627,14 +564,6 @@ svg {
   width: 28px;
   height: 1px;
   background: rgba(47, 77, 44, 0.36);
-}
-
-@keyframes editorialDraw {
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes surveyFade {
-  to { opacity: 0.68; }
 }
 
 @keyframes islandShellReveal {
@@ -1282,7 +1211,7 @@ svg {
 
   .hero-editorial {
     min-height: auto;
-    padding: 34px 0 28px;
+    padding: 18px 0 24px;
   }
 
   .topography-texture {
@@ -1339,7 +1268,7 @@ svg {
   .clover-island-shell {
     justify-self: center;
     width: min(100%, 520px);
-    min-height: 340px;
+    min-height: 360px;
   }
 
   .hero-metrics {
