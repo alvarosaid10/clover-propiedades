@@ -334,7 +334,7 @@ svg {
 .hero-editorial {
   position: relative;
   min-height: calc(100vh - 78px);
-  padding: clamp(34px, 5vw, 70px) 0 clamp(30px, 4vw, 56px);
+  padding: clamp(28px, 4.2vw, 58px) 0 clamp(30px, 4vw, 56px);
   overflow: hidden;
   background: transparent;
 }
@@ -346,20 +346,37 @@ svg {
   pointer-events: none;
   background:
     radial-gradient(circle at 74% 46%, rgba(255, 255, 255, 0.56), transparent 26rem),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.42) 0 1px, transparent 1px 128px),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.34) 0 1px, transparent 1px 112px);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 1px, transparent 1px 156px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px 132px);
+  opacity: 0.56;
+}
+
+.hero-editorial::after {
+  content: "";
+  position: absolute;
+  top: clamp(18px, 4vw, 48px);
+  left: min(7vw, 96px);
+  right: min(7vw, 96px);
+  height: clamp(86px, 11vw, 142px);
+  pointer-events: none;
+  border-top: 1px solid rgba(47, 77, 44, 0.13);
+  border-bottom: 1px solid rgba(47, 77, 44, 0.08);
+  background:
+    radial-gradient(circle at 16% 52%, rgba(47, 77, 44, 0.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 48%, rgba(47, 77, 44, 0.1) 0 2px, transparent 3px),
+    linear-gradient(116deg, transparent 0 42%, rgba(255, 255, 255, 0.38) 42% 44%, transparent 44%),
+    linear-gradient(90deg, transparent 0 20%, rgba(47, 77, 44, 0.07) 20% 20.15%, transparent 20.15% 100%);
   opacity: 0.74;
 }
 
 .topography-texture {
   position: absolute;
-  inset: -28% -18%;
+  inset: -20% -14%;
   pointer-events: none;
   background: var(--green);
-  opacity: 0.075;
-  mask: url("/graphics/hero-patterns-topography.svg") 72% 38% / 980px 980px repeat;
-  -webkit-mask: url("/graphics/hero-patterns-topography.svg") 72% 38% / 980px 980px repeat;
-  animation: topographyFloat 16s ease-in-out infinite;
+  opacity: 0.045;
+  mask: url("/graphics/hero-patterns-topography.svg") 70% 42% / 1180px 1180px repeat;
+  -webkit-mask: url("/graphics/hero-patterns-topography.svg") 70% 42% / 1180px 1180px repeat;
 }
 
 .hero-linework {
@@ -379,7 +396,7 @@ svg {
 .plan-lines {
   stroke: #1b241e;
   stroke-width: 1;
-  opacity: 0.42;
+  opacity: 0.22;
 }
 
 .plan-lines path {
@@ -392,7 +409,7 @@ svg {
 .plan-lines path:nth-child(6) {
   stroke: var(--green-2);
   stroke-width: 1.5;
-  opacity: 0.62;
+  opacity: 0.36;
   animation-delay: 200ms;
 }
 
@@ -470,8 +487,8 @@ svg {
 .clover-island-shell {
   position: relative;
   min-width: 0;
-  min-height: clamp(500px, 43vw, 580px);
-  width: min(100%, 660px);
+  min-height: clamp(520px, 44vw, 620px);
+  width: min(100%, 700px);
   justify-self: end;
   opacity: 0;
   transform: translateY(10px);
@@ -483,11 +500,11 @@ svg {
   position: absolute;
   left: 4%;
   right: 6%;
-  bottom: 6%;
-  height: 18px;
+  bottom: 5.5%;
+  height: 16px;
   border-radius: 50%;
-  background: rgba(23, 32, 27, 0.11);
-  filter: blur(18px);
+  background: rgba(23, 32, 27, 0.1);
+  filter: blur(20px);
 }
 
 .clover-island-canvas-host,
@@ -519,13 +536,18 @@ svg {
 }
 
 .clover-island-shell::after {
-  content: "Maqueta interactiva";
+  content: "Explora la propiedad";
   position: absolute;
-  right: 10%;
-  bottom: 9%;
+  right: 12%;
+  bottom: 10.5%;
   z-index: 3;
-  color: rgba(47, 77, 44, 0.72);
-  font-size: 0.72rem;
+  padding: 7px 13px 6px;
+  border: 1px solid rgba(47, 77, 44, 0.14);
+  border-radius: 999px;
+  background: rgba(247, 249, 246, 0.72);
+  box-shadow: 0 10px 26px rgba(23, 32, 27, 0.08);
+  color: rgba(47, 77, 44, 0.76);
+  font-size: 0.64rem;
   font-weight: 900;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -576,11 +598,6 @@ svg {
 
 @keyframes surveyFade {
   to { opacity: 0.68; }
-}
-
-@keyframes topographyFloat {
-  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.075; }
-  50% { transform: translate3d(-10px, 6px, 0); opacity: 0.11; }
 }
 
 @keyframes islandShellReveal {
