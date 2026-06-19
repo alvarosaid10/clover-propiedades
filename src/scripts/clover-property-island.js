@@ -222,6 +222,27 @@ function makePlanter(x, z, width, material, leafMaterial, rotation = 0) {
   return planter;
 }
 
+function makeBollard(x, z, material, lightMaterial) {
+  const bollard = new THREE.Group();
+  const post = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.028, 0.18, 10), material);
+  const cap = new THREE.Mesh(new THREE.SphereGeometry(0.034, 12, 8), lightMaterial);
+  post.position.y = 0.09;
+  cap.position.y = 0.19;
+  bollard.add(post, cap);
+  bollard.position.set(x, 0.42, z);
+  return bollard;
+}
+
+function makeLowWall(width, x, z, material, rotation = 0) {
+  const wall = new THREE.Group();
+  const base = makeWall(width, 0.12, 0.055, 0, 0.06, 0, material);
+  const cap = makeWall(width + 0.05, 0.025, 0.075, 0, 0.135, 0, material);
+  wall.add(base, cap);
+  wall.position.set(x, 0.39, z);
+  wall.rotation.y = rotation;
+  return wall;
+}
+
 function makePath(points, radius, material) {
   const curve = new THREE.CatmullRomCurve3(points);
   const geometry = new THREE.TubeGeometry(curve, 32, radius, 8, false);
@@ -293,8 +314,8 @@ async function createScene(root) {
   const canvasHost = root.querySelector("[data-island-canvas]");
   const fallback = root.querySelector("[data-island-fallback]");
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 80);
-  camera.position.set(5.05, 3.08, 5.32);
+  const camera = new THREE.PerspectiveCamera(31, 1, 0.1, 80);
+  camera.position.set(5.38, 3.24, 5.68);
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
   renderer.setClearColor(0x000000, 0);
@@ -312,22 +333,24 @@ async function createScene(root) {
   controls.enableDamping = true;
   controls.dampingFactor = 0.082;
   controls.enablePan = false;
-  controls.rotateSpeed = 0.24;
-  controls.zoomSpeed = 0.18;
-  controls.minPolarAngle = Math.PI * 0.27;
-  controls.maxPolarAngle = Math.PI * 0.37;
-  controls.minAzimuthAngle = -Math.PI * 0.1;
-  controls.maxAzimuthAngle = Math.PI * 0.1;
-  controls.minDistance = 6.12;
-  controls.maxDistance = 7.0;
+  controls.rotateSpeed = 0.18;
+  controls.zoomSpeed = 0.11;
+  controls.minPolarAngle = Math.PI * 0.285;
+  controls.maxPolarAngle = Math.PI * 0.355;
+  controls.minAzimuthAngle = -Math.PI * 0.072;
+  controls.maxAzimuthAngle = Math.PI * 0.072;
+  controls.minDistance = 6.38;
+  controls.maxDistance = 6.82;
   controls.target.set(0.06, 0.56, 0.0);
 
   const isMobile = window.matchMedia("(max-width: 720px)").matches;
   controls.enableZoom = !isMobile;
+  controls.minDistance = isMobile ? 6.28 : 7.05;
+  controls.maxDistance = isMobile ? 6.68 : 7.34;
 
-  scene.add(new THREE.HemisphereLight(0xf8fbf8, 0xaebbb2, 1.9));
+  scene.add(new THREE.HemisphereLight(0xf8fbf8, 0xb8c3ba, 2.04));
   const keyLight = new THREE.DirectionalLight(0xffffff, 3.35);
-  keyLight.position.set(4.2, 6.9, 4.8);
+  keyLight.position.set(4.2, 6.4, 4.6);
   keyLight.castShadow = !isMobile;
   keyLight.shadow.mapSize.set(isMobile ? 512 : 1024, isMobile ? 512 : 1024);
   keyLight.shadow.camera.near = 1;
@@ -337,10 +360,10 @@ async function createScene(root) {
   keyLight.shadow.camera.top = 7;
   keyLight.shadow.camera.bottom = -7;
   scene.add(keyLight);
-  const fillLight = new THREE.DirectionalLight(0xdfe8e2, 0.82);
+  const fillLight = new THREE.DirectionalLight(0xe6eee8, 0.94);
   fillLight.position.set(-3.6, 3.2, -4.4);
   scene.add(fillLight);
-  const rimLight = new THREE.DirectionalLight(0xf5ead0, 0.62);
+  const rimLight = new THREE.DirectionalLight(0xf1e6cf, 0.78);
   rimLight.position.set(-3.2, 4.8, 3.4);
   scene.add(rimLight);
   const windowGlow = new THREE.PointLight(0xf4e9c6, 0.32, 3.4);
@@ -353,27 +376,30 @@ async function createScene(root) {
   scene.add(island);
 
   const mat = {
-    base: new THREE.MeshStandardMaterial({ color: 0xe8ece9, roughness: 0.9, metalness: 0.01 }),
-    baseEdge: new THREE.MeshStandardMaterial({ color: 0xcfd7d1, roughness: 0.88 }),
-    mid: new THREE.MeshStandardMaterial({ color: 0xdce2dd, roughness: 0.92 }),
-    turf: new THREE.MeshStandardMaterial({ color: 0x8fa083, roughness: 0.92 }),
-    turfAlt: new THREE.MeshStandardMaterial({ color: 0x738765, roughness: 0.94 }),
-    natural: new THREE.MeshStandardMaterial({ color: 0xb3b9ae, roughness: 0.96 }),
-    stone: new THREE.MeshStandardMaterial({ color: 0xc8cec8, roughness: 0.9 }),
-    concrete: new THREE.MeshStandardMaterial({ color: 0xd2d9d4, roughness: 0.86 }),
-    concreteLight: new THREE.MeshStandardMaterial({ color: 0xe9eee9, roughness: 0.82 }),
-    wall: new THREE.MeshStandardMaterial({ color: 0xe0e6e1, roughness: 0.86 }),
-    wallAlt: new THREE.MeshStandardMaterial({ color: 0xcfd8d1, roughness: 0.9 }),
-    wallWarm: new THREE.MeshStandardMaterial({ color: 0xd8d1c4, roughness: 0.88 }),
-    wood: new THREE.MeshStandardMaterial({ color: 0xb7a27e, roughness: 0.82 }),
+    base: new THREE.MeshStandardMaterial({ color: 0xe5ebe6, roughness: 0.9, metalness: 0.01 }),
+    baseEdge: new THREE.MeshStandardMaterial({ color: 0xcbd5ce, roughness: 0.88 }),
+    mid: new THREE.MeshStandardMaterial({ color: 0xd7dfd8, roughness: 0.92 }),
+    turf: new THREE.MeshStandardMaterial({ color: 0x9aac8e, roughness: 0.92 }),
+    turfAlt: new THREE.MeshStandardMaterial({ color: 0x7f956f, roughness: 0.94 }),
+    natural: new THREE.MeshStandardMaterial({ color: 0xbbb7aa, roughness: 0.96 }),
+    stone: new THREE.MeshStandardMaterial({ color: 0xc9d0ca, roughness: 0.9 }),
+    concrete: new THREE.MeshStandardMaterial({ color: 0xd3dad5, roughness: 0.86 }),
+    concreteLight: new THREE.MeshStandardMaterial({ color: 0xedf1ec, roughness: 0.82 }),
+    wall: new THREE.MeshStandardMaterial({ color: 0xdfe7df, roughness: 0.86 }),
+    wallAlt: new THREE.MeshStandardMaterial({ color: 0xcbd8cd, roughness: 0.9 }),
+    wallWarm: new THREE.MeshStandardMaterial({ color: 0xded5c8, roughness: 0.88 }),
+    clay: new THREE.MeshStandardMaterial({ color: 0xd8c9b3, roughness: 0.9 }),
+    ochre: new THREE.MeshStandardMaterial({ color: 0xe8dfbd, roughness: 0.88 }),
+    wood: new THREE.MeshStandardMaterial({ color: 0xb9a27c, roughness: 0.82 }),
     dark: new THREE.MeshStandardMaterial({ color: 0x24302a, roughness: 0.82 }),
     roofEdge: new THREE.MeshStandardMaterial({ color: 0x151d19, roughness: 0.86 }),
     green: new THREE.MeshStandardMaterial({ color: 0x2f4d2c, roughness: 0.86 }),
     softGreen: new THREE.MeshStandardMaterial({ color: 0x506f45, roughness: 0.9 }),
-    line: new THREE.LineBasicMaterial({ color: 0x9eaaa3, transparent: true, opacity: 0.34 }),
+    line: new THREE.LineBasicMaterial({ color: 0xaab4ad, transparent: true, opacity: 0.24 }),
     recess: new THREE.MeshStandardMaterial({ color: 0x233129, roughness: 0.9 }),
     frame: new THREE.MeshStandardMaterial({ color: 0x29352f, roughness: 0.78 }),
     lightFrame: new THREE.MeshStandardMaterial({ color: 0xe7ece8, roughness: 0.76 }),
+    warmGlow: new THREE.MeshStandardMaterial({ color: 0xf3ebd4, emissive: 0xf0dfad, emissiveIntensity: 0.18, roughness: 0.56 }),
     glass: new THREE.MeshPhysicalMaterial({
       color: 0xd7e5df,
       roughness: 0.22,
@@ -385,26 +411,26 @@ async function createScene(root) {
     })
   };
 
-  const lower = extrudeIsland(makeRoundedIslandShape(0.88), 0.095, mat.base);
-  lower.position.y = -0.12;
-  lower.scale.set(1, 1, 0.88);
+  const lower = extrudeIsland(makeRoundedIslandShape(0.88), 0.078, mat.base);
+  lower.position.y = -0.105;
+  lower.scale.set(1, 1, 0.86);
   lower.receiveShadow = true;
   addAnimated(island, lower, 0, "grow-y");
 
-  const bevelBand = extrudeIsland(makeRoundedIslandShape(0.82), 0.032, mat.baseEdge);
-  bevelBand.position.y = -0.028;
-  bevelBand.scale.set(1, 1, 0.86);
+  const bevelBand = extrudeIsland(makeRoundedIslandShape(0.82), 0.026, mat.baseEdge);
+  bevelBand.position.y = -0.026;
+  bevelBand.scale.set(1, 1, 0.84);
   bevelBand.receiveShadow = true;
   addAnimated(island, bevelBand, 0.1, "grow-y");
 
-  const middle = extrudeIsland(makeRoundedIslandShape(0.76), 0.07, mat.mid);
-  middle.position.y = 0.028;
-  middle.scale.set(1, 1, 0.82);
+  const middle = extrudeIsland(makeRoundedIslandShape(0.76), 0.058, mat.mid);
+  middle.position.y = 0.025;
+  middle.scale.set(1, 1, 0.81);
   middle.receiveShadow = true;
   addAnimated(island, middle, 0.16, "grow-y");
 
-  const top = extrudeIsland(makeRoundedIslandShape(0.68), 0.075, mat.turf);
-  top.position.y = 0.125;
+  const top = extrudeIsland(makeRoundedIslandShape(0.68), 0.064, mat.turf);
+  top.position.y = 0.115;
   top.scale.set(1.04, 1, 0.78);
   top.receiveShadow = true;
   addAnimated(island, top, 0.28, "grow-y");
@@ -471,6 +497,15 @@ async function createScene(root) {
   secondaryPaving.rotation.y = 0.12;
   addAnimated(island, secondaryPaving, 1.02, "grow-y");
 
+  const serviceCourt = makeWall(0.72, 0.024, 0.42, -1.24, 0.385, -0.64, mat.ochre);
+  serviceCourt.rotation.y = -0.12;
+  addAnimated(island, serviceCourt, 1.04, "grow-y");
+
+  const gardenWallA = makeLowWall(0.72, -1.46, 0.62, mat.clay, 0.18);
+  const gardenWallB = makeLowWall(0.54, 1.28, 0.72, mat.concrete, -0.2);
+  addAnimated(island, gardenWallA, 1.1, "grow-y");
+  addAnimated(island, gardenWallB, 1.14, "grow-y");
+
   const house = new THREE.Group();
   house.position.set(0.02, 0.47, -0.16);
   const mainBlock = makeWall(1.56, 0.86, 1.08, -0.18, 0.43, 0.06, mat.wall);
@@ -498,6 +533,19 @@ async function createScene(root) {
   const entryGlass = makeFramedWindow(0.24, 0.42, -1.08, 0.4, 0.205, 0, mat);
   const clerestory = makeFramedWindow(0.56, 0.16, 0.52, 0.68, 0.705, 0, mat, true);
   const upperGlass = makeFramedWindow(0.46, 0.22, 0.25, 0.69, -0.505, Math.PI, mat, true);
+  const facadeBand = makePanel(1.12, 0.055, 0.052, -0.2, 0.19, 0.62, mat.clay);
+  const upperSill = makePanel(0.88, 0.035, 0.05, -0.2, 0.27, 0.705, mat.ochre);
+  const sidePlanter = makePlanter(0, 0, 0.38, mat.concrete, mat.softGreen, 0);
+  sidePlanter.position.set(0.88, 0.16, 0.68);
+  sidePlanter.scale.set(0.86, 0.86, 0.86);
+  const balcony = new THREE.Group();
+  const balconyDeck = makeWall(0.62, 0.035, 0.25, 0, 0, 0, mat.concreteLight);
+  const balconyTop = makeWall(0.68, 0.026, 0.03, 0, 0.22, 0.12, mat.lightFrame);
+  [-0.28, -0.09, 0.09, 0.28].forEach((px) => {
+    balcony.add(makeWall(0.022, 0.2, 0.024, px, 0.12, 0.12, mat.lightFrame));
+  });
+  balcony.add(balconyDeck, balconyTop);
+  balcony.position.set(0.52, 0.55, -0.58);
   const steps = makeSteps(mat.concreteLight);
   const accentPanel = makePanel(0.5, 0.58, 0.045, 0.48, 0.36, 0.615, mat.wood);
   const serviceVolume = makeWall(0.42, 0.4, 0.38, -0.9, 0.2, -0.58, mat.concrete);
@@ -515,15 +563,16 @@ async function createScene(root) {
   commerceSign.position.set(-1.48, 0.48, -1.08);
   commerceSign.rotation.y = 0.22;
   const apartmentMarker = new THREE.Group();
-  const markerCore = makeWall(0.22, 0.78, 0.18, 0, 0.39, 0, mat.wallAlt);
-  const markerCap = makeWall(0.28, 0.04, 0.24, 0, 0.8, 0, mat.dark);
-  [-0.19, 0.03, 0.25].forEach((py) => {
-    apartmentMarker.add(makeWall(0.12, 0.045, 0.028, 0, 0.38 + py, 0.095, mat.glass));
+  const markerCore = makeWall(0.3, 0.92, 0.22, 0, 0.46, 0, mat.wallAlt);
+  const markerWarm = makeWall(0.035, 0.82, 0.235, -0.135, 0.42, 0.0, mat.clay);
+  const markerCap = makeWall(0.36, 0.045, 0.28, 0, 0.94, 0, mat.dark);
+  [-0.28, -0.08, 0.12, 0.32].forEach((py) => {
+    apartmentMarker.add(makeWall(0.13, 0.045, 0.03, 0.035, 0.48 + py, 0.112, mat.glass));
   });
-  apartmentMarker.add(markerCore, markerCap);
+  apartmentMarker.add(markerCore, markerWarm, markerCap);
   apartmentMarker.position.set(1.2, 0.43, -0.94);
   apartmentMarker.rotation.y = -0.28;
-  [mainBlock, sideBlock, entryBlock, plinthA, plinthB, roofA, roofB, roofC, terrace, deck, door, rail, entryCanopy, timberScreen, frontGlass, sideGlass, entryGlass, clerestory, upperGlass, accentPanel, serviceVolume, slimPergola, commerceSign, apartmentMarker, steps].forEach((part, index) => {
+  [mainBlock, sideBlock, entryBlock, plinthA, plinthB, roofA, roofB, roofC, terrace, deck, door, rail, entryCanopy, timberScreen, frontGlass, sideGlass, entryGlass, clerestory, upperGlass, facadeBand, upperSill, sidePlanter, balcony, accentPanel, serviceVolume, slimPergola, commerceSign, apartmentMarker, steps].forEach((part, index) => {
     part.userData.delay = 0.7 + index * 0.035;
     part.userData.mode = "grow-y";
     part.userData.initialScale = part.scale.clone();
@@ -575,6 +624,14 @@ async function createScene(root) {
   ].forEach(([x, z, width, rotation], index) => {
     const planter = makePlanter(x, z, width, mat.concrete, index % 2 ? mat.green : mat.softGreen, rotation);
     addAnimated(vegetation, planter, 1.42 + index * 0.05, "grow-y");
+  });
+  [
+    [-0.28, 0.98],
+    [0.34, 0.78],
+    [-1.22, -0.72]
+  ].forEach(([x, z], index) => {
+    const bollard = makeBollard(x, z, mat.dark, mat.warmGlow);
+    addAnimated(vegetation, bollard, 1.46 + index * 0.04, "grow-y");
   });
   [
     [-0.66, 1.12, 0.72, -0.4],
@@ -657,7 +714,7 @@ async function createScene(root) {
       const eased = 1 - Math.pow(1 - t, 3);
       if (child.userData.mode === "line") {
         child.scale.setScalar(Math.max(0.001, eased));
-        if (child.material) child.material.opacity = 0.38 * eased;
+        if (child.material) child.material.opacity = 0.24 * eased;
         return;
       }
       const initial = child.userData.initialScale || new THREE.Vector3(1, 1, 1);
