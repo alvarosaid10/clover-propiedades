@@ -24,8 +24,8 @@ const featured = successes;
       {featured.map((item, index) => (
         <article class="proof-card" style={`--proof:${index}`} data-tilt-card>
           <div class="proof-image">
-            <img src={item.image} alt={`Registro de experiencia inmobiliaria de Clover Propiedades en ${item.location}`} loading="lazy" decoding="async" />
-            <img class="proof-image-alt" src={item.secondaryImage} alt={`Publicación real de Clover Propiedades asociada a ${item.location}`} loading="lazy" decoding="async" />
+            <img src={item.secondaryImage} alt={`Publicación real de Clover Propiedades asociada a ${item.location}`} loading="lazy" decoding="async" />
+            <img class="proof-image-alt" src={item.image} alt={`Registro fotográfico de experiencia inmobiliaria de Clover Propiedades en ${item.location}`} loading="lazy" decoding="async" />
           </div>
           <div class="proof-body">
             <span>{item.kind}</span>
