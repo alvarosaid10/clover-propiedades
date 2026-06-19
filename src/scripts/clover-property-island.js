@@ -74,25 +74,6 @@ function addAnimated(group, object, delay = 0, mode = "rise") {
   return object;
 }
 
-function createLineFromPoints(points, material) {
-  const geometry = new THREE.BufferGeometry().setFromPoints(points);
-  return new THREE.Line(geometry, material);
-}
-
-function makeContour(radiusX, radiusZ, y, material, offsetX = 0, offsetZ = 0) {
-  const points = [];
-  for (let i = 0; i <= 160; i += 1) {
-    const t = (i / 160) * Math.PI * 2;
-    const wobble = 1 + Math.sin(t * 3.0) * 0.035 + Math.cos(t * 2.0) * 0.025;
-    points.push(new THREE.Vector3(
-      offsetX + Math.cos(t) * radiusX * wobble,
-      y,
-      offsetZ + Math.sin(t) * radiusZ * wobble
-    ));
-  }
-  return createLineFromPoints(points, material);
-}
-
 function makeWall(width, height, depth, x, y, z, material) {
   const mesh = new THREE.Mesh(new THREE.BoxGeometry(width, height, depth), material);
   mesh.position.set(x, y, z);
@@ -289,21 +270,6 @@ function makeShrub(x, z, scale, material) {
   return shrub;
 }
 
-function makeResident(x, z, scale, materials, rotation = 0) {
-  const person = new THREE.Group();
-  const legs = new THREE.Mesh(new THREE.CylinderGeometry(0.016 * scale, 0.018 * scale, 0.18 * scale, 8), materials.dark);
-  const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.055 * scale, 0.14 * scale, 6, 10), materials.green);
-  const head = new THREE.Mesh(new THREE.SphereGeometry(0.04 * scale, 12, 8), materials.wood);
-  legs.position.y = 0.09 * scale;
-  body.position.y = 0.25 * scale;
-  head.position.y = 0.42 * scale;
-  person.add(legs, body, head);
-  person.position.set(x, 0.43, z);
-  person.rotation.y = rotation;
-  person.scale.set(1, 1, 1);
-  return person;
-}
-
 async function createScene(root) {
   const [THREE_MODULE, { OrbitControls }] = await Promise.all([
     import("three"),
@@ -341,12 +307,12 @@ async function createScene(root) {
   controls.maxAzimuthAngle = Math.PI * 0.072;
   controls.minDistance = 6.38;
   controls.maxDistance = 6.82;
-  controls.target.set(0.06, 0.56, 0.0);
+  controls.target.set(0, 0.5, 0.0);
 
   const isMobile = window.matchMedia("(max-width: 720px)").matches;
   controls.enableZoom = !isMobile;
-  controls.minDistance = isMobile ? 6.28 : 7.05;
-  controls.maxDistance = isMobile ? 6.68 : 7.34;
+  controls.minDistance = isMobile ? 7.85 : 7.5;
+  controls.maxDistance = isMobile ? 8.15 : 7.82;
 
   scene.add(new THREE.HemisphereLight(0xf8fbf8, 0xb8c3ba, 2.04));
   const keyLight = new THREE.DirectionalLight(0xffffff, 3.35);
@@ -371,31 +337,30 @@ async function createScene(root) {
   scene.add(windowGlow);
 
   const island = new THREE.Group();
-  island.rotation.y = -0.16;
-  island.scale.setScalar(0.92);
+  island.rotation.y = -0.13;
+  island.scale.setScalar(isMobile ? 0.86 : 0.9);
   scene.add(island);
 
   const mat = {
-    base: new THREE.MeshStandardMaterial({ color: 0xe5ebe6, roughness: 0.9, metalness: 0.01 }),
-    baseEdge: new THREE.MeshStandardMaterial({ color: 0xcbd5ce, roughness: 0.88 }),
-    mid: new THREE.MeshStandardMaterial({ color: 0xd7dfd8, roughness: 0.92 }),
-    turf: new THREE.MeshStandardMaterial({ color: 0x9aac8e, roughness: 0.92 }),
+    base: new THREE.MeshStandardMaterial({ color: 0xdde6df, roughness: 0.9, metalness: 0.01 }),
+    baseEdge: new THREE.MeshStandardMaterial({ color: 0xbacabd, roughness: 0.88 }),
+    mid: new THREE.MeshStandardMaterial({ color: 0xe1d6c7, roughness: 0.92 }),
+    turf: new THREE.MeshStandardMaterial({ color: 0x91a785, roughness: 0.92 }),
     turfAlt: new THREE.MeshStandardMaterial({ color: 0x7f956f, roughness: 0.94 }),
     natural: new THREE.MeshStandardMaterial({ color: 0xbbb7aa, roughness: 0.96 }),
     stone: new THREE.MeshStandardMaterial({ color: 0xc9d0ca, roughness: 0.9 }),
     concrete: new THREE.MeshStandardMaterial({ color: 0xd3dad5, roughness: 0.86 }),
     concreteLight: new THREE.MeshStandardMaterial({ color: 0xedf1ec, roughness: 0.82 }),
-    wall: new THREE.MeshStandardMaterial({ color: 0xdfe7df, roughness: 0.86 }),
-    wallAlt: new THREE.MeshStandardMaterial({ color: 0xcbd8cd, roughness: 0.9 }),
-    wallWarm: new THREE.MeshStandardMaterial({ color: 0xded5c8, roughness: 0.88 }),
-    clay: new THREE.MeshStandardMaterial({ color: 0xd8c9b3, roughness: 0.9 }),
-    ochre: new THREE.MeshStandardMaterial({ color: 0xe8dfbd, roughness: 0.88 }),
-    wood: new THREE.MeshStandardMaterial({ color: 0xb9a27c, roughness: 0.82 }),
+    wall: new THREE.MeshStandardMaterial({ color: 0xe4e9e3, roughness: 0.86 }),
+    wallAlt: new THREE.MeshStandardMaterial({ color: 0xc4d3c6, roughness: 0.9 }),
+    wallWarm: new THREE.MeshStandardMaterial({ color: 0xe2d8ca, roughness: 0.88 }),
+    clay: new THREE.MeshStandardMaterial({ color: 0xcfae91, roughness: 0.9 }),
+    ochre: new THREE.MeshStandardMaterial({ color: 0xe4d397, roughness: 0.88 }),
+    wood: new THREE.MeshStandardMaterial({ color: 0xa9825d, roughness: 0.82 }),
     dark: new THREE.MeshStandardMaterial({ color: 0x24302a, roughness: 0.82 }),
     roofEdge: new THREE.MeshStandardMaterial({ color: 0x151d19, roughness: 0.86 }),
     green: new THREE.MeshStandardMaterial({ color: 0x2f4d2c, roughness: 0.86 }),
     softGreen: new THREE.MeshStandardMaterial({ color: 0x506f45, roughness: 0.9 }),
-    line: new THREE.LineBasicMaterial({ color: 0xaab4ad, transparent: true, opacity: 0.24 }),
     recess: new THREE.MeshStandardMaterial({ color: 0x233129, roughness: 0.9 }),
     frame: new THREE.MeshStandardMaterial({ color: 0x29352f, roughness: 0.78 }),
     lightFrame: new THREE.MeshStandardMaterial({ color: 0xe7ece8, roughness: 0.76 }),
@@ -444,16 +409,6 @@ async function createScene(root) {
   addAnimated(island, meadowA, 0.54, "grow");
   addAnimated(island, meadowB, 0.6, "grow");
 
-  const contourGroup = new THREE.Group();
-  [2.42, 1.94, 1.48].forEach((radius, index) => {
-    const line = makeContour(radius, radius * 0.72, 0.27 + index * 0.012, mat.line, index === 1 ? 0.12 : 0, index === 2 ? -0.12 : 0.02);
-    line.scale.set(0.001, 0.001, 0.001);
-    line.userData.delay = 0.42 + index * 0.08;
-    line.userData.mode = "line";
-    contourGroup.add(line);
-  });
-  island.add(contourGroup);
-
   const shadowGroup = new THREE.Group();
   [
     makeSoftShadow(-0.1, 0.18, 1.35, 0.78, 0.13),
@@ -485,7 +440,7 @@ async function createScene(root) {
   ], 0.065, gardenPathMaterial);
   addAnimated(island, gardenPath, 1.02, "grow");
 
-  const court = makeWall(1.3, 0.035, 0.78, 0.52, 0.39, 0.9, mat.concreteLight);
+  const court = makeWall(1.3, 0.035, 0.78, 0.52, 0.39, 0.9, mat.ochre);
   court.rotation.y = -0.05;
   addAnimated(island, court, 0.94, "grow-y");
 
@@ -508,9 +463,9 @@ async function createScene(root) {
 
   const house = new THREE.Group();
   house.position.set(0.02, 0.47, -0.16);
-  const mainBlock = makeWall(1.56, 0.86, 1.08, -0.18, 0.43, 0.06, mat.wall);
-  const sideBlock = makeWall(0.86, 0.66, 0.96, 0.82, 0.33, -0.28, mat.wallWarm);
-  const entryBlock = makeWall(0.48, 0.74, 0.52, -1.02, 0.37, -0.06, mat.wallAlt);
+  const mainBlock = makeWall(1.56, 0.86, 1.08, -0.18, 0.43, 0.06, mat.wallWarm);
+  const sideBlock = makeWall(0.86, 0.66, 0.96, 0.82, 0.33, -0.28, mat.wallAlt);
+  const entryBlock = makeWall(0.48, 0.74, 0.52, -1.02, 0.37, -0.06, mat.clay);
   const plinthA = makePanel(1.62, 0.075, 1.14, -0.18, 0.045, 0.06, mat.concrete);
   const plinthB = makePanel(0.9, 0.065, 1.0, 0.82, 0.04, -0.28, mat.concrete);
   const roofA = makeRoof(1.78, 1.22, -0.18, 0.91, 0.06, mat.dark, mat.roofEdge);
@@ -555,24 +510,7 @@ async function createScene(root) {
   });
   slimPergola.position.set(0.46, 0.79, 0.78);
   slimPergola.rotation.y = -0.05;
-  const commerceSign = new THREE.Group();
-  const signBase = makeWall(0.44, 0.19, 0.035, 0, 0, 0, mat.concreteLight);
-  const signLineA = makeWall(0.24, 0.018, 0.04, 0, 0.045, 0.01, mat.green);
-  const signLineB = makeWall(0.31, 0.014, 0.04, 0, -0.025, 0.01, mat.dark);
-  commerceSign.add(signBase, signLineA, signLineB);
-  commerceSign.position.set(-1.48, 0.48, -1.08);
-  commerceSign.rotation.y = 0.22;
-  const apartmentMarker = new THREE.Group();
-  const markerCore = makeWall(0.3, 0.92, 0.22, 0, 0.46, 0, mat.wallAlt);
-  const markerWarm = makeWall(0.035, 0.82, 0.235, -0.135, 0.42, 0.0, mat.clay);
-  const markerCap = makeWall(0.36, 0.045, 0.28, 0, 0.94, 0, mat.dark);
-  [-0.28, -0.08, 0.12, 0.32].forEach((py) => {
-    apartmentMarker.add(makeWall(0.13, 0.045, 0.03, 0.035, 0.48 + py, 0.112, mat.glass));
-  });
-  apartmentMarker.add(markerCore, markerWarm, markerCap);
-  apartmentMarker.position.set(1.2, 0.43, -0.94);
-  apartmentMarker.rotation.y = -0.28;
-  [mainBlock, sideBlock, entryBlock, plinthA, plinthB, roofA, roofB, roofC, terrace, deck, door, rail, entryCanopy, timberScreen, frontGlass, sideGlass, entryGlass, clerestory, upperGlass, facadeBand, upperSill, sidePlanter, balcony, accentPanel, serviceVolume, slimPergola, commerceSign, apartmentMarker, steps].forEach((part, index) => {
+  [mainBlock, sideBlock, entryBlock, plinthA, plinthB, roofA, roofB, roofC, terrace, deck, door, rail, entryCanopy, timberScreen, frontGlass, sideGlass, entryGlass, clerestory, upperGlass, facadeBand, upperSill, sidePlanter, balcony, accentPanel, serviceVolume, slimPergola, steps].forEach((part, index) => {
     part.userData.delay = 0.7 + index * 0.035;
     part.userData.mode = "grow-y";
     part.userData.initialScale = part.scale.clone();
@@ -595,10 +533,9 @@ async function createScene(root) {
 
   const vegetation = new THREE.Group();
   const trees = isMobile ? [
-    [-1.64, 0.74, 0.78], [1.58, 1.02, 0.62], [1.74, -1.0, 0.58]
+    [-1.58, 0.78, 0.72], [1.56, -0.84, 0.58]
   ] : [
-    [-1.72, 0.76, 0.82], [-1.3, 1.22, 0.58], [1.54, 1.08, 0.68],
-    [1.82, -0.86, 0.6], [1.02, -1.42, 0.5]
+    [-1.68, 0.78, 0.8], [1.5, 1.02, 0.64], [1.72, -0.84, 0.58]
   ];
   trees.forEach(([x, z, scale], index) => {
     const tree = makeTree(x, z, scale, mat.dark, index % 2 ? mat.softGreen : mat.green);
@@ -633,17 +570,10 @@ async function createScene(root) {
     const bollard = makeBollard(x, z, mat.dark, mat.warmGlow);
     addAnimated(vegetation, bollard, 1.46 + index * 0.04, "grow-y");
   });
-  [
-    [-0.66, 1.12, 0.72, -0.4],
-    [-0.46, 1.0, 0.58, 0.35]
-  ].forEach(([x, z, scale, rotation], index) => {
-    const resident = makeResident(x, z, scale, mat, rotation);
-    addAnimated(vegetation, resident, 1.48 + index * 0.08, "grow-y");
-  });
   island.add(vegetation);
 
   const rocks = new THREE.Group();
-  for (let i = 0; i < (isMobile ? 3 : 5); i += 1) {
+  for (let i = 0; i < (isMobile ? 2 : 3); i += 1) {
     const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.06 + (i % 3) * 0.017, 0), mat.natural);
     rock.position.set(-1.74 + i * 0.44, 0.41, 1.62 - (i % 2) * 0.22);
     rock.rotation.set(0.2 * i, 0.7 * i, 0.12 * i);
@@ -651,25 +581,6 @@ async function createScene(root) {
     addAnimated(rocks, rock, 1.24 + i * 0.03, "grow");
   }
   island.add(rocks);
-
-  const pin = new THREE.Group();
-  const pinRing = new THREE.Mesh(new THREE.TorusGeometry(0.13, 0.015, 8, 28), mat.green);
-  pinRing.rotation.x = Math.PI / 2;
-  const pinStem = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.34, 10), mat.green);
-  pinStem.position.y = -0.17;
-  pin.add(pinRing, pinStem);
-  pin.position.set(1.72, 0.92, -0.36);
-  addAnimated(island, pin, 1.52, "grow");
-
-  const signature = new THREE.Group();
-  const plate = new THREE.Mesh(new THREE.BoxGeometry(0.58, 0.18, 0.04), mat.concreteLight);
-  const mark = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.035, 0.048), mat.green);
-  plate.position.y = 0.02;
-  mark.position.set(0, 0.07, 0.015);
-  signature.add(plate, mark);
-  signature.position.set(-1.55, 0.52, -1.5);
-  signature.rotation.y = 0.12;
-  addAnimated(island, signature, 1.62, "grow");
 
   const clock = new THREE.Clock();
   let visible = true;
@@ -712,11 +623,6 @@ async function createScene(root) {
       if (delay === undefined) return;
       const t = Math.min(1, Math.max(0, (elapsed - delay) / 0.62));
       const eased = 1 - Math.pow(1 - t, 3);
-      if (child.userData.mode === "line") {
-        child.scale.setScalar(Math.max(0.001, eased));
-        if (child.material) child.material.opacity = 0.24 * eased;
-        return;
-      }
       const initial = child.userData.initialScale || new THREE.Vector3(1, 1, 1);
       if (child.userData.mode === "grow-y") child.scale.set(initial.x, Math.max(0.001, initial.y * eased), initial.z);
       if (child.userData.mode === "grow") child.scale.setScalar(Math.max(0.001, eased));

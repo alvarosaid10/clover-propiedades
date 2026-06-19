@@ -431,10 +431,10 @@ svg {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(390px, 0.86fr);
+  grid-template-columns: minmax(430px, 0.84fr) minmax(520px, 1fr);
   align-items: center;
-  gap: clamp(24px, 4vw, 58px);
-  width: min(1210px, calc(100% - 48px));
+  gap: clamp(64px, 7vw, 108px);
+  width: min(1320px, calc(100% - 80px));
   min-height: calc(74vh - 98px);
 }
 
@@ -446,17 +446,17 @@ svg {
 
 .hero-editorial .hero-copy {
   justify-items: start;
-  width: min(100%, 700px);
+  width: min(100%, 620px);
   padding: 0;
   text-align: left;
 }
 
 .hero-editorial h1 {
-  max-width: 760px;
+  max-width: 620px;
   margin: 0;
   color: var(--ink);
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  font-size: clamp(3.6rem, 7.3vw, 7.05rem);
+  font-size: clamp(3.45rem, 6.25vw, 6.35rem);
   line-height: 0.94;
   letter-spacing: -0.04em;
 }
@@ -483,7 +483,7 @@ svg {
 
 .hero-lead {
   margin: 0;
-  max-width: 570px;
+  max-width: 540px;
   color: rgba(27, 36, 30, 0.76);
   font-size: clamp(1rem, 1.25vw, 1.18rem);
   line-height: 1.76;
@@ -498,9 +498,10 @@ svg {
 .clover-island-shell {
   position: relative;
   min-width: 0;
-  min-height: clamp(500px, 38vw, 580px);
-  width: min(100%, 660px);
-  justify-self: end;
+  min-height: clamp(500px, 37vw, 570px);
+  width: 100%;
+  max-width: 640px;
+  justify-self: center;
   overflow: visible;
   opacity: 0;
   transform: translateY(10px);
@@ -522,7 +523,7 @@ svg {
 .clover-island-canvas-host,
 .clover-island-fallback {
   position: absolute;
-  inset: -18%;
+  inset: -12% -4%;
   width: 100%;
   height: 100%;
 }
@@ -1266,6 +1267,16 @@ svg {
     width: min(var(--site-width), calc(100% - 34px));
   }
 
+  .hero-editorial-grid {
+    grid-template-columns: minmax(360px, 0.9fr) minmax(400px, 1fr);
+    gap: 32px;
+  }
+
+  .clover-island-shell {
+    min-height: 460px;
+    max-width: 540px;
+  }
+
   .portfolio-strip-inner {
     grid-template-columns: minmax(330px, 390px) minmax(28px, 42px) minmax(0, 500px);
   }
@@ -1325,7 +1336,7 @@ svg {
 
   .hero-editorial-grid {
     grid-template-columns: 1fr;
-    width: min(100% - 28px, 370px);
+    width: min(100% - 24px, 430px);
     min-height: 0;
     gap: 18px;
     overflow: visible;
@@ -1373,14 +1384,14 @@ svg {
 
   .clover-island-shell {
     justify-self: center;
-    width: min(100%, 520px);
-    min-height: 330px;
-    margin-top: -4px;
+    width: min(100%, 390px);
+    min-height: 320px;
+    margin: 0 auto;
   }
 
   .clover-island-canvas-host,
   .clover-island-fallback {
-    inset: -22% -24%;
+    inset: -11% -2%;
   }
 
   .hero-metrics {
@@ -1538,7 +1549,7 @@ svg {
   }
 
   .clover-island-shell {
-    min-height: 310px;
+    min-height: 300px;
   }
 
   .button {
